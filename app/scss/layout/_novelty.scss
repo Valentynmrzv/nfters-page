@@ -1,0 +1,88 @@
+.novelty {
+    &__wrapper {
+        padding-bottom: 50px;
+        @media screen and (min-width: 1440px) {
+            padding-bottom: 150px;
+        }
+    }
+    &__title {
+        font-family: var(--title-font-family);
+        @include mobile-font-title;
+
+        @media screen and (min-width: 1440px) {
+            @include font-title;
+        }
+    }
+    &__list {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        @media screen and (min-width: 1440px) {
+            flex-direction: row;
+            gap: 20px;
+        }
+    }
+    &__item {
+        position: relative;
+        border-radius: 25px;
+        overflow: hidden;
+    
+        @media screen and (min-width: 1440px) {
+            width: calc((100% - 40px)/3);
+        }
+    }
+    &__inner {
+        position: absolute;
+        bottom: 50%;
+        right: 48px;
+
+        transform: translateY(50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media screen and (min-width: 1440px) {
+            
+            bottom: 22px;
+            right: 50%;
+            transform: translateX(50%);
+            gap: 3px;
+        }
+
+    }
+    &__text {
+        @include mobile-font-subtitle;
+        @media screen and (min-width: 1440px) {
+            @include font-subtitle;
+        }
+    }
+    &__button {
+        display: none;
+        @media screen and (min-width: 1440px) {
+            display: block;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+
+            width: 34px;
+            height: 34px;
+
+            border: 0;
+            border-radius: 100%;
+            background-color: transparent;
+            &:hover .icon,
+            &:focus .icon {
+                opacity: 0.3;
+            }
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+            cursor: pointer;
+            transition: var(--transition-property);
+            
+        }
+    }
+}   

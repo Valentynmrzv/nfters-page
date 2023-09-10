@@ -1,0 +1,43 @@
+// ========================== DESCKTOP ======================
+@mixin font-title($fw: 400, $fs: 62px, $lh: 81px, $ls: -0.02em) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: calc($lh/$fs);
+    letter-spacing: $ls;
+    
+}
+@mixin font-subtitle($fw: 400, $fs: 18px, $lh: 25px, $ls: -0.02em) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: calc($lh/$fs);
+    letter-spacing: $ls;
+}
+@mixin font-text($fw: 400, $fs: 18px, $lh: 28px, $ls: -0.02em) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: calc($lh/$fs);
+    letter-spacing: $ls;
+}
+
+// ============================== MOBILE ====================================
+@mixin mobile-font-title($fw: 400, $fs: 32px, $lh: 40px, $ls: 0.04em) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: calc($lh/$fs);
+    letter-spacing: $ls;
+
+}
+
+@mixin mobile-font-subtitle($fw: 400, $fs: 15px, $lh: 20px, $ls: normal) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: calc($lh/$fs);
+    letter-spacing: $ls;
+}
+
+@mixin mobile-font-text($fw: 400, $fs: 15px, $lh: 23px, $ls: normal) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: calc($lh/$fs);
+    letter-spacing: $ls;
+}

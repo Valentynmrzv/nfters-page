@@ -1,0 +1,64 @@
+.main-button {
+    position: relative;
+    background: var(--accent-color);
+    color: var(--primary-text-color-light);
+    // width: 200px;
+    // height: 60px;
+    border: 0;
+    transition: .6s;
+    overflow: hidden;
+
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.5);
+        width: 60px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: .5;
+        filter: blur(30px);
+        transform: translateX(-100px) skewX(-15deg);
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.2);
+        width: 30px;
+        height: 100%;
+        left: 30px;
+        top: 0;
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-100px) skewX(-15deg);
+    }
+
+    &:hover {
+        background: #333;
+        cursor: pointer;
+
+        &::before {
+            transform: translateX(300px) skewX(-15deg);
+            opacity: 0.6;
+            transition: .7s;
+        }
+
+        &::after {
+            transform: translateX(300px) skewX(-15deg);
+            opacity: 1;
+            transition: .7s;
+        }
+    }
+
+    &:focus {
+        outline: 0;
+    }
+    &:active {
+        background-color: var(--accent-color);
+        opacity: 0.5;
+    }
+}

@@ -1,0 +1,77 @@
+// ==================================== ROOM ==========================================
+.room {
+    padding-top: 71px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &::before {
+        content: 'Our Room';
+
+        text-align: center;
+        @include font-subtitle;
+        color: var(--title-text-color-dark);
+    }
+
+    &__title {
+        margin-top: 16px;
+
+        text-align: center;
+        @include font-title($fw: 700, $fs: 45px, $lh: 60px);
+        color: var(--title-text-color-dark);
+
+        span {
+            color: var(--accent-color);
+        }
+    }
+
+    &__text {
+        margin-top: 18px;
+        width: 475px;
+
+        text-align: center;
+        @include font-text;
+        color: var(--title-text-color-dark);
+
+        opacity: 0.4;
+    }
+
+    &__list {
+        margin-top: 45px;
+
+        display: grid;
+        grid-template-columns: 320px 420px 320px;
+        // grid-template-columns: 8fr 10.5fr 8fr;
+        grid-template-rows: repeat(2, 294px);
+        grid-column-gap: 40px;
+        grid-row-gap: 32px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+
+        &.large {
+            grid-area: 1 / 2 / 3 / 3;
+        }
+
+        .subtitle {
+            margin-top: 6px;
+
+            @include font-subtitle($fw: 600, $fs: 22px, $lh: 30px);
+            color: var(--title-text-color-dark);
+        }
+
+        .text {
+            margin-top: 18px;
+
+            @include font-text($fs: 14px, $lh: 19px);
+            color: var(--primary-text-color-dark);
+            opacity: 0.6;
+        }
+    }
+}
+
+// ==================================== ROOM END==========================================

@@ -1,0 +1,117 @@
+.reviews {
+    background-color: var(--primary-bg-light);
+    &__wrapper {
+        position: relative;
+        padding-top: 220px;
+        padding-bottom: 105px;
+    }
+    &__title {
+        width: 349px;
+        @include font-title($fs: 32px, $lh: 43px);
+        color: var(--title-text-color-dark);
+    }
+}
+.star-list {
+    margin-top: 28px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+
+    width: 208px;
+    &::after {
+        content: 'Excellent 5000+reviews';
+
+        margin-top: 8px;
+        @include font-text($fs: 18px, $lh: 29px);
+        color: var(--primary-text-color-dark);
+        opacity: 0.6;
+    }
+    .icon {
+        display: block;
+        width: 22px;
+        height: 22px;
+    }
+}
+.reviews-user{
+    margin-top: 80px;
+    &::after {
+        content: 'Peoples successsfully got this dream place';
+        display: block;
+        margin-top: 21px;
+
+        width: 261px;
+        @include font-text($fs: 18px, $lh: 29px);
+        color: var(--primary-text-color-dark);
+        opacity: 0.6;
+    }
+    &__list {
+        position: relative;
+        height: 57px;
+        
+        .item {
+            position: absolute;
+            width: 57px;
+            height: 57px;
+        
+            border-radius: 100%;
+
+            overflow: hidden;
+
+            &.first {
+                left: 0px;
+            }
+            &.second {
+                left: 42px;
+            }
+            &.third {
+                left: 84px;
+            }
+            &.fourth {
+                left: 126px;
+            }
+            &.fifth {
+                left: 168px;
+            }
+        }
+    }
+}
+.card {
+    position: absolute;
+    bottom: 240px;
+    right: 125px;
+    &__list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 40px;
+        width: 718px;
+    }
+
+    &__item {
+        display: block;
+        padding: 41px 20px 42px 26px;
+
+        width: calc((100% - 40px)/2);
+        background-color: var(--primary-bg-light);
+
+        &:first-child {
+            box-shadow: -14px 24px 68px -16px rgba(0, 0, 0, 0.12);
+        }
+    }
+    .img {
+        display: block;
+        width: 56px;
+        height: 56px;
+    }
+    .title {
+        margin-top: 15px;
+        @include font-subtitle($fw: 600, $fs: 22px, $lh: 26px);
+        color: var(--title-text-color-dark);
+    }
+    .text {
+        margin-top: 14px;
+        @include font-text($fs: 14px, $lh: 23px);
+        color: var(--primary-text-color-dark);
+        opacity: 0.3;
+    }
+}

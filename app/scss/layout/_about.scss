@@ -1,0 +1,51 @@
+// ===============================ABOUT===========================================
+.about {
+    &__wrapper {
+        padding-bottom: 50px;
+
+        @media screen and (min-width: 1440px) {
+            padding-bottom: 150px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__title {
+        font-family: var(--title-font-family);
+        @include mobile-font-title;
+        @media screen and (min-width: 1440px) {
+            @include font-title;
+        }
+    }
+    &__inner {
+        margin-top: 30px;
+        @media screen and (min-width: 1440px) {
+            margin-top: 0;
+        }
+    }
+    &__text {
+        height: 115px;
+
+        @include mobile-font-text;
+        overflow: hidden;
+        @media screen and (min-width: 1440px) {
+            width: 591px;
+            height: 196px;
+            @include font-text;
+        }
+    }
+    &__link {
+        display: block;
+        margin-top: 10px;
+
+        text-align: end;
+        text-decoration: underline;
+        @include mobile-font-text;
+        color: var(--text-color-dark);
+        opacity: 0.5;
+        @media screen and (min-width: 1440px) {
+            @include font-text;
+        }
+    }
+}
+// ============================ABOUT END===========================================

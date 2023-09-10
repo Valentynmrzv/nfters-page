@@ -1,0 +1,249 @@
+// =================================CONTENT======================================
+.content {
+    &__title {
+        text-align: center;
+        @include font-title;
+        color: var(--title-text-color-dark);
+        span {
+            color: var(--accent-color);
+        }
+    }
+    &__text {
+        margin-top: 18px;
+        margin-left: auto;
+        margin-right: auto;
+
+        max-width: 475px;
+
+        text-align: center;
+        @include font-text;
+        color: var(--primary-text-color-dark);
+        opacity: 0.4;
+    }
+    &__wrapper {
+        padding-right: 0;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.property-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    &__item {
+        width: 480px;
+    }
+
+    &__title {
+        position: relative;
+
+        @include font-subtitle;
+        color: var(--title-text-color-dark);
+
+        &::before {
+            content: '';
+            display: block;
+            margin-bottom: 15px;
+            padding-top: 10px;
+
+            text-align: center;
+            width: 50px;
+            height: 50px;
+
+            border-radius: 100%;
+            background-color: var(--accent-color);
+
+            @include font-subtitle($fw: 600, $fs: 24px, $lh: 32px);
+            color: var(--title-text-color-light);
+
+            
+        }
+    }
+    .provide::before {
+        content: '1';
+    }
+
+    .quality::before {
+        content: '2';
+    }
+
+    .service::before {
+        content: '3';
+    }
+    &__text {
+        margin-top: 14px;
+        @include font-text;
+        color: var(--primary-text-color-dark);
+        opacity: 0.3;
+    }
+}
+.property-img {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    
+        width: 482px;
+        height: 636px;
+    
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: -webkit-image-set(url("../images/content-bg-1@2x.avif") type("image/avif") 2x,
+                url("../images/content-bg-1.avif") type("image/avif") 1x,
+                url("../images/content-bg-1@2x.webp") type("image/webp") 2x,
+                url("../images/content-bg-1.webp") type("image/webp") 1x,
+                url("../images/content-bg-1@2x.jpg") 2x,
+                url("../images/content-bg-1.jpg") 1x);
+        background-image: image-set(url("../images/content-bg-1@2x.avif") type("image/avif") 2x,
+                url("../images/content-bg-1.avif") type("image/avif") 1x,
+                url("../images/content-bg-1@2x.webp") type("image/webp") 2x,
+                url("../images/content-bg-1.webp") type("image/webp") 1x,
+                url("../images/content-bg-1@2x.jpg") 2x,
+                url("../images/content-bg-1.jpg") 1x);
+        z-index: -2;
+    }
+    &::after {
+    content: '';
+        position: absolute;
+        top: 185px;
+        right: 190px;
+    
+        width: 550px;
+        height: 250px;
+    
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: -webkit-image-set(url("../images/content-bg-2@2x.avif") type("image/avif") 2x,
+                url("../images/content-bg-2.avif") type("image/avif") 1x,
+                url("../images/content-bg-2@2x.webp") type("image/webp") 2x,
+                url("../images/content-bg-2.webp") type("image/webp") 1x,
+                url("../images/content-bg-2@2x.png") 2x,
+                url("../images/content-bg-2.png") 1x);
+        background-image: image-set(url("../images/content-bg-2@2x.avif") type("image/avif") 2x,
+                url("../images/content-bg-2.avif") type("image/avif") 1x,
+                url("../images/content-bg-2@2x.webp") type("image/webp") 2x,
+                url("../images/content-bg-2.webp") type("image/webp") 1x,
+                url("../images/content-bg-2@2x.png") 2x,
+                url("../images/content-bg-2.png") 1x);
+        z-index: -1;
+        
+    }
+
+    &__item {
+        position: absolute;
+        
+
+        &.top {
+            top: -30px;
+            right: 149px;
+        }
+
+        &.left {
+            top: 115px;
+            right: 392px;
+        }
+        &.bottom {
+            bottom: -30px;
+            right: 149px;
+        }
+        
+    }
+    
+    &__inner {
+        position: relative;
+        padding-left: 67px;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3px;
+    
+        width: 212px;
+        height: 61px;
+    
+        background-color: var(--primary-bg-light);
+        box-shadow: 1px 7px 22px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+    
+        &::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 14px;
+    
+            width: 41px;
+            height: 41px;
+    
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    
+        &.cody::after {
+            background-image: -webkit-image-set(url("../images/content-user-1@2x.avif") type("image/avif") 2x,
+                    url("../images/content-user-1.avif") type("image/avif") 1x,
+                    url("../images/content-user-1@2x.webp") type("image/webp") 2x,
+                    url("../images/content-user-1.webp") type("image/webp") 1x,
+                    url("../images/content-user-1@2x.jpg") 2x,
+                    url("../images/content-user-1.jpg") 1x);
+            background-image: image-set(url("../images/content-user-1@2x.avif") type("image/avif") 2x,
+                    url("../images/content-user-1.avif") type("image/avif") 1x,
+                    url("../images/content-user-1@2x.webp") type("image/webp") 2x,
+                    url("../images/content-user-1.webp") type("image/webp") 1x,
+                    url("../images/content-user-1@2x.jpg") 2x,
+                    url("../images/content-user-1.jpg") 1x);
+        }
+    
+        &.albert::after {
+            background-image: -webkit-image-set(url("../images/content-user-2@2x.avif") type("image/avif") 2x,
+                    url("../images/content-user-2.avif") type("image/avif") 1x,
+                    url("../images/content-user-2@2x.webp") type("image/webp") 2x,
+                    url("../images/content-user-2.webp") type("image/webp") 1x,
+                    url("../images/content-user-2@2x.jpg") 2x,
+                    url("../images/content-user-2.jpg") 1x);
+            background-image: image-set(url("../images/content-user-2@2x.avif") type("image/avif") 2x,
+                    url("../images/content-user-2.avif") type("image/avif") 1x,
+                    url("../images/content-user-2@2x.webp") type("image/webp") 2x,
+                    url("../images/content-user-2.webp") type("image/webp") 1x,
+                    url("../images/content-user-2@2x.jpg") 2x,
+                    url("../images/content-user-2.jpg") 1x);
+        }
+    
+        &.devon::after {
+            background-image: -webkit-image-set(url("../images/content-user-3@2x.avif") type("image/avif") 2x,
+                    url("../images/content-user-3.avif") type("image/avif") 1x,
+                    url("../images/content-user-3@2x.webp") type("image/webp") 2x,
+                    url("../images/content-user-3.webp") type("image/webp") 1x,
+                    url("../images/content-user-3@2x.jpg") 2x,
+                    url("../images/content-user-3.jpg") 1x);
+            background-image: image-set(url("../images/content-user-3@2x.avif") type("image/avif") 2x,
+                    url("../images/content-user-3.avif") type("image/avif") 1x,
+                    url("../images/content-user-3@2x.webp") type("image/webp") 2x,
+                    url("../images/content-user-3.webp") type("image/webp") 1x,
+                    url("../images/content-user-3@2x.jpg") 2x,
+                    url("../images/content-user-23.jpg") 1x);
+        }
+    }
+
+    &__title {
+        @include font-subtitle($fs: 14px, $lh: 19px);
+        color: var(--title-text-color-dark);
+    }
+    &__text {
+        @include font-text($fw: 400, $fs: 12px, $lh: 16px);
+        color: rgba(41, 41, 41, 0.4);;
+        &_accent {
+            color: var(--accent-color);
+        }
+    }
+}
+
+// =================================CONTENT END ======================================

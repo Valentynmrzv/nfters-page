@@ -1,0 +1,17 @@
+.social-list {
+    display: flex;
+    flex-direction: row;
+
+    gap: 15px;
+    .item {
+        transition: var(--transition-property);
+        &:hover,
+        &:focus {
+            opacity: 0.4;
+        }
+    }
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+}
