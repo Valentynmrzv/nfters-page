@@ -1,89 +1,66 @@
 // ============================================== HEADER =================================================
-.header {
-    &__wrapper {
-        position: relative;
-        padding-top: 27px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-}
-
-
-.navigation {
-    &__button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        
-        transition: var(--transition-property);
-        &:hover {
-            opacity: 0.6;
-        }
-    }
-
-    &__icon {
-        width: 17px;
-        height: 10px;
-
-        @media screen and (min-width: 1440px) {
-            width: 41px;
-            height: 23px;
-        }
-    }
-    
-}
-
-.logo-link {
-    margin: auto;
-    display: block;
-    width: 62px;
-    height: 28px;
-    
-    @media screen and (min-width: 1440px) {
-        width: 132px;
-        height: 59px;
-    }
-
-    &__img {
-        width: 100%;
-    }
-}
-
-.user-order {
+.header{
+  &__wrapper {
+    padding: 30px 0px;
     display: flex;
     flex-direction: row;
-    gap: 10px;
-
-    @media screen and (min-width: 1440px) {
-        gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.logo-link {
+  color: #3D00B7;
+  font-family: 'Roboto';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.header-nav {
+  &__list {
+    display: flex;
+    gap: 47px;
+    align-items: center;
+  }
+  &__item {
+    color: #000;
+    font-family: DM Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.64px;
+  }
+}
+.search-form {
+    position: relative;
+  &__input {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    border-radius: 100px;
+    border: 2px solid #EFEFEF;
+    outline: none;
+    background: #FFF;
+    padding: 0px 30px;
+    &::placeholder {
+        color: #C0C0C0;
+        font-family: DM Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.64px;
     }
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 20px;
+    top: 12px;
 
-    &__link {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        @include mobile-font-subtitle;
-        color: var(--text-color-dark);
-
-        @media screen and (min-width: 1440px) {
-            @include font-subtitle;
-        }
-
-        span {
-            opacity: 0.7;
-        }
-    }
-
-    &__icon {
-        width: 17px;
-        height: 17px;
-
-        @media screen and (min-width: 1440px) {
-            width: 25px;
-            height: 25px;
-        }
-    }
+  }
 }
 // ============================================== HEADER =================================================
