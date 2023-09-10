@@ -47,6 +47,8 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.3px;
+
+    cursor: pointer;
   }
   &__list {
     margin-top: 30px;
@@ -75,16 +77,146 @@
       line-height: 160%;
       /* 32px */
     }
+    
   }
 }
 
 .live {
-    &__row {
-        .image {
-            display: block;
-            width: 400px;
-            height: 440px;
-        }
+  &__wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+  }
+  &__grid {
+    position: absolute;
+    
+    width: 400px;
+    height: 440px;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.5s;
+    &.first {
+      top: 0px;
+      left: 0px;
+      z-index: 3;
+      transform: translateX(0);
     }
+    &.second {
+      top: 24px;
+      left: 36px;
+      z-index: 2;
+      transform: translateX(100%);
+    }
+    &.third {
+      top: 48px;
+      left: 72px;
+      z-index: 1;
+      transform: translateX(200%);
+    }
+
+  
+    .image {
+      display: block;
+      width: 100%;
+    }
+  }
+  &__row {
+    position: absolute;
+    top: 26px;
+    left: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+  }
+  &__title {
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -1.4px;
+  }
 }
+.user {
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  &__image {
+    width: 32px;
+    height: 32.821px;
+    flex-shrink: 0;
+    border-radius: 32.821px;
+  }
+  &__text {
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+.price {
+  position: absolute;
+  left: 26px;
+  bottom: 24px;
+  padding: 14px 26px;
+  width: 348px;
+  height: 73.846px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(25px);
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    span {
+      position: relative;
+      width: 105px;
+    }
+  }
+  &__row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  &__text {
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  &__icon {
+    width: 13px;
+    height: 21px;
+  }
+  &__eth {
+    top: 0;
+    left: 0;
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    &.timer {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+  }
+}
+
 // ========================================== HERO END =======================================
