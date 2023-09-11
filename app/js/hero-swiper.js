@@ -1,17 +1,9 @@
-// let myImageSlider = new Swiper('.live', {
-//   effect: "cards",
-//   grabCursor: true,
-//   slidesPerView: 'auto',
-//   slidesPerGroup: 1,
-//   mousewheel: true,
-//   loop: true,
-//   simulateTouch: false,
-// });
 
 let myImageSlider = new Swiper('.live', {
   effect: "cards",
-  grabCursor: true,
+  // grabCursor: true,
   simulateTouch: true,
+  slideToClickedSlide: true,
   slidesPerView: 'auto',
   loopedSlides: 1,
   mousewheel: {
@@ -24,6 +16,6 @@ let myImageSlider = new Swiper('.live', {
   slidesPerView: 1,
   cardsEffect: {
     perSlideRotate: 0,
-    perSlideOffset: 12,
+    perSlideOffset: 15,
   },
 });
