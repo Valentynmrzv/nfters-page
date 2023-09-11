@@ -9,27 +9,21 @@
 // });
 
 let myImageSlider = new Swiper('.live', {
-  effect: "creative",
+  effect: "cards",
   grabCursor: true,
+  simulateTouch: true,
   slidesPerView: 'auto',
   loopedSlides: 1,
-  slidesPerGroup: 1,
-  mousewheel: true,
-  loop: true,
+  mousewheel: {
+    sensitivity: 1,
+    eventsTarget: ".live"
+  },
+  loop: false,
   initialSlide: 0,
   centeredSlides: true,
   slidesPerView: 1,
-
-  slideShadows: true,
-  creativeEffect: {
-    prev: {
-      translate: ['24%', 0, -200], //([horizontal, vertical, depth])
-    },
-    // visible: {
-    //   translate: ['0%', 0, 0], //([horizontal, vertical, depth])
-    // },
-    next: {
-      translate: ['12%', 0, -100], //([horizontal, vertical, depth])
-    },
-  }
+  cardsEffect: {
+    perSlideRotate: 0,
+    perSlideOffset: 12,
+  },
 });

@@ -306,6 +306,25 @@ ul {
   letter-spacing: -1.4px;
 }
 
+.auction-logo {
+  position: absolute;
+  top: 250px;
+  left: -90px;
+  z-index: 4;
+  display: block;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  animation: spin 30000ms linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 .user__row {
   display: flex;
   align-items: center;
