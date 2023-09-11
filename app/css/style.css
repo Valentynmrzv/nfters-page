@@ -268,36 +268,20 @@ ul {
   /* 32px */
 }
 
+.live {
+  width: 400px;
+  height: 440px;
+}
 .live__wrapper {
-  position: relative;
   width: 400px;
   height: 440px;
 }
 .live__grid {
-  position: absolute;
+  position: relative;
   width: 400px;
   height: 440px;
   border-radius: 24px;
   overflow: hidden;
-  transition: transform 0.5s;
-}
-.live__grid.first {
-  top: 0px;
-  left: 0px;
-  z-index: 3;
-  transform: translateX(0);
-}
-.live__grid.second {
-  top: 24px;
-  left: 36px;
-  z-index: 2;
-  transform: translateX(100%);
-}
-.live__grid.third {
-  top: 48px;
-  left: 72px;
-  z-index: 1;
-  transform: translateX(200%);
 }
 .live__grid .image {
   display: block;
