@@ -91,7 +91,7 @@
   }
   &__grid {
     
-    position: relative;
+    position: absolute;
     width: 400px;
     height: 440px;
     border-radius: 24px;
@@ -122,7 +122,18 @@
     letter-spacing: -1.4px;
   }
 }
-
+// .slide-1 {
+//   top: 0;
+//   left: 0;
+// }
+// .slide-2 {
+//   top: 20;
+//   left: 20;
+// }
+// .slide-3 {
+//   top: 40;
+//   left: 40;
+// }
 
 .user {
   &__row {
@@ -135,6 +146,7 @@
     height: 32.821px;
     flex-shrink: 0;
     border-radius: 32.821px;
+    overflow: hidden;
   }
   &__text {
     color: #FFF;

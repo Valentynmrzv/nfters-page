@@ -11,22 +11,25 @@
 let myImageSlider = new Swiper('.live', {
   effect: "creative",
   grabCursor: true,
-  slidesPerView: 1,
+  slidesPerView: 'auto',
+  loopedSlides: 1,
   slidesPerGroup: 1,
   mousewheel: true,
   loop: true,
-  initialSlide: 1,
+  initialSlide: 0,
   centeredSlides: true,
   slidesPerView: 1,
+
+  slideShadows: true,
   creativeEffect: {
     prev: {
-      translate: ['20%', 0, -100], //([horizontal, vertical, depth])
+      translate: ['24%', 0, -200], //([horizontal, vertical, depth])
     },
-    visible: {
-      translate: ['0%', 0, 0], //([horizontal, vertical, depth])
-    },
+    // visible: {
+    //   translate: ['0%', 0, 0], //([horizontal, vertical, depth])
+    // },
     next: {
-      translate: ['10%', 0, -50], //([horizontal, vertical, depth])
+      translate: ['12%', 0, -100], //([horizontal, vertical, depth])
     },
   }
 });

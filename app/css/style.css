@@ -277,7 +277,7 @@ ul {
   height: 440px;
 }
 .live__grid {
-  position: relative;
+  position: absolute;
   width: 400px;
   height: 440px;
   border-radius: 24px;
@@ -316,6 +316,7 @@ ul {
   height: 32.821px;
   flex-shrink: 0;
   border-radius: 32.821px;
+  overflow: hidden;
 }
 .user__text {
   color: #FFF;
