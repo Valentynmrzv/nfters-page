@@ -32,23 +32,15 @@
   }
   &__btn {
     margin-top: 41px;
-    display: inline-flex;
     padding: 20px 40px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 60px;
-    background: #3D00B7;
-    border: 1px solid #3D00B7;
-
-    color: #FFF;
+    
+    
     font-family: 'Poppins';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.3px;
-
-    cursor: pointer;
   }
   &__list {
     margin-top: 30px;

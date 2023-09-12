@@ -85,7 +85,7 @@
     &:hover,
     &:focus,
     &:active {
-      border: 2px solid #323232;
+      border: 1px solid #3d00b7;
     }
   }
   &__icon {
@@ -103,14 +103,7 @@
     gap: 20px;
   }
   &__btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 60px;
-    border: 2px solid #3D00B7;
-
-    font-family: DM Sans;
+    font-family: 'DM Sans';
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -119,16 +112,9 @@
     letter-spacing: 0.56px;
 
     cursor: pointer;
-    transition: all 250ms ease-in-out;
     
     &.upload {
       padding: 18px 40px;
-      background: #3D00B7;
-      color: #FFF;
-      &:hover {
-      background-color: #FFF;
-      color: #3D00B7;
-      }
     }
     &.wallet {
       position: relative;
@@ -136,10 +122,13 @@
       display: flex;
       flex-direction: column;
       background: none;
+      border-radius: 60px;
+      border: 1px solid #3D00B7;
       color: #3D00B7;
       overflow: hidden;
+      transition: all 450ms ease-in-out;
       span {
-        transition: all 250ms ease-in-out;
+        transition: all 450ms ease-in-out;
       }
       &::after {
         content: 'Connect';
@@ -148,7 +137,7 @@
         top: 50%;
         left: 50%; 
         transform: translate(-50%, 250%);
-        transition: all 250ms ease-in-out;
+        transition: all 450ms ease-in-out;
 
         font-family: DM Sans;
         font-size: 14px;
@@ -160,13 +149,22 @@
       }
       &:hover {
         background-color: #3D00B7;
+        // color: #FFF;
         & span {
           transform: translateY(-50px);
         }
         &::after {
+          color: #FFF;
           transform: translate(-50%, -50%);
         }
       }
+        &:focus {
+          outline: 0;
+        }
+  
+        &:active {
+          opacity: 0.5;
+        }
     }
   }
 }

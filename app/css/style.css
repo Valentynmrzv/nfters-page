@@ -82,6 +82,88 @@ ul {
   max-width: 1200px;
 }
 
+.main-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  border: 1px solid #3D00B7;
+  text-align: center;
+  cursor: pointer;
+  transition: 700ms;
+  position: relative;
+  overflow: hidden;
+}
+.main-btn:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  filter: blur(30px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.main-btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.main-btn--light {
+  background-color: #FFF;
+  color: #3D00B7;
+}
+.main-btn--light:hover {
+  background-color: #3D00B7;
+  color: #ffffff;
+}
+.main-btn--light:hover::before {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  transition: 700ms;
+}
+.main-btn--light:hover::after {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  transition: 700ms;
+}
+.main-btn--dark {
+  background-color: #3D00B7;
+  color: #FFF;
+}
+.main-btn--dark:hover {
+  background-color: #ffffff;
+  color: #3d00b7;
+}
+.main-btn--dark:hover::before {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  transition: 700ms;
+}
+.main-btn--dark:hover::after {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  transition: 700ms;
+}
+.main-btn:focus {
+  outline: 0;
+}
+.main-btn:active {
+  opacity: 0.5;
+}
+
 .header {
   position: fixed;
   /* Делаем хедер фиксированным */
@@ -168,7 +250,7 @@ ul {
   letter-spacing: 0.64px;
 }
 .search-form__input:hover, .search-form__input:focus, .search-form__input:active {
-  border: 2px solid #323232;
+  border: 1px solid #3d00b7;
 }
 .search-form__icon {
   width: 24px;
@@ -183,12 +265,7 @@ ul {
   gap: 20px;
 }
 .header-button__btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 60px;
-  border: 2px solid #3D00B7;
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -196,16 +273,9 @@ ul {
   /* 14px */
   letter-spacing: 0.56px;
   cursor: pointer;
-  transition: all 250ms ease-in-out;
 }
 .header-button__btn.upload {
   padding: 18px 40px;
-  background: #3D00B7;
-  color: #FFF;
-}
-.header-button__btn.upload:hover {
-  background-color: #FFF;
-  color: #3D00B7;
 }
 .header-button__btn.wallet {
   position: relative;
@@ -213,11 +283,14 @@ ul {
   display: flex;
   flex-direction: column;
   background: none;
+  border-radius: 60px;
+  border: 1px solid #3D00B7;
   color: #3D00B7;
   overflow: hidden;
+  transition: all 450ms ease-in-out;
 }
 .header-button__btn.wallet span {
-  transition: all 250ms ease-in-out;
+  transition: all 450ms ease-in-out;
 }
 .header-button__btn.wallet::after {
   content: "Connect";
@@ -226,7 +299,7 @@ ul {
   top: 50%;
   left: 50%;
   transform: translate(-50%, 250%);
-  transition: all 250ms ease-in-out;
+  transition: all 450ms ease-in-out;
   font-family: DM Sans;
   font-size: 14px;
   font-style: normal;
@@ -242,7 +315,14 @@ ul {
   transform: translateY(-50px);
 }
 .header-button__btn.wallet:hover::after {
+  color: #FFF;
   transform: translate(-50%, -50%);
+}
+.header-button__btn.wallet:focus {
+  outline: 0;
+}
+.header-button__btn.wallet:active {
+  opacity: 0.5;
 }
 
 .hero__wrapper {
@@ -278,21 +358,13 @@ ul {
 }
 .explore__btn {
   margin-top: 41px;
-  display: inline-flex;
   padding: 20px 40px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 60px;
-  background: #3D00B7;
-  border: 1px solid #3D00B7;
-  color: #FFF;
   font-family: "Poppins";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 1.3px;
-  cursor: pointer;
 }
 .explore__list {
   margin-top: 30px;
