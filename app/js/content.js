@@ -8,9 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(data => {
       data.forEach(item => {
         const listItem = createContentItem(item);
+        const pictureElement = listItem.querySelector('.content__item picture');
 
         listElement.appendChild(listItem);
-        listItem.addEventListener('mouseover', function () {
+
+        // Обработчик события наведения на элемент .content__item picture
+        pictureElement.addEventListener('mouseover', function () {
           updateSelectedContent(selectedContent, item);
         });
       });
