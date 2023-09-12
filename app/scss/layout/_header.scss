@@ -1,8 +1,17 @@
 // ============================================== HEADER =================================================
 .header{ 
+  position: fixed;
+    /* Делаем хедер фиксированным */
+    top: 0;
+    /* Закрепляем его вверху экрана */
+    left: 0;
+    width: 100%;
+    /* Занимает всю ширину экрана */
+    z-index: 10;
   border-bottom: 1px solid #EFEFEF;
+  background-color: #FFF;
   &__wrapper {
-    padding: 30px 0px;
+    padding: 10px 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,6 +27,7 @@
   line-height: normal;
 }
 .header-nav {
+  display: none;
   &__list {
     display: flex;
     gap: 47px;
@@ -45,16 +55,24 @@
 }
 .search-form {
     position: relative;
+    width: 300px;
+    transition: all 300ms ease-in-out;
+    pointer-events: none;
+    &.active {
+      width: 50%;
+    }
   &__input {
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 100%;
     height: 50px;
     border-radius: 100px;
     border: 2px solid #EFEFEF;
     outline: none;
     background: #FFF;
-    padding: 0px 30px;
+    padding: 0px 45px 0px 20px;
+    transition: all 300ms ease-in-out;
+    pointer-events: auto;
     &::placeholder {
         color: #C0C0C0;
         font-family: DM Sans;
@@ -63,6 +81,11 @@
         font-weight: 500;
         line-height: normal;
         letter-spacing: 0.64px;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      border: 2px solid #323232;
     }
   }
   &__icon {
@@ -108,13 +131,42 @@
       }
     }
     &.wallet {
+      position: relative;
       padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
       background: none;
       color: #3D00B7;
+      overflow: hidden;
+      span {
+        transition: all 250ms ease-in-out;
+      }
+      &::after {
+        content: 'Connect';
+        color: #FFF;
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, 250%);
+        transition: all 250ms ease-in-out;
+
+        font-family: DM Sans;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
+        /* 14px */
+        letter-spacing: 0.56px;
+      }
       &:hover {
         background-color: #3D00B7;
-        color: #FFF;
+        & span {
+          transform: translateY(-50px);
         }
+        &::after {
+          transform: translate(-50%, -50%);
+        }
+      }
     }
   }
 }

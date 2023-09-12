@@ -3,8 +3,6 @@ function updateTimer(targetId, targetTime) {
   const timeDiff = targetTime - now;
 
   if (timeDiff <= 0) {
-    // Таймер достиг нуля, вы можете выполнить какое-либо действие здесь.
-    // Например, остановить обновление таймера или выполнить другие операции.
     return;
   }
 
@@ -21,7 +19,6 @@ function updateTimer(targetId, targetTime) {
   secondsElement.textContent = String(seconds).padStart(2, '0') + 's';
 }
 
-// Установите целевое время для каждого таймера (часы, минуты, секунды)
 const targetTime1 = new Date();
 targetTime1.setHours(24, 0, 0, 0); // 00:00:00 (12:00 AM)
 
@@ -31,12 +28,10 @@ targetTime2.setHours(22, 30, 0, 0); // 22:30:00 (10:30 PM)
 const targetTime3 = new Date();
 targetTime3.setHours(21, 0, 0, 0); // 21:00:00 (9:00 PM)
 
-// Установите интервалы для каждого таймера
 setInterval(() => updateTimer('timer1', targetTime1), 1000);
 setInterval(() => updateTimer('timer2', targetTime2), 1000);
 setInterval(() => updateTimer('timer3', targetTime3), 1000);
 
-// Обновите таймеры сразу после загрузки страницы
 updateTimer('timer1', targetTime1);
 updateTimer('timer2', targetTime2);
 updateTimer('timer3', targetTime3);

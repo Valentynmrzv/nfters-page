@@ -1,10 +1,10 @@
 // ========================================== HERO =======================================
 .hero {
   &__wrapper {
-    padding-top: 57px;
-    padding-bottom: 122px;
+    padding: 35px 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 }
 .explore {
@@ -59,6 +59,7 @@
     gap: 23px;
   }
   &__item {
+    width: 105px;
     .title {
       color: #000;
       font-family: 'Roboto';
@@ -82,18 +83,18 @@
 }
 
 .live {
-  width: 400px;
-    height: 440px;
+  width: 350px;
+  height: 390px;
   &__wrapper {
     // position: relative;
-    width: 400px;
-    height: 440px;
+    width: 350px;
+    height: 390px;
   }
   &__grid {
     
     position: absolute;
-    width: 400px;
-    height: 440px;
+    width: 350px;
+    height: 390px;
     border-radius: 24px;
     overflow: hidden;
     
@@ -148,10 +149,10 @@
     gap: 15px;
   }
   &__image {
-    width: 32px;
-    height: 32.821px;
+    width: 33px;
+    height: 33px;
     flex-shrink: 0;
-    border-radius: 32.821px;
+    border-radius: 50%;
     overflow: hidden;
   }
   &__text {
@@ -168,11 +169,11 @@
   left: 26px;
   bottom: 24px;
   padding: 14px 26px;
-  width: 348px;
+  width: 300px;
   height: 73.846px;
   flex-shrink: 0;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.20);
+  background: rgba(137, 137, 137, 0.2);
   backdrop-filter: blur(25px);
   &__list {
     display: flex;
@@ -221,5 +222,83 @@
     }
   }
 }
+// ================================ hero-advantage ===========================================
+.hero-advantage {
+  position: relative;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    width: 98vw;
+    height: 100%;
+    background: rgba(217, 224, 236, 0.20);
+    // backdrop-filter: blur(25px);
 
+  }
+
+  &__title {
+    width: 398px;
+
+    color: #000;
+    font-family: 'Roboto';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: uppercase;
+
+    opacity: 0;
+    transform: translateX(-30%);
+    transition: transform 1500ms ease, opacity 1500ms ease;
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    gap: 56px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    width: calc((100% - 56px)/ 2);
+
+    .title {
+      color: #000;
+      font-family: 'DM Sans';
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .text {
+      width: 249px;
+      color: #696969;
+      font-family: 'DM Sans';
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+      /* 22.4px */
+    }
+    .icon {
+      position: absolute;
+      top: 0px;
+      left: -51px;
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
 // ========================================== HERO END =======================================
