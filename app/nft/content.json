@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "imageSrc": "./images/futrabstr-1.jpg",
+    "imageSrcSet": [
+      "./images/futrabstr-1.avif 1x, ./images/futrabstr-1@2x.avif 2x",
+      "./images/futrabstr-1.webp 1x, ./images/futrabstr-1@2x.webp 2x",
+      "./images/futrabstr-1.jpg 1x, ./images/futrabstr-1@2x.jpg 2x"
+    ],
+    "userName": "The Futr Abstr",
+    "userImageSrc": "./images/user-live.jpg",
+    "bitValue": "0.25 ETH",
+    "stock": "1 of 8"
+  },
+  {
+    "id": 2,
+    "imageSrc": "./images/futrabstr-2.jpg",
+    "imageSrcSet": [
+      "./images/futrabstr-2.avif 1x, ./images/futrabstr-2@2x.avif 2x",
+      "./images/futrabstr-2.webp 1x, ./images/futrabstr-2@2x.webp 2x",
+      "./images/futrabstr-2.jpg 1x, ./images/futrabstr-2@2x.jpg 2x"
+    ],
+    "userName": "The Ghj Abstr",
+    "userImageSrc": "./images/user-live-2.jpg",
+    "bitValue": "0.44 ETH",
+    "stock": "2 of 8"
+  },
+  {
+    "id": 3,
+    "imageSrc": "./images/futrabstr-3.jpg",
+    "imageSrcSet": [
+      "./images/futrabstr-3.avif 1x, ./images/futrabstr-3@2x.avif 2x",
+      "./images/futrabstr-3.webp 1x, ./images/futrabstr-3@2x.webp 2x",
+      "./images/futrabstr-3.jpg 1x, ./images/futrabstr-3@2x.jpg 2x"
+    ],
+    "userName": "The Tyr Abstr",
+    "userImageSrc": "./images/user-live-3.jpg",
+    "bitValue": "0.17 ETH",
+    "stock": "1 of 8"
+  }
+]
