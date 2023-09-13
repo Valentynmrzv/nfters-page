@@ -1,61 +1,52 @@
 // ========================================== HERO =======================================
 .hero {
   &__wrapper {
-    padding: 35px 0px;
+    padding: 35px 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
 }
+
 .explore {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 42.500vw;
-  @media screen and (min-width: 1440px) {
-    width: 612px;
-  }
+  width: 612px;
 
   &__title {
     color: #000;
-    font-family: 'Archivo Black';
-    font-size: 2.7vw;
+    font-family: 'Roboto';
+    font-size: 40px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 900;
     line-height: normal;
-    text-transform: uppercase;
-    @media screen and (min-width: 1440px) {
-      font-size: 40px;
-    }
+    letter-spacing: 2px;
   }
+
   &__text {
     margin-top: 22px;
     color: #565656;
-    font-family: 'DM Sans';
-    font-size: 1.7vw;
+    font-family: DM Sans;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 160%;
-    @media screen and (min-width: 1440px) {
-      font-size: 25px;
-    }
   }
+
   &__btn {
-    margin-top: 2.847vw;
-    padding: 1.389vw 2.778vw;
+    margin-top: 41px;
+    padding: 20px 40px;
+
+
     font-family: 'Poppins';
-    font-size: 1.389vw;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    @media screen and (min-width: 1440px) {
-      margin-top: 41px;
-      padding: 20px 40px;
-      font-size: 20px;
-      letter-spacing: 1.3px;
-    }
-
+    letter-spacing: 1.3px;
   }
+
   &__list {
     margin-top: 30px;
 
@@ -64,66 +55,57 @@
     align-items: center;
     gap: 23px;
   }
+
   &__item {
-    width: 7.292vw;
-    @media screen and (min-width: 1440px) {
-      width: 105px;
-    }
+    width: 105px;
 
     .title {
       color: #000;
-      font-family: 'Archivo Black';
-      font-size: 2.7vw;
+      font-family: 'Roboto';
+      font-size: 40px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 900;
       line-height: normal;
       letter-spacing: 2px;
-      @media screen and (min-width: 1440px) {
-        font-size: 40px;
-      }
     }
+
     .text {
       color: #565656;
-      font-family: 'DM Sans';
-      font-size: 1.4vw;
+      font-family: DM Sans;
+      font-size: 20px;
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
       /* 32px */
-      @media screen and (min-width: 1440px) {
-        font-size: 20px;
-      }
     }
-    
+
   }
 }
-// ====================================================
+
 .live {
-  width: 24.306vw;
-  height: 27.083vw;
-  @media screen and (min-width: 1440px) {
+  width: 350px;
+  height: 390px;
+
+  &__wrapper {
+    // position: relative;
     width: 350px;
     height: 390px;
   }
-  &__wrapper {
-    width: 24.306vw;
-    height: 27.083vw;
-  
-    @media screen and (min-width: 1440px) {
-      width: 350px;
-      height: 390px;
-    }
-  }
+
   &__grid {
+
     position: absolute;
+    width: 350px;
+    height: 390px;
     border-radius: 24px;
     overflow: hidden;
-  
+
     .image {
       display: block;
       width: 100%;
     }
   }
+
   &__row {
     position: absolute;
     top: 26px;
@@ -133,37 +115,32 @@
     align-items: flex-start;
     gap: 9px;
   }
+
   &__title {
     color: #FFF;
     font-family: 'DM Sans';
-    font-size: 1.944vw;
+    font-size: 28px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -1.4px;
-    @media screen and (min-width: 1440px) {
-      font-size: 28px;
-    }
   }
 }
+
 .auction-logo {
   position: absolute;
-  top: 17.361vw;
-  left: -6.250vw;
+  top: 250px;
+  left: -90px;
   z-index: 4;
   display: block;
-  width: 9.722vw;
-  height: 9.722vw;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
+  display: flex;
   animation: spin 30000ms linear infinite;
-  @media screen and (min-width: 1440px) {
-    top: 250px;
-    left: -90px;
-    width: 140px;
-    height: 140px;
-  }
 
 }
+
 @keyframes spin {
   100% {
     -webkit-transform: rotate(360deg);
@@ -175,105 +152,86 @@
   &__row {
     display: flex;
     align-items: center;
-    gap: 1.042vw;
-    @media screen and (min-width: 1440px) {
-      gap: 15px;
-    }
+    gap: 15px;
   }
+
   &__image {
-    width: 2.292vw;
-    height: 2.292vw;
+    width: 33px;
+    height: 33px;
     flex-shrink: 0;
     border-radius: 50%;
     overflow: hidden;
-    @media screen and (min-width: 1440px) {
-      width: 33px;
-      height: 33px;
-    }
   }
+
   &__text {
     color: #FFF;
     font-family: 'DM Sans';
-    font-size: 1.389vw;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    @media screen and (min-width: 1440px) {
-      font-size: 20px;
-    }
   }
 }
+
 .price {
   position: absolute;
-  left: 1.806vw;
-  bottom: 1.667vw;
-  padding: 0.972vw 1.806vw;
-  width: 20.833vw;
-  height: 5.125vw;
+  left: 26px;
+  bottom: 24px;
+  padding: 14px 26px;
+  width: 300px;
+  height: 73.846px;
   flex-shrink: 0;
   border-radius: 12px;
   background: rgba(137, 137, 137, 0.2);
   backdrop-filter: blur(25px);
-  @media screen and (min-width: 1440px) {
-    left: 26px;
-    bottom: 24px;
-    padding: 14px 26px;
-    width: 300px;
-    height: 73.846px;
-  }
+
   &__list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
+
   &__item {
     display: flex;
     flex-direction: column;
     gap: 7px;
+
     span {
       position: relative;
-      width: 7.639vw;
-      @media screen and (min-width: 1440px) {
-        width: 110px;
-      }
+      width: 110px;
     }
   }
+
   &__row {
     display: flex;
     flex-direction: row;
     gap: 10px;
   }
+
   &__text {
     color: #FFF;
     font-family: 'DM Sans';
-    font-size: 0.833vw;
+    font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    @media screen and (min-width: 1440px) {
-      font-size: 12px;
-    }
   }
+
   &__icon {
-    width: 0.903vw;
-    height: 1.458vw;
-    @media screen and (min-width: 1440px) {
-      width: 13px;
-      height: 21px;
-    }
+    width: 13px;
+    height: 21px;
   }
+
   &__eth {
     top: 0;
     left: 0;
     color: #FFF;
     font-family: 'DM Sans';
-    font-size: 1.111vw;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    @media screen and (min-width: 1440px) {
-      font-size: 16px;
-    }
+
     &.timer {
       position: absolute;
       top: 0px;
@@ -281,16 +239,17 @@
     }
   }
 }
+
 // ================================ hero-advantage ===========================================
 .hero-advantage {
   position: relative;
   padding: 20px 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  
-  
+
+
   &::after {
     content: '';
     position: absolute;
@@ -301,33 +260,33 @@
     width: 98vw;
     height: 100%;
     background: rgba(217, 224, 236, 0.20);
+    // backdrop-filter: blur(25px);
 
   }
 
   &__title {
-    width: 27.639vw;
+    width: 398px;
+
     color: #000;
-    font-family: 'Archivo Black';
-    font-size: 1.944vw;
+    font-family: 'Roboto';
+    font-size: 28px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 900;
     line-height: normal;
     text-transform: uppercase;
 
     opacity: 0;
     transform: translateX(-30%);
     transition: transform 1500ms ease, opacity 1500ms ease;
-
-    @media screen and (min-width: 1440px) {
-      width: 398px;
-      font-size: 28px;
-    }
   }
+
   &__list {
     display: flex;
     flex-direction: row;
+    // justify-content: space-between;
     gap: 56px;
   }
+
   &__item {
     display: flex;
     flex-direction: column;
@@ -338,28 +297,23 @@
     .title {
       color: #000;
       font-family: 'DM Sans';
-      font-size: 1.389vw;
+      font-size: 20px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      @media screen and (min-width: 1440px) {
-        font-size: 20px;
-      }
     }
+
     .text {
-      width: 17.292vw;
+      width: 249px;
       color: #696969;
       font-family: 'DM Sans';
-      font-size: 0.972vw;
+      font-size: 14px;
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
       /* 22.4px */
-      @media screen and (min-width: 1440px) {
-        width: 249px;
-        font-size: 14px;
-      }
     }
+
     .icon {
       position: absolute;
       top: 0px;
@@ -369,4 +323,5 @@
     }
   }
 }
+
 // ========================================== HERO END =======================================

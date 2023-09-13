@@ -17,11 +17,14 @@
 }
 .logo-link {
   color: #3D00B7;
-  font-family: 'Roboto';
-  font-size: 24px;
+  font-family: 'Archivo Black';
+  font-size: 1.667vw;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+  }
 }
 .header-nav {
   display: none;
@@ -62,7 +65,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 50px;
+    height: 3.472vw;
     border-radius: 100px;
     border: 2px solid #EFEFEF;
     outline: none;
@@ -70,6 +73,9 @@
     padding: 0px 45px 0px 20px;
     transition: all 300ms ease-in-out;
     pointer-events: auto;
+    @media screen and (min-width: 1440px) {
+      height: 50px;
+    }
     &::placeholder {
         color: #C0C0C0;
         font-family: DM Sans;
@@ -86,11 +92,18 @@
     }
   }
   &__icon {
-    width: 24px;
-    height: 24px;
+    width: 1.667vw;
+    height: 1.667vw;
     position: absolute;
-    right: 20px;
-    top: 12px;
+    right: 1.389vw;
+    top: 0.833vw;
+    @media screen and (min-width: 1440px) {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: 20px;
+      top: 12px;
+    }
 
   }
 }
@@ -101,7 +114,7 @@
   }
   &__btn {
     font-family: 'DM Sans';
-    font-size: 14px;
+    font-size: 0.972vw;
     font-style: normal;
     font-weight: 700;
     line-height: 100%;
@@ -109,13 +122,19 @@
     letter-spacing: 0.56px;
 
     cursor: pointer;
+    @media screen and (min-width: 1440px) {
+      font-size: 14px;
+    }
     
     &.upload {
-      padding: 18px 40px;
+      padding: 1.250vw 2.778vw;
+      @media screen and (min-width: 1440px) {
+        padding: 18px 40px;
+      }
     }
     &.wallet {
       position: relative;
-      padding: 18px 22px;
+      padding: 1.250vw 1.528vw;
       display: flex;
       flex-direction: column;
       background: none;
@@ -124,6 +143,9 @@
       color: #3D00B7;
       overflow: hidden;
       transition: all 450ms ease-in-out;
+      @media screen and (min-width: 1440px) {
+        padding: 18px 22px;
+      }
       span {
         transition: all 450ms ease-in-out;
       }

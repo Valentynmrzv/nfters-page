@@ -1,7 +1,19 @@
 .section-slider {
   overflow: hidden;
 }
+.swiper-container {
+  width: 100%;
+  /* Ширина слайдера на весь экран */
+  /* Задайте желаемую высоту слайдера, например, 70% высоты экрана (viewport height) */
+}
 
+.swiper-pagination {
+  position: fixed!important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
 .swiper-pagination-bullet {
   width: 20px!important;
   height: 20px!important;
