@@ -1,17 +1,14 @@
 // ============================================== HEADER =================================================
 .header{ 
   position: fixed;
-    /* Делаем хедер фиксированным */
     top: 0;
-    /* Закрепляем его вверху экрана */
     left: 0;
     width: 100%;
-    /* Занимает всю ширину экрана */
     z-index: 10;
   border-bottom: 1px solid #EFEFEF;
   background-color: #FFF;
   &__wrapper {
-    padding: 10px 0px;
+    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
