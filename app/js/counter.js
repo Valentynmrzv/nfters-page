@@ -22,18 +22,19 @@ function animateCounters() {
   });
 }
 
-const exploreList = document.querySelector('.explore__list');
+const elementToObserve = document.querySelector('.your-target-element'); // Замените на ваш целевой элемент
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      animateCounters();
-      observer.unobserve(exploreList);
+      animateCounters(); // Здесь вызываем вашу анимацию счетчика
     }
   });
 });
 
-observer.observe(exploreList);
+observer.observe(elementToObserve);
+
+
 
 // ======================================
 const title = document.querySelector('.hero-advantage__title');

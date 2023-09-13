@@ -1,8 +1,8 @@
-//  ============================ content =============================================
+// ================== create collection =====================================
 document.addEventListener('DOMContentLoaded', function () {
   const listElement = document.querySelector('.content__list');
   const selectedContent = document.querySelector('.selected-content');
-
+  let selectedItemId = null;
   fetch('../nft/content.json')
     .then(response => response.json())
     .then(data => {
@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         listElement.appendChild(listItem);
 
-        // Обработчик события наведения на элемент .content__item picture
         pictureElement.addEventListener('mouseover', function () {
-          updateSelectedContent(selectedContent, item);
+          if (selectedItemId !== item.id) {
+            selectedItemId = item.id;
+            updateSelectedContent(selectedContent, item);
+          }
         });
       });
     })
@@ -106,25 +108,36 @@ function createContentItem(item) {
 
   return listItem;
 };
-
+// ================== select collection =====================================
 function updateSelectedContent(selectedContent, item) {
-  const selectedImg = selectedContent.querySelector('.image img');
-  const selectedSources = selectedContent.querySelectorAll('.image source');
 
-  selectedImg.setAttribute('srcset', item.imageSrcSet[2]);
-  selectedImg.setAttribute('src', item.imageSrc);
+  if (selectedContent.classList.contains('fade-out')) {
+    return;
+  }
 
-  selectedSources.forEach((source, index) => {
-    source.setAttribute('srcset', item.imageSrcSet[index]);
-  });
+  selectedContent.classList.add('fade-out');
 
-  const selectedUserImage = selectedContent.querySelector('.info__name .image');
-  selectedUserImage.setAttribute('srcset', `${item.userImageSrc} 1x`);
-  selectedUserImage.setAttribute('src', item.userImageSrc);
+  setTimeout(function () {
+    const selectedImg = selectedContent.querySelector('.image img');
+    const selectedSources = selectedContent.querySelectorAll('.image source');
 
-  const selectedTitle = selectedContent.querySelector('.title');
-  selectedTitle.textContent = item.userName;
+    selectedImg.setAttribute('srcset', item.imageSrcSet[2]);
+    selectedImg.setAttribute('src', item.imageSrc);
 
-  const selectedBid = selectedContent.querySelector('.bid');
-  selectedBid.textContent = item.bitValue;
-};
+    selectedSources.forEach((source, index) => {
+      source.setAttribute('srcset', item.imageSrcSet[index]);
+    });
+
+    const selectedUserImage = selectedContent.querySelector('.info__name .image');
+    selectedUserImage.setAttribute('srcset', `${item.userImageSrc} 1x`);
+    selectedUserImage.setAttribute('src', item.userImageSrc);
+
+    const selectedTitle = selectedContent.querySelector('.title');
+    selectedTitle.textContent = item.userName;
+
+    const selectedBid = selectedContent.querySelector('.bid');
+    selectedBid.textContent = item.bitValue;
+
+    selectedContent.classList.remove('fade-out');
+  }, 300);
+}

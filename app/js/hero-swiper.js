@@ -1,7 +1,5 @@
-
 let myImageSlider = new Swiper('.live', {
   effect: "cards",
-  // grabCursor: true,
   simulateTouch: true,
   slideToClickedSlide: true,
   slidesPerView: 'auto',
@@ -18,4 +16,7 @@ let myImageSlider = new Swiper('.live', {
     perSlideRotate: 0,
     perSlideOffset: 15,
   },
+  nested: true,
+
 });
+
