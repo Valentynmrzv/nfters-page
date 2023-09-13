@@ -5,7 +5,31 @@ document.addEventListener('DOMContentLoaded', function () {
     spaceBetween: 0,
     mousewheel: {
       eventsTarget: ".section-slider",
-      enabled: true,
+      enabled: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      slideChange: function () {
+        // Перевіряємо, чи є слайди для переходу назад і вперед
+        if (swiper.isBeginning) {
+          // Приховуємо кнопку "Попередній слайд", якщо немає слайдів назад
+          document.querySelector('.swiper-button-prev').style.display = 'none';
+        } else {
+          // Показуємо кнопку "Попередній слайд", якщо є слайди назад
+          document.querySelector('.swiper-button-prev').style.display = 'block';
+        }
+
+        if (swiper.isEnd) {
+          // Приховуємо кнопку "Наступний слайд", якщо немає слайдів вперед
+          document.querySelector('.swiper-button-next').style.display = 'none';
+        } else {
+          // Показуємо кнопку "Наступний слайд", якщо є слайди вперед
+          document.querySelector('.swiper-button-next').style.display = 'block';
+        }
+      },
     },
     keyboard: {
       enabled: true,
