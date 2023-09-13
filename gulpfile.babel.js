@@ -164,7 +164,8 @@ const building = () => {
     'app/images/icons.svg',
     'app/fonts/*.*',
     'app/js/main.min.js',
-    'app/*.html'
+    'app/*.html',
+    'app/nft/*.*'
   ], { base: 'app' }).pipe(dest('dist'));
 };
 // =========================================== DEPLOY gh-pages =========================================== //
