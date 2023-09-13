@@ -3,7 +3,7 @@ function animateCounters() {
   const speed = 250;
 
   counters.forEach(counter => {
-    const target = +counter.innerText.replace('K+', '');
+    const target = +counter.getAttribute('data-targetValue');
     const increment = target / speed;
 
     let currentValue = 1;
@@ -22,18 +22,31 @@ function animateCounters() {
   });
 }
 
-const elementToObserve = document.querySelector('.your-target-element'); // Замените на ваш целевой элемент
+const countersData = [
+  98, // Artwork
+  12, // Auction
+  15, // Artist
+];
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounters(); // Здесь вызываем вашу анимацию счетчика
-    }
+document.addEventListener('DOMContentLoaded', function () {
+  const counters = document.querySelectorAll('.counter');
+
+  counters.forEach((counter, index) => {
+    counter.setAttribute('data-targetValue', countersData[index]);
   });
+
+  const elementToObserve = document.querySelector('.your-target-element');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+      }
+    });
+  });
+
+  observer.observe(elementToObserve);
 });
-
-observer.observe(elementToObserve);
-
 
 
 // ======================================
@@ -53,7 +66,6 @@ const intersectionObserver = new IntersectionObserver(entries => {
     } else {
       title.style.opacity = '0';
       title.style.transform = 'translateX(-30%)';
-      // Восстанавливаем скроллинг при скрытии заголовка
       document.body.style.overflowX = 'auto';
     }
   });

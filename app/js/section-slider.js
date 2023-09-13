@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const swiper = new Swiper('.section-slider', {
-    direction: 'horizontal', // или 'horizontal', в зависимости от вашего предпочтения
+    direction: 'horizontal',
     slidesPerView: 1,
     spaceBetween: 0,
     mousewheel: {

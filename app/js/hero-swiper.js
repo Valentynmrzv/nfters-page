@@ -17,6 +17,4 @@ let myImageSlider = new Swiper('.live', {
     perSlideOffset: 15,
   },
   nested: true,
-
 });
-
