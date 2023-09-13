@@ -161,7 +161,7 @@ const building = () => {
     'app/css/style.min.css',
     'app/images/*.*',
     '!app/images/stack',
-    'app/images/sprite.svg',
+    'app/images/icons.svg',
     'app/fonts/*.*',
     'app/js/main.min.js',
     'app/*.html'
