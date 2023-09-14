@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {
-      data.forEach(item => {
+      data.slice(0, 9).forEach(item => { // 9.id
         const listItem = createContentItem(item);
         const pictureElement = listItem.querySelector('.content__item picture');
 
@@ -27,7 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function createContentItem(item) {
   const listItem = document.createElement('li');
-  listItem.className = 'content__item';
+  listItem.className = 'content__item swiper-slide';
+  const listDiv = document.createElement('div');
+  listDiv.className = 'content__wrapper';
+
   const pictureElement = document.createElement('picture');
   item.imageSrcSet.forEach(srcSet => {
     const sourceElement = document.createElement('source');
@@ -42,8 +45,10 @@ function createContentItem(item) {
   imgElement.setAttribute('alt', '');
   pictureElement.appendChild(imgElement);
 
+
   const innerElement = document.createElement('div');
   innerElement.className = 'content__inner';
+
 
   const titleElement = document.createElement('h4');
   titleElement.className = 'title';
@@ -101,9 +106,10 @@ function createContentItem(item) {
 
   innerElement.appendChild(buttonElement);
 
-  listItem.appendChild(pictureElement);
-  listItem.appendChild(innerElement);
 
+  listDiv.appendChild(pictureElement);
+  listDiv.appendChild(innerElement);
+  listItem.appendChild(listDiv);
   return listItem;
 };
 // ================== select collection =====================================
@@ -139,3 +145,54 @@ function updateSelectedContent(selectedContent, item) {
     selectedContent.classList.remove('fade-out');
   }, 400);
 }
+// ===================== content slider ===================================
+
+
+let myContentSlider = new Swiper('.content', {
+  direction: "vertical",
+  simulateTouch: true,
+  slideToClickedSlide: true,
+  slidesPerView: 3,
+  slidesPerGroup: 3,
+  mousewheel: {
+    sensitivity: 1,
+    eventsTarget: ".content"
+  },
+  loop: false,
+  nested: true,
+  spaceBetween: 0,
+});
+
+
+// ===========================================TOP================
+document.addEventListener('DOMContentLoaded', function () {
+  const listItems = document.querySelectorAll('.top__item');
+
+  const options = {
+    root: null,
+    rootMargin: "0px", // Здесь вы можете настроить отступ, если нужно
+    threshold: 0.1 // Этот параметр определяет, сколько видимой части элемента должно быть видно, чтобы считать его видимым
+  };
+
+  // Создаем новый IntersectionObserver
+  const intersectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      console.log(entry.target, entry.isIntersecting);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show'); // Добавляем класс, чтобы запустить анимацию
+      } else {
+        entry.target.classList.remove('show'); // Убираем класс, чтобы скрыть элемент
+      }
+    });
+  }, options);
+
+  // Начально скрываем все элементы списка
+  listItems.forEach(item => {
+    item.classList.remove('show');
+  });
+
+  // Наблюдаем за каждым элементом списка
+  listItems.forEach(item => {
+    intersectionObserver.observe(item);
+  });
+});

@@ -50,26 +50,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ======================================
-const title = document.querySelector('.hero-advantage__title');
-
-const options = {
-  root: null,
-  rootMargin: '200px',
-  threshold: 0.5
-};
-
-const intersectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      title.style.opacity = '1';
-      title.style.transform = 'translateX(0)';
-    } else {
-      title.style.opacity = '0';
-      title.style.transform = 'translateX(-30%)';
-      document.body.style.overflowX = 'auto';
-    }
-  });
-}, options);
-
-intersectionObserver.observe(title);
-
