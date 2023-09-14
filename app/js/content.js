@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const listElement = document.querySelector('.content__list');
   const selectedContent = document.querySelector('.selected-content');
   let selectedItemId = null;
-  fetch('../nft/content.json')
+  fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {
       data.forEach(item => {
@@ -28,9 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function createContentItem(item) {
   const listItem = document.createElement('li');
   listItem.className = 'content__item';
-
   const pictureElement = document.createElement('picture');
-
   item.imageSrcSet.forEach(srcSet => {
     const sourceElement = document.createElement('source');
     sourceElement.setAttribute('srcset', srcSet);
