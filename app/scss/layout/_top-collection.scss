@@ -26,9 +26,14 @@
     width: 24vw;
     height: 26vw;
     border-radius: 24px;
+    overflow: hidden;
+    object-fit: cover;
     @media screen and (min-width: 1440px) {
       width: 400px;
       height: 424px;
+    }
+    img {
+      height: 100%;
     }
   }
 }
@@ -140,9 +145,13 @@
     width: 9vw;
     height: 9vw;
     border-radius: 12px;
+    overflow: hidden;
     @media screen and (min-width: 1440px) {
       width: 147px;
       height: 147px;
+    }
+    img {
+      height: 100%;
     }
   }
   &__inner {
