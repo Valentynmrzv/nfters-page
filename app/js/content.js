@@ -57,7 +57,7 @@ function createContentItem(item) {
 
   const titleElement = document.createElement('h4');
   titleElement.className = 'title';
-  titleElement.textContent = item.userName;
+  titleElement.textContent = item.nftName;
 
   const spanElement = document.createElement('span');
 
@@ -144,7 +144,7 @@ function updateSelectedContent(selectedContent, item) {
     selectedUserImage.setAttribute('src', item.userImageSrc);
 
     const selectedTitle = selectedContent.querySelector('.title');
-    selectedTitle.textContent = item.userName;
+    selectedTitle.textContent = item.nftName;
 
     const selectedBid = selectedContent.querySelector('.bid');
     selectedBid.textContent = item.bitValue;

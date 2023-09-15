@@ -32,8 +32,16 @@
   // height: 20px!important;
   color: #fff;
   background: #3D00B7!important;
+  transform: scale(1)!important;
 }
 .swiper-button-next.swiper-button-disabled,
 .swiper-button-prev.swiper-button-disabled {
   color: rgba($color: #000000, $alpha: 0.0);
+}
+
+.swiper-pagination-bullet-active-prev-prev,
+.swiper-pagination-bullet-active-prev,
+.swiper-pagination-bullet-active-next-next,
+.swiper-pagination-bullet-active-next {
+  transform: scale(0.9)!important;
 }

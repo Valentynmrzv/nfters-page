@@ -1,119 +1,128 @@
 [
   {
     "id": 1,
-    "imageSrc": "./images/nft-01.jpg",
+    "imageSrc": "./images/nft-1.jpg",
     "imageSrcSet": [
-      "./images/nft-01.avif 1x, ./images/nft-01@2x.avif 2x",
-      "./images/nft-01.webp 1x, ./images/nft-01@2x.webp 2x",
-      "./images/nft-01.jpg 1x, ./images/nft-01@2x.jpg 2x"
+      "./images/nft-1.avif 1x, ./images/nft-1@2x.avif 2x",
+      "./images/nft-1.webp 1x, ./images/nft-1@2x.webp 2x",
+      "./images/nft-1.jpg 1x, ./images/nft-1@2x.jpg 2x"
     ],
-    "userName": "Futr Abstr",
+    "nftName": "Futr Abstr",
     "userImageSrc": "./images/user-live-1.jpg",
     "bitValue": "0.25 ETH",
-    "stock": "1 of 8"
+    "stock": "1 of 8",
+    "userName": ""
   },
   {
     "id": 2,
-    "imageSrc": "./images/nft-02.jpg",
+    "imageSrc": "./images/nft-2.jpg",
     "imageSrcSet": [
-      "./images/nft-02.avif 1x, ./images/nft-02@2x.avif 2x",
-      "./images/nft-02.webp 1x, ./images/nft-02@2x.webp 2x",
-      "./images/nft-02.jpg 1x, ./images/nft-02@2x.jpg 2x"
+      "./images/nft-2.avif 1x, ./images/nft-2@2x.avif 2x",
+      "./images/nft-2.webp 1x, ./images/nft-2@2x.webp 2x",
+      "./images/nft-2.jpg 1x, ./images/nft-2@2x.jpg 2x"
     ],
-    "userName": "Ghj Vibe",
+    "nftName": "Ghj Vibe",
     "userImageSrc": "./images/user-live-2.jpg",
     "bitValue": "0.44 ETH",
-    "stock": "2 of 8"
+    "stock": "2 of 8",
+    "userName": ""
   },
   {
     "id": 3,
-    "imageSrc": "./images/nft-03.jpg",
+    "imageSrc": "./images/nft-3.jpg",
     "imageSrcSet": [
-      "./images/nft-03.avif 1x, ./images/nft-03@2x.avif 2x",
-      "./images/nft-03.webp 1x, ./images/nft-03@2x.webp 2x",
-      "./images/nft-03.jpg 1x, ./images/nft-03@2x.jpg 2x"
+      "./images/nft-3.avif 1x, ./images/nft-3@2x.avif 2x",
+      "./images/nft-3.webp 1x, ./images/nft-3@2x.webp 2x",
+      "./images/nft-3.jpg 1x, ./images/nft-3@2x.jpg 2x"
     ],
-    "userName": "Tyr Pntr",
+    "nftName": "Tyr Pntr",
     "userImageSrc": "./images/user-live-3.jpg", 
     "bitValue": "0.17 ETH",
-    "stock": "1 of 8"
+    "stock": "1 of 8",
+    "userName": ""
   },
   {
     "id": 4,
-    "imageSrc": "./images/nft-04.jpg",
+    "imageSrc": "./images/nft-4.jpg",
     "imageSrcSet": [
-      "./images/nft-04.avif 1x, ./images/nft-04@2x.avif 2x",
-      "./images/nft-04.webp 1x, ./images/nft-04@2x.webp 2x",
-      "./images/nft-04.jpg 1x, ./images/nft-04@2x.jpg 2x"
+      "./images/nft-4.avif 1x, ./images/nft-4@2x.avif 2x",
+      "./images/nft-4.webp 1x, ./images/nft-4@2x.webp 2x",
+      "./images/nft-4.jpg 1x, ./images/nft-4@2x.jpg 2x"
     ],
-    "userName": "Qxswd Artis",
+    "nftName": "Qxswd Artis",
     "userImageSrc": "./images/user-live-4.jpg", 
     "bitValue": "2.33 ETH",
-    "stock": "4 of 7"
+    "stock": "4 of 7",
+    "userName": ""
   },
   {
     "id": 5,
-    "imageSrc": "./images/nft-05.jpg",
+    "imageSrc": "./images/nft-5.jpg",
     "imageSrcSet": [
-      "./images/nft-05.avif 1x, ./images/nft-05@2x.avif 2x",
-      "./images/nft-05.webp 1x, ./images/nft-05@2x.webp 2x",
-      "./images/nft-05.jpg 1x, ./images/nft-05@2x.jpg 2x"
+      "./images/nft-5.avif 1x, ./images/nft-5@2x.avif 2x",
+      "./images/nft-5.webp 1x, ./images/nft-5@2x.webp 2x",
+      "./images/nft-5.jpg 1x, ./images/nft-5@2x.jpg 2x"
     ],
-    "userName": "Mzxrt Paint",
+    "nftName": "Mzxrt Paint",
     "userImageSrc": "./images/user-live-5.jpg", 
     "bitValue": "3.75 ETH",
-    "stock": "7 of 9"
+    "stock": "7 of 9",
+    "userName": ""
   },
   {
     "id": 6,
-    "imageSrc": "./images/nft-06.jpg",
+    "imageSrc": "./images/nft-6.jpg",
     "imageSrcSet": [
-      "./images/nft-06.avif 1x, ./images/nft-06@2x.avif 2x",
-      "./images/nft-06.webp 1x, ./images/nft-06@2x.webp 2x",
-      "./images/nft-06.jpg 1x, ./images/nft-06@2x.jpg 2x"
+      "./images/nft-6.avif 1x, ./images/nft-6@2x.avif 2x",
+      "./images/nft-6.webp 1x, ./images/nft-6@2x.webp 2x",
+      "./images/nft-6.jpg 1x, ./images/nft-6@2x.jpg 2x"
     ],
-    "userName": "Pzqrt Abstr",
+    "nftName": "Pzqrt Abstr",
     "userImageSrc": "./images/user-live-6.jpg", 
-    "bitValue": "0.01 ETH",
-    "stock": "0 of 2"
+    "bitValue": "0.1 ETH",
+    "stock": "1 of 2",
+    "userName": ""
   },
   {
     "id": 7,
-    "imageSrc": "./images/nft-07.jpg",
+    "imageSrc": "./images/nft-7.jpg",
     "imageSrcSet": [
-      "./images/nft-07.avif 1x, ./images/nft-07@2x.avif 2x",
-      "./images/nft-07.webp 1x, ./images/nft-07@2x.webp 2x",
-      "./images/nft-07.jpg 1x, ./images/nft-07@2x.jpg 2x"
+      "./images/nft-7.avif 1x, ./images/nft-7@2x.avif 2x",
+      "./images/nft-7.webp 1x, ./images/nft-7@2x.webp 2x",
+      "./images/nft-7.jpg 1x, ./images/nft-7@2x.jpg 2x"
     ],
-    "userName": "Wza Gbld",
+    "nftName": "Wza Gbld",
     "userImageSrc": "./images/user-live-7.jpg", 
     "bitValue": "4.99 ETH",
-    "stock": "5 of 8"
+    "stock": "5 of 8",
+    "userName": ""
   },
   {
     "id": 8,
-    "imageSrc": "./images/nft-08.jpg",
+    "imageSrc": "./images/nft-8.jpg",
     "imageSrcSet": [
-      "./images/nft-08.avif 1x, ./images/nft-08@2x.avif 2x",
-      "./images/nft-08.webp 1x, ./images/nft-08@2x.webp 2x",
-      "./images/nft-08.jpg 1x, ./images/nft-08@2x.jpg 2x"
+      "./images/nft-8.avif 1x, ./images/nft-8@2x.avif 2x",
+      "./images/nft-8.webp 1x, ./images/nft-8@2x.webp 2x",
+      "./images/nft-8.jpg 1x, ./images/nft-8@2x.jpg 2x"
     ],
-    "userName": "Lmn Wtrc",
+    "nftName": "Lmn Wtrc",
     "userImageSrc": "./images/user-live-8.jpg", 
     "bitValue": "1.23 ETH",
-    "stock": "3 of 6"
+    "stock": "3 of 6",
+    "userName": ""
   },
   {
     "id": 9,
-    "imageSrc": "./images/nft-09.jpg",
+    "imageSrc": "./images/nft-9.jpg",
     "imageSrcSet": [
-      "./images/nft-09.avif 1x, ./images/nft-09@2x.avif 2x",
-      "./images/nft-09.webp 1x, ./images/nft-09@2x.webp 2x",
-      "./images/nft-09.jpg 1x, ./images/nft-09@2x.jpg 2x"
+      "./images/nft-9.avif 1x, ./images/nft-9@2x.avif 2x",
+      "./images/nft-9.webp 1x, ./images/nft-9@2x.webp 2x",
+      "./images/nft-9.jpg 1x, ./images/nft-9@2x.jpg 2x"
     ],
-    "userName": "Xyz Abstr",
+    "nftName": "Xyz Abstr",
     "userImageSrc": "./images/user-live-9.jpg", 
     "bitValue": "0.45 ETH",
-    "stock": "2 of 5"
+    "stock": "2 of 5",
+    "userName": ""
   }
 ]
