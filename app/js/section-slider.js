@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     autoHeight: false,
   });
-
+  //  =========   ctrlKey =========
   // window.addEventListener('keydown', function (e) {
   //   if (e.ctrlKey) {
   //     swiper.mousewheel.disable();

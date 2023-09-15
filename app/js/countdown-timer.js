@@ -20,13 +20,13 @@ function updateTimer(targetId, targetTime) {
 }
 
 const targetTime1 = new Date();
-targetTime1.setHours(24, 0, 0, 0); // 00:00:00 (12:00 AM)
+targetTime1.setHours(24, 0, 0, 0); // 00:00:00
 
 const targetTime2 = new Date();
-targetTime2.setHours(22, 30, 0, 0); // 22:30:00 (10:30 PM)
+targetTime2.setHours(22, 30, 0, 0); // 22:30:00
 
 const targetTime3 = new Date();
-targetTime3.setHours(21, 0, 0, 0); // 21:00:00 (9:00 PM)
+targetTime3.setHours(21, 0, 0, 0); // 21:00:00
 
 setInterval(() => updateTimer('timer1', targetTime1), 1000);
 setInterval(() => updateTimer('timer2', targetTime2), 1000);

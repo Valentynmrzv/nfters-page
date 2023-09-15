@@ -170,28 +170,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const options = {
     root: null,
-    rootMargin: "0px", // Здесь вы можете настроить отступ, если нужно
-    threshold: 0.1 // Этот параметр определяет, сколько видимой части элемента должно быть видно, чтобы считать его видимым
+    rootMargin: "0px",
+    threshold: 0.1
   };
 
-  // Создаем новый IntersectionObserver
   const intersectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      // console.log(entry.target, entry.isIntersecting);
       if (entry.isIntersecting) {
-        entry.target.classList.add('show'); // Добавляем класс, чтобы запустить анимацию
+        entry.target.classList.add('show');
       } else {
-        entry.target.classList.remove('show'); // Убираем класс, чтобы скрыть элемент
+        entry.target.classList.remove('show');
       }
     });
   }, options);
 
-  // Начально скрываем все элементы списка
   listItems.forEach(item => {
     item.classList.remove('show');
   });
 
-  // Наблюдаем за каждым элементом списка
   listItems.forEach(item => {
     intersectionObserver.observe(item);
   });
