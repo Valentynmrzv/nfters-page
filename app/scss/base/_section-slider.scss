@@ -16,18 +16,20 @@
   position: fixed!important;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 60%!important;
   text-align: center;
 }
 .swiper-pagination-bullet {
-  width: 20px!important;
-  height: 20px!important;
+  // width: 20px!important;
+  width: calc(100%/5)!important;
+  height: 10px !important;
   background: #000!important;
+  border-radius: 5px!important;
 }
 
 .swiper-pagination-bullet-active {
-  width: 20px!important;
-  height: 20px!important;
+  // width: 20px!important;
+  // height: 20px!important;
   color: #fff;
   background: #3D00B7!important;
 }

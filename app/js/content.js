@@ -28,10 +28,15 @@ document.addEventListener('DOMContentLoaded', function () {
 function createContentItem(item) {
   const listItem = document.createElement('li');
   listItem.className = 'content__item swiper-slide';
+
+
   const listDiv = document.createElement('div');
   listDiv.className = 'content__wrapper';
+  const lazyDiv = document.createElement('div');
+  lazyDiv.className = 'swiper-lazy-preloader';
 
   const pictureElement = document.createElement('picture');
+  pictureElement.setAttribute('loading', 'lazy');
   item.imageSrcSet.forEach(srcSet => {
     const sourceElement = document.createElement('source');
     sourceElement.setAttribute('srcset', srcSet);
@@ -108,7 +113,9 @@ function createContentItem(item) {
 
 
   listDiv.appendChild(pictureElement);
+  listDiv.appendChild(lazyDiv);
   listDiv.appendChild(innerElement);
+
   listItem.appendChild(listDiv);
   return listItem;
 };
@@ -158,6 +165,7 @@ let myContentSlider = new Swiper('.content', {
     sensitivity: 1,
     eventsTarget: ".content"
   },
+  lazy: true,
   loop: false,
   nested: true,
   spaceBetween: 0,

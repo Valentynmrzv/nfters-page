@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     spaceBetween: 0,
     mousewheel: {
       enabled: false,
+      sensitivity: 10,
     },
     navigation: {
       nextEl: ".swiper-button-next",
@@ -35,16 +36,16 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     autoHeight: false,
   });
-  //  =========   ctrlKey =========
-  // window.addEventListener('keydown', function (e) {
-  //   if (e.ctrlKey) {
-  //     swiper.mousewheel.disable();
-  //   }
-  // });
+  //  ========= ctrlKey =========
+  window.addEventListener('keydown', function (e) {
+    if (e.ctrlKey) {
+      swiper.mousewheel.disable();
+    }
+  });
 
-  // window.addEventListener('keyup', function (e) {
-  //   if (!e.ctrlKey) {
-  //     swiper.mousewheel.enable();
-  //   }
-  // });
+  window.addEventListener('keyup', function (e) {
+    if (!e.ctrlKey) {
+      swiper.mousewheel.enable();
+    }
+  });
 });

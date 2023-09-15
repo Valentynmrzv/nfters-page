@@ -94,19 +94,18 @@ ul {
   position: fixed !important;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 60% !important;
   text-align: center;
 }
 
 .swiper-pagination-bullet {
-  width: 20px !important;
-  height: 20px !important;
+  width: 20% !important;
+  height: 10px !important;
   background: #000 !important;
+  border-radius: 5px !important;
 }
 
 .swiper-pagination-bullet-active {
-  width: 20px !important;
-  height: 20px !important;
   color: #fff;
   background: #3D00B7 !important;
 }
@@ -1008,10 +1007,6 @@ ul {
 }
 
 .info {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  width: max-content;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -1020,12 +1015,25 @@ ul {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(25px);
-  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 6rem) translateX(-50%);
+  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 6rem);
+}
+.info__inner {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+@media screen and (min-width: 1440px) {
+  .info__inner {
+    width: 80%;
+  }
 }
 .info__name {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: max-content;
 }
 .info__name .image {
   width: 3.333vw;
@@ -1041,7 +1049,7 @@ ul {
 .info__name .title {
   color: #000;
   font-family: "DM Sans";
-  font-size: 1.389vw;
+  font-size: 1.1vw;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -1054,7 +1062,7 @@ ul {
 .info__name .text {
   color: #363639;
   font-family: "DM Sans";
-  font-size: 0.972vw;
+  font-size: 0.872vw;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -1087,8 +1095,8 @@ ul {
   gap: 10px;
 }
 .info__bid .icon {
-  width: 0.903vw;
-  height: 1.479vw;
+  width: 0.803vw;
+  height: 1.279vw;
   flex-shrink: 0;
 }
 @media screen and (min-width: 1440px) {
@@ -1100,7 +1108,7 @@ ul {
 .info__bid .bid {
   color: #3A3A3A;
   font-family: "DM Sans";
-  font-size: 1.111vw;
+  font-size: 1vw;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
