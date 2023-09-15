@@ -142,12 +142,16 @@
       border: 1px solid #3D00B7;
       color: #3D00B7;
       overflow: hidden;
-      transition: all 450ms ease-in-out;
+      transition: 
+        all 450ms ease-in-out,
+        transform 450ms ease-in-out;
       @media screen and (min-width: 1440px) {
         padding: 18px 22px;
       }
       span {
-        transition: all 450ms ease-in-out;
+        transition: 
+        background 450ms ease-in-out,
+        transform 450ms ease-in-out;
       }
       &::after {
         content: 'Connect';
@@ -156,15 +160,21 @@
         top: 50%;
         left: 50%; 
         transform: translate(-50%, 250%);
-        transition: all 450ms ease-in-out;
+        transition: 
+          background 450ms ease-in-out,
+          color 450ms ease-in-out,
+          transform 450ms ease-in-out;
 
-        font-family: DM Sans;
-        font-size: 14px;
+        font-family: 'DM Sans';
+        font-size: 0.972vw;
         font-style: normal;
         font-weight: 700;
         line-height: 100%;
         /* 14px */
         letter-spacing: 0.56px;
+        @media screen and (min-width: 1440px) {
+          font-size: 14px;
+        }
       }
       &:hover {
         background-color: #3D00B7;

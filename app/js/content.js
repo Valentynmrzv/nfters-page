@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Создаем новый IntersectionObserver
   const intersectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      console.log(entry.target, entry.isIntersecting);
+      // console.log(entry.target, entry.isIntersecting);
       if (entry.isIntersecting) {
         entry.target.classList.add('show'); // Добавляем класс, чтобы запустить анимацию
       } else {

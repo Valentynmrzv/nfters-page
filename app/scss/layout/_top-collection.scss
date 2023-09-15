@@ -5,21 +5,41 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 6vw;
     @media screen and (min-width: 1440px) {
       padding-top: 30px;
-      align-items: flex-start;
+      align-items: center;
+      gap: 50px;
     }
   }
 }
 // ========================== selected-content ===============================
 .selected-content {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 23.778vw;
   gap: 2.222vw;
+  
   @media screen and (min-width: 1440px) {
     width: 400px;
     gap: 32px;
+  }
+  .shadow {
+    width: 24vw;
+    height: 26vw;
+    position: absolute;
+    inset: 0;
+    opacity: 0.8;
+    filter: blur(2rem) saturate(0.9);
+    background-color:rgba(0, 0, 0, 0.75);
+    box-shadow: -15px 15px 3px 0px rgba(0, 0, 0, .75);
+
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 2rem, -2rem);
+    @media screen and (min-width: 1440px) {
+        width: 400px;
+        height: 424px;
+      }
   }
   .image {
     display: block;
@@ -28,6 +48,9 @@
     border-radius: 24px;
     overflow: hidden;
     object-fit: cover;
+    perspective: 50rem;
+
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 0rem);
     @media screen and (min-width: 1440px) {
       width: 400px;
       height: 424px;
@@ -37,11 +60,22 @@
     }
   }
 }
-.info {
+.info { 
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: max-content;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 20px;
   align-items: center;
+  padding: 10px;
+
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(25px);
+  transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 6rem) translateX(-50%);
+
   &__name {
     display: flex;
     align-items: center;
@@ -125,9 +159,6 @@
   transition: opacity 200ms ease;
 }
 // ======================== content =====================================
-// .content-swiper {
-  
-// }
 .content {
   height: 32vw;
   overflow: hidden;
@@ -152,6 +183,7 @@
   &__wrapper {
     display: flex;
     gap: 20px;
+    width: max-content;
   }
 
   picture {
