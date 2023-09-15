@@ -97,7 +97,7 @@ const fonts = () => {
 const images = () => {
   return src(['app/images/src/*.*', '!app/images/src/*.svg'])
     .pipe(newer('app/images'))
-    .pipe(avif({ quality: 40 }))
+    .pipe(avif({ quality: 80 }))
     .pipe(src(['app/images/src/*.*', '!app/images/src/*.svg']))
     .pipe(newer('app/images/dist'))
     .pipe(webp())

@@ -16,7 +16,7 @@
   position: fixed!important;
   bottom: 0;
   left: 0;
-  width: 60%!important;
+  width: 80%!important;
   text-align: center;
 }
 .swiper-pagination-bullet {
@@ -43,5 +43,5 @@
 .swiper-pagination-bullet-active-prev,
 .swiper-pagination-bullet-active-next-next,
 .swiper-pagination-bullet-active-next {
-  transform: scale(0.9)!important;
+  transform: scale(0.8)!important;
 }
