@@ -1,12 +1,12 @@
 // ========================================== HERO =======================================
 .hero {
   &__wrapper {
-    padding: 2.083vw 0px;
+    padding: 4vw 0px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     @media screen and (min-width: 1440px) {
-      padding: 35px 0px;
+      padding: 55px 0px;
     }
   }
 }
