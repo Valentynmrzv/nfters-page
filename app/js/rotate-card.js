@@ -15,16 +15,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   cards.forEach((e) => {
     e.addEventListener("mousemove", (event) => {
       const rect = e.getBoundingClientRect();
-      const centerX = (rect.left + rect.right) / 2;
-      const centerY = (rect.top + rect.bottom) / 2;
-      const posX = event.pageX - centerX;
-      const posY = event.pageY - centerY;
+      const posX = event.clientX - rect.left - rect.width / 2;
+      const posY = event.clientY - rect.top - rect.height / 2;
       const x = remap(posX, rect.width / 2, angle);
       const y = remap(posY, rect.height / 2, angle);
       e.dataset.rotateX = x;
       e.dataset.rotateY = -y;
     });
-
     e.addEventListener("mouseout", (event) => {
       e.dataset.rotateX = 0;
       e.dataset.rotateY = 0;

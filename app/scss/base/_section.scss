@@ -1,21 +1,21 @@
 .section {
   
-    // margin: 3.6vw auto 0 auto;
-    padding: 0;
-    position: absolute;
-    top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    min-width: 320px;
-    max-width: 1440px;
+    margin: 3.6vw auto 0 auto;
+    // padding: 0;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // min-width: 320px;
+    // max-width: 1440px;
     // @media screen and (min-width: 480px) {
     //     width: 480px;
     // }
     // @media screen and (min-width: 1024px) {
     //     max-width: 1024px;
     // }
-    // @media screen and (min-width: 1440px) {
-    //     // margin: 75px auto 0 auto;
-    // }
+    @media screen and (min-width: 1440px) {
+        margin: 75px auto 0 auto;
+    }
 }
 
