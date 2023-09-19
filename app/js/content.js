@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {
-      data.slice(0, 9).forEach(item => { // 1 - 9 id
+      data.slice(0, 18).forEach(item => { // 1 - 18 id
         const listItem = createContentItem(item);
         const pictureElement = listItem.querySelector('.content__item picture');
 

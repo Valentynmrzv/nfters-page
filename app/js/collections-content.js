@@ -79,6 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
         delay: 4000,
         disableOnInteraction: false,
       },
+      observer: true,
+      observeParents: true,
+      observeSlideChildren: true,
     });
     const collectionsBig = new Swiper(`#collections-swiper-big-${userName}`, {
       spaceBetween: 0,
@@ -92,6 +95,9 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       simulateTouch: false,
       touchRatio: 0,
+      observer: true,
+      observeParents: true,
+      observeSlideChildren: true,
     });
 
     userItems.forEach(item => {

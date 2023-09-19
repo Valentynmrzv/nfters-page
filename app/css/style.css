@@ -1,16 +1,4 @@
 @charset "UTF-8";
-:root {
-  --body-bg: #FFFFFF;
-  --primary-bg: #F3F3F3;
-  --title-font-family: "Golos Text";
-  --text-font-family: "Manrope";
-  --text-color-dark: #000000;
-  --text-color-light: #FFFFFF;
-  --primary-color-dark: #000000;
-  --primary-color-light: #FFFFFF;
-  --transition-property: all 250ms ease-in-out;
-}
-
 .visually-hidden {
   position: absolute !important;
   clip: rect(1px, 1px, 1px, 1px);
@@ -1583,6 +1571,7 @@ ul {
 .collections-big {
   width: 18.403vw;
   height: 18.889vw;
+  border-radius: 11.001px;
   overflow: hidden;
 }
 @media screen and (min-width: 1440px) {
@@ -1595,7 +1584,6 @@ ul {
   display: block;
   width: 18.403vw;
   height: 18.889vw;
-  border-radius: 11.001px;
 }
 .collections-big__slide {
   width: 18.403vw;
