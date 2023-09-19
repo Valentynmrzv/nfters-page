@@ -1640,3 +1640,126 @@ ul {
   transition: transform 4000ms linear;
   transform: translateX(100%);
 }
+
+.sign-up {
+  padding: 25px;
+}
+.sign-up__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.example {
+  width: 42vw;
+  height: 42vw;
+  flex-grow: 1;
+}
+@media screen and (min-width: 1440px) {
+  .example {
+    width: 606px;
+    height: 606px;
+  }
+}
+.example__list {
+  position: relative;
+  width: 42vw;
+  height: 42vw;
+}
+@media screen and (min-width: 1440px) {
+  .example__list {
+    width: 606px;
+    height: 606px;
+  }
+}
+.example__item {
+  position: absolute;
+  opacity: 0;
+}
+.example__item.big {
+  top: 0;
+  left: 0;
+  width: 20vw;
+  height: 20vw;
+}
+@media screen and (min-width: 1440px) {
+  .example__item.big {
+    width: 300px;
+    height: 300px;
+  }
+}
+.example__item.big.active {
+  opacity: 1;
+  transition: opacity 3000ms ease-in-out;
+}
+.example__item.medium {
+  top: 9.5vw;
+  right: 0;
+  width: 16vw;
+  height: 16vw;
+}
+@media screen and (min-width: 1440px) {
+  .example__item.medium {
+    top: 138px;
+    width: 240px;
+    height: 240px;
+  }
+}
+.example__item.medium.active {
+  opacity: 1;
+  transition: opacity 2000ms ease-in-out;
+}
+.example__item.small {
+  left: 7.292vw;
+  bottom: 2.778vw;
+  width: 13vw;
+  height: 13vw;
+}
+@media screen and (min-width: 1440px) {
+  .example__item.small {
+    left: 105px;
+    bottom: 40px;
+    width: 190px;
+    height: 190px;
+  }
+}
+.example__item.small.active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in-out;
+}
+.example__inner {
+  position: relative;
+}
+.example__image {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.example__user-img {
+  display: block;
+  position: absolute;
+  bottom: -2vw;
+  right: -2vw;
+  border-radius: 50%;
+  border: 1px solid #FFF;
+  overflow: hidden;
+  width: 4vw;
+  height: 4vw;
+}
+@media screen and (min-width: 1440px) {
+  .example__user-img {
+    width: 80px;
+    height: 80px;
+    bottom: -40px;
+    right: -40px;
+  }
+}
+
+.sign-up-text {
+  width: 35vw;
+}
+@media screen and (min-width: 1440px) {
+  .sign-up-text {
+    width: 517px;
+  }
+}
