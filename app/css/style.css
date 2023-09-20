@@ -1763,9 +1763,48 @@ ul {
 
 .sign-up-text {
   width: 35vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.2vw;
 }
 @media screen and (min-width: 1440px) {
   .sign-up-text {
     width: 517px;
+    gap: 32px;
+  }
+}
+.sign-up-text__title {
+  color: #000;
+  font-family: "Archivo Black";
+  font-size: 2.222vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+@media screen and (min-width: 1440px) {
+  .sign-up-text__title {
+    font-size: 32px;
+  }
+}
+.sign-up-text__text {
+  color: #636363;
+  font-family: DM Sans;
+  font-size: 1.25vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+@media screen and (min-width: 1440px) {
+  .sign-up-text__text {
+    font-size: 18px;
+  }
+}
+.sign-up-text__button {
+  padding: 1.3vw 2.6vw;
+}
+@media screen and (min-width: 1440px) {
+  .sign-up-text__button {
+    padding: 20px 40px;
   }
 }
