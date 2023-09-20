@@ -1,14 +1,17 @@
 .top-collection {
-  display: none;
   @media screen and (min-width: 768px) {
       display: block;
     }
   &__wrapper {
     padding-top: 2.083vw;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     gap: 6vw;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
     @media screen and (min-width: 1440px) {
       padding-top: 30px;
       align-items: center;
@@ -18,11 +21,14 @@
 }
 // ========================== selected-content ===============================
 .selected-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 23.778vw;
-  gap: 2.222vw;
+  display: none;
+  @media screen and (min-width: 768px) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 23.778vw;
+    gap: 2.222vw;
+  }
   
   @media screen and (min-width: 1440px) {
     width: 400px;
@@ -170,17 +176,17 @@
 }
 // ======================== content =====================================
 .content {
-  height: 32vw;
+  height: 100vw;
   overflow: hidden;
+  @media screen and (min-width: 768px) {
+    height: 32vw;
+  }
   @media screen and (min-width: 1440px) {
     height: 540px;
   }
   &__list {
-    
-    
     display: flex;
     flex-direction: column;
-    // gap: 1.847vw;
     align-items: center;
     @media screen and (min-width: 1440px) {
       // gap: 41px;
@@ -188,7 +194,9 @@
   }
   &__item {
     display: block;
-    height: 150px;
+    @media screen and (min-width: 768px) {
+      height: 150px;
+    }
   }
   &__wrapper {
     display: flex;
@@ -198,10 +206,15 @@
 
   picture {
     display: block;
-    width: 9vw;
-    height: 9vw;
-    border-radius: 12px;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 6px;
     overflow: hidden;
+    @media screen and (min-width: 768px) {
+      width: 9vw;
+      height: 9vw;
+      border-radius: 12px;
+    }
     @media screen and (min-width: 1440px) {
       width: 147px;
       height: 147px;
@@ -215,16 +228,16 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    @media screen and (min-width: 1440px) {
-      align-items: flex-start;
-    }
     .title {
       color: #000;
       font-family: 'DM Sans';
-      font-size: 1.389vw;
+      font-size: 18px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      @media screen and (min-width: 768px) {
+        font-size: 1.389vw;
+      }
       @media screen and (min-width: 1440px) {
         font-size: 20px;
       }
@@ -235,9 +248,13 @@
       gap: 8px;
     }
     .image {
-      width: 2.361vw;
-      height: 2.361vw;
+      width: 7vw;
+      height: 7vw;
       border-radius: 50%;
+      @media screen and (min-width: 768px) {
+        width: 2.361vw;
+        height: 2.361vw;
+      }
       @media screen and (min-width: 1440px) {
         width: 34px;
         height: 34px;
@@ -254,8 +271,12 @@
     }
     .icon {
       display: inline-block;
-      width: 0.590vw;
-      height: 0.972vw;
+      width: 3vw;
+      height: 4vw;
+      @media screen and (min-width: 768px) {
+        width: 0.590vw;
+        height: 0.972vw;
+      }
       @media screen and (min-width: 1440px) {
         width: 8.531px;
         height: 14px;
@@ -264,10 +285,13 @@
     .bit {
       color: #00AC4F;
       font-family: 'DM Sans';
-      font-size: 0.833vw;
+      font-size: 10px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      @media screen and (min-width: 768px) {
+        font-size: 0.833vw;
+      }
       @media screen and (min-width: 1440px) {
         font-size: 12px;
       }
@@ -275,20 +299,27 @@
     .number {
       color: #757575;
       font-family: 'DM Sans';
-      font-size: 0.972vw;
+      font-size: 12px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      @media screen and (min-width: 768px) {
+        font-size: 0.972vw;
+      }
       @media screen and (min-width: 1440px) {
         font-size: 14px;
       }
     }
     .button {
-      padding: 0.7vw 1.2vw;
-      font-size: 1.2vw;
+      padding: 5px 10px;
+      font-size: 12px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      @media screen and (min-width: 768px) {
+        padding: 0.7vw 1.2vw;
+        font-size: 1.2vw;
+      }
       @media screen and (min-width: 1440px) {
         padding: 14px 20px;
         font-size: 14px;
@@ -305,10 +336,13 @@
   &__title {
     color: #000;
     font-family: 'Archivo Black';
-    font-size: 1.389vw;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    @media screen and (min-width: 768px) {
+      font-size: 1.389vw;
+    }
     @media screen and (min-width: 1440px) {
       font-size: 20px;
     }
@@ -316,21 +350,27 @@
   &__text {
     color: #3D00B7;
     font-family: 'DM Sans';
-    font-size: 1.250vw;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    @media screen and (min-width: 768px) {
+      font-size: 1.250vw;
+    }
     @media screen and (min-width: 1440px) {
       font-size: 18px;
     }
   }
   &__list {
-    margin-top: 0.5vw;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     list-style: none;
     counter-reset: my-counter;
     padding: 0;
+    @media screen and (min-width: 768px) {
+      margin-top: 0.5vw;
+    }
     @media screen and (min-width: 1440px) {
       margin-top: 15px;
     }
@@ -338,7 +378,7 @@
   &__item {
     counter-increment: my-counter;
     position: relative;
-    padding-left: 2.083vw;
+    padding-left: 20px;
 
     opacity: 0;
     transform: translateY(70px);
@@ -357,6 +397,9 @@
     &:nth-child(5) {
       transition: opacity 2500ms ease, transform 2500ms ease;
     }
+    @media screen and (min-width: 768px) {
+      padding-left: 2.083vw;
+    }
     @media screen and (min-width: 1440px) {
       padding-left: 30px;
     }
@@ -373,22 +416,30 @@
       text-align: center;
       color: #000;
       font-family: 'DM Sans';
-      font-size: 1.667vw;
+      font-size: 20px;
       font-style: normal;
       font-weight: 700;
       line-height: 103%;
+      @media screen and (min-width: 768px) {
+        font-size: 1.667vw;
+      }
       @media screen and (min-width: 1440px) {
         font-size: 24px;
       }
     }
     .wrapper {
-      padding-top: 1.111vw;
-      padding-bottom: 1.111vw;
+      padding-top: 10px;
+      padding-bottom: 10px;
       display: flex;
-      gap: 1.736vw;
+      gap: 10px;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #F0F0F0;
+      @media screen and (min-width: 768px) {
+        padding-top: 1.111vw;
+        padding-bottom: 1.111vw;
+        gap: 1.736vw;
+      }
       @media screen and (min-width: 1440px) {
         padding-top: 16px;
         padding-bottom: 16px;
@@ -403,7 +454,12 @@
         right: -0.9vw;
         width: 1.8vw;
         height: 1.8vw;
-        flex-shrink: 0;
+        @media screen and (min-width: 768px) {
+          top: 0px;
+          right: -0.9vw;
+          width: 1.8vw;
+          height: 1.8vw;
+        }
         @media screen and (min-width: 1440px) {
           right: -16px;
           width: 32px;
