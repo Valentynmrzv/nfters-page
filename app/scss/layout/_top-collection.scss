@@ -1,5 +1,8 @@
 .top-collection {
-
+  display: none;
+  @media screen and (min-width: 768px) {
+      display: block;
+    }
   &__wrapper {
     padding-top: 2.083vw;
     display: flex;

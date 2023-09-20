@@ -1,12 +1,15 @@
 // ============================================== HEADER =================================================
 .header{ 
-  position: fixed;
+  border-bottom: 1px solid #EFEFEF;
+  background-color: #FFF;
+  @media screen and (min-width: 768px) {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
-  border-bottom: 1px solid #EFEFEF;
-  background-color: #FFF;
+  }
+  
   &__wrapper {
     padding: 10px;
     display: flex;
@@ -18,10 +21,13 @@
 .logo-link {
   color: #3D00B7;
   font-family: 'Archivo Black';
-  font-size: 1.667vw;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  @media screen and (min-width: 768px) {
+    font-size: 1.667vw;
+  }
   @media screen and (min-width: 1440px) {
     font-size: 24px;
   }
@@ -55,35 +61,52 @@
 }
 .search-form {
     position: relative;
-    width: 300px;
-    transition: all 300ms ease-in-out;
+    width: 120px;
+    transition: width 300ms ease-in-out,
+      transform 300ms ease-in-out;
     pointer-events: none;
+    cursor: pointer;
+    @media screen and (min-width: 768px) {
+      width: 300px;
+    }
     &.active {
-      width: 50%;
+      width: 70%;
+      @media screen and (min-width: 768px) {
+        width: 50%;
+      }
+      
     }
   &__input {
+    padding: 5px 35px 5px 15px;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 3.472vw;
+    height: 30px;
     border-radius: 100px;
     border: 2px solid #EFEFEF;
     outline: none;
     background: #FFF;
-    padding: 0px 45px 0px 20px;
-    transition: all 300ms ease-in-out;
+    transition: width 300ms ease-in-out;
     pointer-events: auto;
+    @media screen and (min-width: 768px) {
+      padding: 0px 45px 0px 20px;
+      width: 100%;
+      height: 3.472vw;
+    }
     @media screen and (min-width: 1440px) {
       height: 50px;
     }
     &::placeholder {
-        color: #C0C0C0;
-        font-family: DM Sans;
+      color: #C0C0C0;
+      font-family: 'DM Sans';
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.64px;
+      @media screen and (min-width: 768px) {
         font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        letter-spacing: 0.64px;
+      }
     }
     &:hover,
     &:focus,
@@ -92,25 +115,35 @@
     }
   }
   &__icon {
-    width: 1.667vw;
-    height: 1.667vw;
+    width: 20px;
+    height: 20px;
     position: absolute;
-    right: 1.389vw;
-    top: 0.833vw;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    @media screen and (min-width: 768px) {
+      width: 1.667vw;
+      height: 1.667vw;
+      position: absolute;
+      right: 1.389vw;
+    }
     @media screen and (min-width: 1440px) {
       width: 24px;
       height: 24px;
       position: absolute;
       right: 20px;
-      top: 12px;
     }
 
   }
 }
 .header-button {
+  display: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   &__list {
     display: flex;
-    gap: 20px;
+    gap: 20px;    
   }
   &__btn {
     font-family: 'DM Sans';

@@ -1,4 +1,8 @@
 .collections {
+  display: none;
+  @media screen and (min-width: 768px) {
+      display: block;
+    }
   &__wrapper {
     display: flex;
     flex-direction: column;

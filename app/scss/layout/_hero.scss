@@ -1,10 +1,15 @@
 // ========================================== HERO =======================================
 .hero {
   &__wrapper {
-    padding: 4vw 0px;
+    padding: 15px 10px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column-reverse;
     align-items: center;
+    @media screen and (min-width: 768px) {
+      padding: 4vw 0px;
+      flex-direction: row;
+      justify-content: space-around;
+    }
     @media screen and (min-width: 1440px) {
       padding: 55px 0px;
     }
@@ -14,7 +19,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 42.500vw;
+  @media screen and (min-width: 768px) {
+    width: 42.500vw;
+  }
   @media screen and (min-width: 1440px) {
     width: 612px;
   }
@@ -22,14 +29,15 @@
   &__title {
     color: #000;
     font-family: 'Archivo Black';
-    // font-size: 2.7vw;
-    font-size: 2vw;
+    font-size: 26px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-transform: uppercase;
+    @media screen and (min-width: 768px) {
+      font-size: 2vw;
+    }
     @media screen and (min-width: 1440px) {
-      // font-size: 40px;
       font-size: 30px;
     }
   }
@@ -37,25 +45,31 @@
     margin-top: 22px;
     color: #565656;
     font-family: 'DM Sans';
-    // font-size: 1.7vw;
-    font-size: 1.4vw;
+  
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 160%;
+    @media screen and (min-width: 768px) {
+      font-size: 1.4vw;
+    }
     @media screen and (min-width: 1440px) {
-      // font-size: 25px;
       font-size: 20px;
     }
   }
   &__btn {
-    // display: none;
-    margin-top: 1vw;
-    padding: 1.389vw 2.778vw;
+    margin-top: 10px;
+    padding: 10px 15px;
     font-family: 'Poppins';
-    font-size: 1.389vw;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    @media screen and (min-width: 768px) {
+      margin-top: 1vw;
+      padding: 1.389vw 2.778vw;
+      font-size: 1.389vw;
+    }
     @media screen and (min-width: 1440px) {
       margin-top: 41px;
       padding: 20px 40px;
@@ -65,17 +79,27 @@
 
   }
   &__list {
-    margin-top: 1.083vw;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     gap: 23px;
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      justify-content: flex-start;
+      margin-top: 1.083vw;
+      width: max-content;
+    }
     @media screen and (min-width: 1440px) {
       margin-top: 30px;
     }
   }
   &__item {
-    width: 7.292vw;
+    width: calc((100% - 20px)/3);
+    @media screen and (min-width: 768px) {
+      width: 7.292vw;
+    }
     @media screen and (min-width: 1440px) {
       width: 105px;
     }
@@ -83,25 +107,29 @@
     .title {
       color: #000;
       font-family: 'Archivo Black';
-      // font-size: 2.7vw;
-      font-size: 2vw;
+      font-size: 24px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
       letter-spacing: 2px;
+      @media screen and (min-width: 768px) {
+        font-size: 2vw;
+      }
       @media screen and (min-width: 1440px) {
-        // font-size: 40px;
         font-size: 30px;
       }
     }
     .text {
       color: #565656;
       font-family: 'DM Sans';
-      font-size: 1.4vw;
+      font-size: 16px;
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
       /* 32px */
+      @media screen and (min-width: 768px) {
+        font-size: 1.4vw;
+      }
       @media screen and (min-width: 1440px) {
         font-size: 20px;
       }
@@ -111,30 +139,32 @@
 }
 // ====================================================
 .live {
-  // width: 24.306vw;
-  // height: 27.083vw;
-  width: 20.306vw;
-  height: 20.083vw;
+  width: 60vw;
+  height: 60vw;
+  @media screen and (min-width: 768px) {
+    width: 20.306vw;
+    height: 20.083vw;
+  }
   @media screen and (min-width: 1440px) {
     width: 350px;
     height: 390px;
   }
-  &__wrapper {
-    // width: 24.306vw;
-    // height: 27.083vw;
-    width: 20.306vw;
-    height: 20.083vw;
+  // &__wrapper {
+  //   width: 20.306vw;
+  //   height: 20.083vw;
   
-    @media screen and (min-width: 1440px) {
-      width: 350px;
-      height: 390px;
-    }
-  }
+  //   @media screen and (min-width: 1440px) {
+  //     width: 350px;
+  //     height: 390px;
+  //   }
+  // }
   &__grid {
     position: absolute;
-    border-radius: 24px;
+    border-radius: 12px;
     overflow: hidden;
-  
+    @media screen and (min-width: 768px) {
+      border-radius: 24px;
+    }
     .image {
       display: block;
       width: 100%;
@@ -152,64 +182,41 @@
   &__title {
     color: #FFF;
     font-family: 'DM Sans';
-    // font-size: 1.944vw;
-    font-size: 1.5vw;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -1.4px;
+    @media screen and (min-width: 768px) {
+      font-size: 1.5vw;
+    }
     @media screen and (min-width: 1440px) {
       font-size: 28px;
     }
   }
 }
-.auction-logo {
-  position: absolute;
-  // top: 17.361vw;
-  // left: -6.250vw;
-  top: 12vw;
-  left: -4vw;
-  z-index: 4;
-  display: block;
-  // width: 9.722vw;
-  // height: 9.722vw;
-  width: 7vw;
-  height: 7vw;
-  border-radius: 50%;
-  animation: spin 30000ms linear infinite;
-  @media screen and (min-width: 1440px) {
-    top: 250px;
-    left: -90px;
-    width: 140px;
-    height: 140px;
-  }
-
-}
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .user {
   &__row {
     display: flex;
     align-items: center;
-    // gap: 1.042vw;
-    gap: 0.5vw;
+    gap: 5px;
+    @media screen and (min-width: 768px) {
+      gap: 0.5vw;
+    }
     @media screen and (min-width: 1440px) {
       gap: 15px;
     }
   }
   &__image {
-    // width: 2.292vw;
-    // height: 2.292vw;
-    width: 1.6vw;
-    height: 1.6vw;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
     border-radius: 50%;
     overflow: hidden;
+    @media screen and (min-width: 768px) {
+      width: 1.6vw;
+      height: 1.6vw;
+    }
     @media screen and (min-width: 1440px) {
       width: 33px;
       height: 33px;
@@ -218,11 +225,13 @@
   &__text {
     color: #FFF;
     font-family: 'DM Sans';
-    // font-size: 1.389vw;
-    font-size: 1.1vw;
+    font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    @media screen and (min-width: 768px) {
+      font-size: 1.1vw;
+    }
     @media screen and (min-width: 1440px) {
       font-size: 20px;
     }
@@ -230,19 +239,22 @@
 }
 .price {
   position: absolute;
-  // left: 1.806vw;
-  // bottom: 1.667vw;
-  // padding: 0.972vw 1.806vw;
-  // width: 20.833vw;
-  // height: 5.125vw;
-  left: 1.3vw;
-  bottom: 1.3vw;
+  left: 7.5vw;
+  bottom: 4vw;
   padding: 0.972vw 1.806vw;
-  width: 18vw;
-  height: 4.8vw;
-  border-radius: 12px;
+  width: 46vw;
+  height: 12vw;
+  border-radius: 6px;
   background: rgba(137, 137, 137, 0.2);
   backdrop-filter: blur(25px);
+  @media screen and (min-width: 768px) {
+    left: 1.3vw;
+    bottom: 1.3vw;
+    padding: 0.972vw 1.806vw;
+    width: 18vw;
+    height: 4.8vw;
+    border-radius: 12px;
+  }
   @media screen and (min-width: 1440px) {
     left: 26px;
     bottom: 24px;
@@ -310,15 +322,46 @@
     }
   }
 }
+.auction-logo {
+  position: absolute;
+  top: 12vw;
+  left: -4vw;
+  z-index: 4;
+  display: block;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  animation: spin 30000ms linear infinite;
+
+  @media screen and (min-width: 1440px) {
+    top: 250px;
+    left: -90px;
+    width: 140px;
+    height: 140px;
+  }
+
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 // ================================ hero-advantage ===========================================
 .hero-advantage {
+  display: none;
+  
+  
   position: relative;
   padding: 20px 20px 20px 20px;
-  display: flex;
   flex-direction: row;
   gap: 10vw;
   justify-content: space-around;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
   @media screen and (min-width: 1440px) {
     gap: 56px;
   }
