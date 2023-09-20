@@ -6,7 +6,7 @@
     flex-direction: column-reverse;
     align-items: center;
     gap: 24px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       padding: 4vw 0px;
       flex-direction: row;
       justify-content: space-around;
@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     width: 42.500vw;
     align-items: flex-start;
     gap: 0;
@@ -39,7 +39,7 @@
     font-weight: 400;
     line-height: normal;
     text-transform: uppercase;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       font-size: 2vw;
     }
     @media screen and (min-width: 1440px) {
@@ -55,7 +55,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 160%;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       font-size: 1.4vw;
     }
     @media screen and (min-width: 1440px) {
@@ -70,7 +70,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       margin-top: 1vw;
       padding: 1.389vw 2.778vw;
       font-size: 1.389vw;
@@ -91,7 +91,7 @@
     align-items: center;
     gap: 23px;
     width: 100%;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       justify-content: flex-start;
       margin-top: 1.083vw;
       width: max-content;
@@ -102,7 +102,7 @@
   }
   &__item {
     width: calc((100% - 20px)/3);
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       width: 7.292vw;
     }
     @media screen and (min-width: 1440px) {
@@ -117,7 +117,7 @@
       font-weight: 400;
       line-height: normal;
       letter-spacing: 2px;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         font-size: 2vw;
       }
       @media screen and (min-width: 1440px) {
@@ -132,7 +132,7 @@
       font-weight: 400;
       line-height: 160%;
       /* 32px */
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         font-size: 1.4vw;
       }
       @media screen and (min-width: 1440px) {
@@ -146,7 +146,7 @@
 .live {
   width: 60vw;
   height: 60vw;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     width: 20.306vw;
     height: 20.083vw;
   }
@@ -167,7 +167,7 @@
     position: absolute;
     border-radius: 12px;
     overflow: hidden;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       border-radius: 12px;
     }
     @media screen and (min-width: 1440px) {
@@ -195,7 +195,7 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: -1.4px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       font-size: 1.5vw;
     }
     @media screen and (min-width: 1440px) {
@@ -208,7 +208,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       gap: 0.5vw;
     }
     @media screen and (min-width: 1440px) {
@@ -221,7 +221,7 @@
     flex-shrink: 0;
     border-radius: 50%;
     overflow: hidden;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       width: 1.6vw;
       height: 1.6vw;
     }
@@ -237,7 +237,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       font-size: 1.1vw;
     }
     @media screen and (min-width: 1440px) {
@@ -257,7 +257,7 @@
   border-radius: 6px;
   background: rgba(137, 137, 137, 0.2);
   backdrop-filter: blur(25px);
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     left: 1.3vw;
     bottom: 1.3vw;
     padding: 0.972vw 1.806vw;
@@ -285,7 +285,7 @@
     span {
       position: relative;
       width: 70px;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         width: 7.639vw;
       }
       @media screen and (min-width: 1440px) {
@@ -305,7 +305,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       font-size: 0.833vw;
     }
     @media screen and (min-width: 1440px) {
@@ -315,7 +315,7 @@
   &__icon {
     width: 8px;
     height: 14px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       width: 0.903vw;
       height: 1.458vw;
     }
@@ -333,7 +333,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       font-size: 1.111vw;
     }
     @media screen and (min-width: 1440px) {
@@ -357,7 +357,7 @@
   border-radius: 50%;
   animation: spin 30000ms linear infinite;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     top: 12vw;
     left: -4vw;
     width: 7vw;
@@ -388,7 +388,7 @@
   gap: 10px;
   justify-content: space-around;
   align-items: center;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     padding: 20px;
     flex-direction: row;
     gap: 10vw;
@@ -409,7 +409,7 @@
     // width: 100%;
     height: 100%;
     background: rgba(217, 224, 236, 0.20);
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       width: 98vw;
     }
   }
@@ -427,7 +427,7 @@
     opacity: 0;
     transform: translateX(-30%);
     transition: transform 1500ms ease, opacity 1500ms ease;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       width: 27.639vw;
       font-size: 1.944vw;
     }
@@ -442,7 +442,7 @@
     justify-content: center;
     gap: 10px;
     width: 100%;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       flex-direction: row;
       align-items: flex-start;
       gap: 56px;
@@ -456,7 +456,7 @@
     gap: 12px;
     position: relative;
     width: 100%;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       padding: 0;
       width: calc((100% - 56px)/ 2);
     }
@@ -468,7 +468,7 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         font-size: 1.389vw;
       }
       @media screen and (min-width: 1440px) {
@@ -483,7 +483,7 @@
       font-weight: 400;
       line-height: 160%;
       /* 22.4px */
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         width: 24vw;
         font-size: 0.972vw;
       }
@@ -498,7 +498,7 @@
       left: 0px;
       width: 20px;
       height: 20px;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         top: 0px;
         left: -3.542vw;
         width: 2.5vw;

@@ -1,5 +1,5 @@
 .top-collection {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
       display: block;
     }
   &__wrapper {
@@ -9,7 +9,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 6vw;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       flex-direction: row;
     }
     @media screen and (min-width: 1440px) {
@@ -22,7 +22,7 @@
 // ========================== selected-content ===============================
 .selected-content {
   display: none;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -178,7 +178,7 @@
 .content {
   height: 100vw;
   overflow: hidden;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 760px) {
     height: 32vw;
   }
   @media screen and (min-width: 1440px) {
@@ -194,7 +194,7 @@
   }
   &__item {
     display: block;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       height: 150px;
     }
   }
@@ -210,7 +210,7 @@
     height: 30vw;
     border-radius: 6px;
     overflow: hidden;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       width: 9vw;
       height: 9vw;
       border-radius: 12px;
@@ -235,7 +235,7 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         font-size: 1.389vw;
       }
       @media screen and (min-width: 1440px) {
@@ -251,7 +251,7 @@
       width: 7vw;
       height: 7vw;
       border-radius: 50%;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         width: 2.361vw;
         height: 2.361vw;
       }
@@ -273,7 +273,7 @@
       display: inline-block;
       width: 3vw;
       height: 4vw;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         width: 0.590vw;
         height: 0.972vw;
       }
@@ -289,7 +289,7 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         font-size: 0.833vw;
       }
       @media screen and (min-width: 1440px) {
@@ -303,7 +303,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         font-size: 0.972vw;
       }
       @media screen and (min-width: 1440px) {
@@ -316,7 +316,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         padding: 0.7vw 1.2vw;
         font-size: 1.2vw;
       }
@@ -330,9 +330,15 @@
 
 // ================================= TOP =================================
 .top {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media screen and (min-width: 760px) {
+    padding: 0;
+    width: max-content;
+  }
+  width: 100%;
   &__title {
     color: #000;
     font-family: 'Archivo Black';
@@ -340,7 +346,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       font-size: 1.389vw;
     }
     @media screen and (min-width: 1440px) {
@@ -354,7 +360,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       font-size: 1.250vw;
     }
     @media screen and (min-width: 1440px) {
@@ -365,11 +371,13 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+    width: 100%;
     list-style: none;
     counter-reset: my-counter;
     padding: 0;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       margin-top: 0.5vw;
+      width: max-content;
     }
     @media screen and (min-width: 1440px) {
       margin-top: 15px;
@@ -397,7 +405,7 @@
     &:nth-child(5) {
       transition: opacity 2500ms ease, transform 2500ms ease;
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 760px) {
       padding-left: 2.083vw;
     }
     @media screen and (min-width: 1440px) {
@@ -420,7 +428,7 @@
       font-style: normal;
       font-weight: 700;
       line-height: 103%;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         font-size: 1.667vw;
       }
       @media screen and (min-width: 1440px) {
@@ -435,7 +443,7 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #F0F0F0;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 760px) {
         padding-top: 1.111vw;
         padding-bottom: 1.111vw;
         gap: 1.736vw;
@@ -454,7 +462,7 @@
         right: -0.9vw;
         width: 1.8vw;
         height: 1.8vw;
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 760px) {
           top: 0px;
           right: -0.9vw;
           width: 1.8vw;
@@ -469,10 +477,13 @@
     }
     .image {
       display: block;
-      width: 3.5vw;
-      height: 3.5vw;
-      flex-shrink: 0;
-      border-radius: 60px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      @media screen and (min-width: 760px) {
+        width: 3.5vw;
+        height: 3.5vw;
+      }
       @media screen and (min-width: 1440px) {
         width: 60px;
         height: 60px;
@@ -490,10 +501,13 @@
     .name {
       color: #000;
       font-family: 'DM Sans';
-      font-size: 1.111vw;
+      font-size: 14px;
       font-style: normal;
       font-weight: 900;
       line-height: 103%;
+      @media screen and (min-width: 760px) {
+        font-size: 1.111vw;
+      }
       @media screen and (min-width: 1440px) {
         font-size: 16px;
       }
@@ -505,20 +519,26 @@
       gap: 6px;
       color: #636363;
       font-family: 'Poppins';
-      font-size: 0.972vw;
+      font-size: 14px;
       font-style: normal;
       font-weight: 600;
       line-height: 103%;
       /* 14.42px */
       letter-spacing: -0.35px;
+      @media screen and (min-width: 760px) {
+        font-size: 0.972vw;
+      }
       @media screen and (min-width: 1440px) {
         font-size: 14px;
       }
     }
     .icon {
-      width: 1.042vw;
-      height: 1.667vw;
-   
+      width: 10px;
+      height: 15px;
+      @media screen and (min-width: 760px) {
+        width: 1.042vw;
+        height: 1.667vw;
+      }
       @media screen and (min-width: 1440px) {
         width: 15px;
         height: 24px;
@@ -528,12 +548,15 @@
       color: #14C8B0;
       text-align: right;
       font-family: 'Poppins';
-      font-size: 1.389vw;
+      font-size: 14px;
       font-style: normal;
       font-weight: 600;
       line-height: 103%;
       /* 20.6px */
       letter-spacing: -0.5px;
+      @media screen and (min-width: 760px) {
+        font-size: 1.389vw;
+      }
       @media screen and (min-width: 1440px) {
         font-size: 20px;
       }
