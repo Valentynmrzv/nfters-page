@@ -146,8 +146,10 @@
   }
   &__button {
     padding: 1.3vw 2.6vw;
+    font-size: 1.389vw;
     @media screen and (min-width: 1440px) {
       padding: 20px 40px;
+      font-size: 20px;
     }
   }
 }
