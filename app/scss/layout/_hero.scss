@@ -32,8 +32,8 @@
   }
 
   &__title {
-    color: #000;
-    font-family: 'Archivo Black';
+    color: var(--title-text-color);
+    font-family: var(--title-font-family);
     font-size: 26px;
     font-style: normal;
     font-weight: 400;
@@ -48,8 +48,8 @@
   }
   &__text {
     margin-top: 22px;
-    color: #565656;
-    font-family: 'DM Sans';
+    color: var(--primary-text-color);
+    font-family: var(--text-font-family);
   
     font-size: 20px;
     font-style: normal;
@@ -110,8 +110,8 @@
     }
 
     .title {
-      color: #000;
-      font-family: 'Archivo Black';
+      color: var(--title-text-color);
+      font-family: var(--title-font-family);
       font-size: 24px;
       font-style: normal;
       font-weight: 400;
@@ -125,8 +125,8 @@
       }
     }
     .text {
-      color: #565656;
-      font-family: 'DM Sans';
+      color: var(--primary-text-color);
+      font-family: var(--text-font-family);
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
@@ -139,7 +139,6 @@
         font-size: 20px;
       }
     }
-    
   }
 }
 // ====================================================
@@ -154,15 +153,6 @@
     width: 350px;
     height: 390px;
   }
-  // &__wrapper {
-  //   width: 20.306vw;
-  //   height: 20.083vw;
-  
-  //   @media screen and (min-width: 1440px) {
-  //     width: 350px;
-  //     height: 390px;
-  //   }
-  // }
   &__grid {
     position: absolute;
     border-radius: 12px;
@@ -188,8 +178,8 @@
     gap: 9px;
   }
   &__title {
-    color: #FFF;
-    font-family: 'DM Sans';
+    color: var(--text-color-light);
+    font-family: var(--text-font-family);
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -231,8 +221,8 @@
     }
   }
   &__text {
-    color: #FFF;
-    font-family: 'DM Sans';
+    color: var(--text-color-light);
+    font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -299,8 +289,8 @@
     gap: 10px;
   }
   &__text {
-    color: #FFF;
-    font-family: 'DM Sans';
+    color: var(--text-color-light);
+    font-family: var(--text-font-family);
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -325,10 +315,8 @@
     }
   }
   &__eth {
-    top: 0;
-    left: 0;
-    color: #FFF;
-    font-family: 'DM Sans';
+    color: var(--text-color-light);
+    font-family: var(--text-font-family);
     font-size: 10px;
     font-style: normal;
     font-weight: 700;
@@ -356,23 +344,19 @@
   height: 25vw;
   border-radius: 50%;
   animation: spin 30000ms linear infinite;
-
   @media screen and (min-width: 760px) {
     top: 12vw;
     left: -4vw;
     width: 7vw;
     height: 7vw;
   }
-
   @media screen and (min-width: 1440px) {
     top: 250px;
     left: -90px;
     width: 140px;
     height: 140px;
   }
-
 }
-
 @keyframes spin {
   100% {
     -webkit-transform: rotate(360deg);
@@ -406,7 +390,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    // width: 100%;
     height: 100%;
     background: rgba(217, 224, 236, 0.20);
     @media screen and (min-width: 760px) {
@@ -416,8 +399,8 @@
 
   &__title {
     width: 100%;
-    color: #000;
-    font-family: 'Archivo Black';
+    color: var(--title-text-color);
+    font-family: var(--title-font-family);
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -462,8 +445,8 @@
     }
 
     .title {
-      color: #000;
-      font-family: 'DM Sans';
+      color: var(--text-color-dark);
+      font-family: var(--text-font-family);
       font-size: 14px;
       font-style: normal;
       font-weight: 700;
@@ -476,8 +459,8 @@
       }
     }
     .text {
-      color: #696969;
-      font-family: 'DM Sans';
+      color: var(--primary-text-color);
+      font-family: var(--text-font-family);
       font-size: 12px;
       font-style: normal;
       font-weight: 400;

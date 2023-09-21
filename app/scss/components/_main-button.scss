@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 60px;
-  
-  border: 1px solid #3D00B7;
+  font-family: 'Poppins';
+  border: 1px solid var(--accent-color);
   text-align: center;
   cursor: pointer;
   transition: 700ms;
@@ -38,11 +38,11 @@
     transform: translateX(-100px) skewX(-15deg);
   }
   &--light {
-    background-color: #FFF;
-    color: #3D00B7;
+    background-color: var(--primary-bg);
+    color: var(--accent-color);
     &:hover {
-      background-color: #3D00B7;
-      color: #ffffff;
+      background-color: var(--accent-color);
+      color: var(--text-color-light);
       &::before {
         transform: translateX(300px) skewX(-15deg);
         opacity: 0.6;
@@ -56,11 +56,11 @@
     }
   }
   &--dark {
-    background-color: #3D00B7;
-    color: #FFF;
+    background-color: var(--accent-color);
+    color: var(--text-color-light);
     &:hover {
-      background-color: #ffffff;
-      color: #3d00b7;
+      background-color: var(--primary-bg);
+      color: var(--accent-color);
       &::before {
         transform: translateX(300px) skewX(-15deg);
         opacity: 0.6;

@@ -1,44 +1,64 @@
 .sign-up {
   padding: 25px;
-  display: none;
-  @media screen and (min-width: 760px) {
-    display: block;
-  }
 
   &__wrapper {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     justify-content: space-between;
+    width: 100%;
   }
 }
-
 .example {
-  width: 42vw;
-  height: 42vw;
-  flex-grow: 1;
+  width: 50%;
+  height: 100%;
+  @media screen and (min-width: 760px) {
+    position: relative;
+    width: 42vw;
+    height: 42vw;
+  }
   @media screen and (min-width: 1440px) {
     width: 606px;
     height: 606px;
   }
   &__list {
     position: relative;
-    width: 42vw;
-    height: 42vw;
-  
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    @media screen and (min-width: 760px) {
+      width: 42vw;
+      height: 42vw;
+    }
     @media screen and (min-width: 1440px) {
       width: 606px;
       height: 606px;
     }
   }
   &__item {
-    position: absolute;
+    position: static;
     opacity: 0;
+    @media screen and (min-width: 760px) {
+      position: absolute;
+    }
     &.big {
       top: 0;
       left: 0;
-      width: 20vw;
-      height: 20vw;
+      width: 30vw;
+      height: 30vw;
       transform: translateX(-100px);
+      @media screen and (min-width: 760px) {
+        width: 20vw;
+        height: 20vw;
+      }
+      @media screen and (min-width: 760px) {
+        top: 0;
+        left: 0;
+      }
       @media screen and (min-width: 1440px) {
         width: 300px;
         height: 300px;
@@ -53,9 +73,13 @@
     &.medium {
       top: 9.5vw;
       right: 0;
-      width: 16vw;
-      height: 16vw;
+      width: 30vw;
+      height: 30vw;
       transform: translateX(100px);
+      @media screen and (min-width: 760px) {
+        width: 16vw;
+        height: 16vw;
+      }
       @media screen and (min-width: 1440px) {
         top: 138px;
         width: 240px;
@@ -71,10 +95,13 @@
     &.small {
       left: 7.292vw;
       bottom: 2.778vw;
-      width: 13vw;
-      height: 13vw;
+      width: 30vw;
+      height: 30vw;
       transform: translateY(100px);
-    
+      @media screen and (min-width: 760px) {
+        width: 13vw;
+        height: 13vw;
+        }
       @media screen and (min-width: 1440px) {
         left: 105px;
         bottom: 40px;
@@ -106,8 +133,12 @@
     border-radius: 50%;
     border: 1px solid #FFF;
     overflow: hidden;
-    width: 4vw;
-    height: 4vw;
+    width: 40px;
+    height: 40px;
+    @media screen and (min-width: 760px) {
+      width: 4vw;
+      height: 4vw;
+    }
     @media screen and (min-width: 1440px) {
       width: 80px;
       height: 80px;
@@ -117,11 +148,15 @@
   }
 }
 .sign-up-text {
-  width: 35vw;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 2.2vw;
+  @media screen and (min-width: 760px) {
+    width: 35vw;
+    align-items: flex-start;
+  }
   @media screen and (min-width: 1440px) {
     width: 517px;
     gap: 32px;
@@ -129,28 +164,40 @@
   &__title {
     color: #000;
     font-family: "Archivo Black";
-    font-size: 2.222vw;
+    font-size: 26px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    text-align: center;
+    @media screen and (min-width: 760px) {
+      font-size: 2.222vw;
+      text-align: start;
+    }
     @media screen and (min-width: 1440px) {
       font-size: 32px;
     }
   }
   &__text {
     color: #636363;
-    font-family: DM Sans;
-    font-size: 1.250vw;
+    font-family: 'DM Sans';
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 160%;
+    @media screen and (min-width: 760px) {
+      font-size: 1.250vw;
+    }
     @media screen and (min-width: 1440px) {
       font-size: 18px;
     }
   }
   &__button {
-    padding: 1.3vw 2.6vw;
-    font-size: 1.389vw;
+    padding: 10px 15px;
+    font-size: 16px;
+    @media screen and (min-width: 760px) {
+      padding: 1.3vw 2.6vw;
+      font-size: 1.389vw;
+    }
     @media screen and (min-width: 1440px) {
       padding: 20px 40px;
       font-size: 20px;

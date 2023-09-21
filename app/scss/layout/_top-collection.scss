@@ -54,7 +54,7 @@
     display: block;
     width: 24vw;
     height: 26vw;
-    border-radius: 24px;
+    border-radius: 12px;
     overflow: hidden;
     object-fit: cover;
     perspective: 50rem;
@@ -63,6 +63,7 @@
     @media screen and (min-width: 1440px) {
       width: 400px;
       height: 424px;
+      border-radius: 24px;
     }
     img {
       height: 100%;
@@ -73,14 +74,19 @@
 .info { 
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
 
-  border-radius: 12px;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(25px);
   transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) translate3d(0, 0, 6rem) ;
+  @media screen and (min-width: 1440px) {
+    padding: 10px;
+    gap: 20px;
+    border-radius: 12px;
+  }
   &__inner {
     position: absolute;
     bottom: 10px;
@@ -333,12 +339,12 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   @media screen and (min-width: 760px) {
     padding: 0;
+    align-items: flex-start;
     width: max-content;
   }
-  width: 100%;
   &__title {
     color: #000;
     font-family: 'Archivo Black';
@@ -439,7 +445,7 @@
       padding-top: 10px;
       padding-bottom: 10px;
       display: flex;
-      gap: 10px;
+      gap: 20px;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #F0F0F0;

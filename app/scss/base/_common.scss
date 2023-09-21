@@ -5,8 +5,9 @@
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--text-font-family), sans-serif;
     font-style: normal;
+    background-color: var(--bg-color);
 
 }
 img {

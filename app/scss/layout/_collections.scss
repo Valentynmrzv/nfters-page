@@ -1,20 +1,27 @@
 .collections {
-  display: none;
+  background-color: rgba(217, 224, 236, 0.20);
+  padding: 25px 0px;
   @media screen and (min-width: 760px) {
-      display: block;
-    }
+    padding: 50px 0px;
+  }
   &__wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    @media screen and (min-width: 760px) {
+      align-items: flex-start;
+    }
   }
   &__title {
     color: #000;
     font-family: 'Archivo Black';
-    font-size: 1.944vw;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    @media screen and (min-width: 760px) {
+      font-size: 1.944vw;
+    }
     @media screen and (min-width: 1440px) {
       font-size: 28px;
     }
@@ -24,10 +31,13 @@
     margin-top: 2vw;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     gap: 20px;
+    @media screen and (min-width: 760px) {
+      flex-direction: row;
+      justify-content: space-around;
+    }
     @media screen and (min-width: 1440px) {
       margin-top: 30px;
     }
@@ -43,10 +53,13 @@
     margin-top: 1vw;
     color: #000;
     font-family: 'DM Sans';
-    font-size: 1.1vw;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    @media screen and (min-width: 760px) {
+      font-size: 1.1vw;
+    }
     @media screen and (min-width: 1440px) {
       margin-top: 30px;
     }
@@ -67,9 +80,13 @@
   }
   &__user-img {
     display: block;
-    width: 1.7vw;
-    height: 1.7vw;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
+    @media screen and (min-width: 760px) {
+      width: 1.7vw;
+      height: 1.7vw;
+    }
     @media screen and (min-width: 1440px) {
       width: 28px;
       height: 28px;
@@ -79,21 +96,28 @@
     display: flex;
     color: #000;
     font-family: 'DM Sans';
-    font-size: 1vw;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    @media screen and (min-width: 760px) {
+      font-size: 1vw;
+    }
     @media screen and (min-width: 1440px) {
       font-size: 14px;
     }
   }
   &__button {
-    padding: 0.5vw 1vw;
+    padding: 10px 15px;
     font-family: 'DM Sans';
-    font-size: 0.8vw;
+    font-size: 11px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    @media screen and (min-width: 760px) {
+      padding: 0.5vw 1vw;
+      font-size: 0.8vw;
+    }
     @media screen and (min-width: 1440px) {
       padding: 10px 20px;
       font-size: 11px;
@@ -102,24 +126,33 @@
 }
 
 .collections-big {
-  width: 18.403vw;
-  height: 18.889vw;
-  border-radius: 11.001px;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 6px;
   overflow: hidden;
+  pointer-events: none;
+  @media screen and (min-width: 760px) {
+    width: 18.403vw;
+    height: 18.889vw;
+    border-radius: 11.001px;
+  }
   @media screen and (min-width: 1440px) {
     width: 265px;
     height: 272px;
   }
-  &__wrapper {
-    display: block;
-    width: 18.403vw;
-    height: 18.889vw;
-  }
+  // &__wrapper {
+  //   display: block;
+  //   width: 18.403vw;
+  //   height: 18.889vw;
+  // }
   &__slide {
-    width: 18.403vw;
-    height: 18.889vw;
-    border-radius: 11.001px;
+    // width: 18.403vw;
+    // height: 18.889vw;
+    border-radius: 6px;
     overflow: hidden;
+    @media screen and (min-width: 760px) {
+      border-radius: 11.001px;
+    }
     .image {
       img {
         height: 100%;
@@ -128,29 +161,36 @@
   }
 }
 .collections-small {
-  width: 7.153vw;
-  height: 18.889vw;
+  width: 20vw;
+  height: 50vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  @media screen and (min-width: 760px) {
+    width: 7.153vw;
+    height: 18.889vw;
+  }
   @media screen and (min-width: 1440px) {
     width: 103px;
     height: 272px;
   }
-  &__wrapper {
-    width: 7.153vw;
-    height: 18.889vw;
-    border-radius: 11.001px;
-    @media screen and (min-width: 1440px) {
-      width: 103px;
-      height: 272px;
-    }
-  }
+  // &__wrapper {
+  //   width: 7.153vw;
+  //   height: 18.889vw;
+  //   border-radius: 6px;
+  //   @media screen and (min-width: 1440px) {
+  //     width: 103px;
+  //     height: 272px;
+  //   }
+  // }
   &__slide {
     height: calc((100% - 32px)/3);
-    border-radius: 11.001px;
+    border-radius: 6px;
     overflow: hidden;
+    @media screen and (min-width: 1440px) {
+      border-radius: 11.001px;
+    }
   }
 }
 .collections-small__slide {
