@@ -1,25 +1,78 @@
+// document.addEventListener('DOMContentLoaded', function () {
+//   fetch('./nft/content.json')
+//     .then(response => response.json())
+//     .then(data => {
+//       const userCounts = {};
+
+//       data.forEach(item => {
+//         const userName = item.userName;
+//         if (userName in userCounts) {
+//           userCounts[userName]++;
+//         } else {
+//           userCounts[userName] = 1;
+//         }
+//       });
+
+//       const topUsers = Object.entries(userCounts)
+//         .sort((a, b) => b[1] - a[1])
+//         .slice(0, 3);
+
+//       const collectionsList = document.querySelector('.collections__list');
+
+//       topUsers.forEach(([userName, count]) => {
+//         const liElement = document.createElement('li');
+//         liElement.classList.add('collections__item');
+
+//         const userItems = data.filter(item => item.userName === userName).slice(0, 3);
+
+//         const userImageSrc = userItems[0].userImageSrc;
+
+//         liElement.innerHTML = `
+//         <div class="collections__grid">
+//           <div class="collections-big" id="collections-swiper-big-${userName}">
+//             <div class="collections-big__wrapper swiper-wrapper">
+//             </div>
+//           </div>
+//           <div thumbsSlider="" class="collections-small" id="collections-swiper-small-${userName}">
+//             <div class="collections-small__wrapper swiper-wrapper">
+//             </div>
+//           </div>
+//         </div>
+//         <h4 class="collections__subtitle">Amazing Collection</h4>
+//         <div class="collections__inner">
+//           <span>
+//             <img src="${userImageSrc}" alt="" class="collections__user-img">
+//             <p class="collections__text">
+//               By&nbsp;
+//               <span class="collections__name">${userName}</span>
+//             </p>
+//           </span>
+//           <button class="collections__button main-btn main-btn--light">
+//             Total&nbsp;
+//             <span class="collections__quantity">${count}</span>&nbsp;Items
+//           </button>
+//         </div>
+//       `;
+
+//         collectionsList.appendChild(liElement);
+
+//         collectionsSwiper(userName, userItems);
+//       });
+//     })
+//     .catch(error => {
+//       console.error('Error read:', error);
+//     });
 document.addEventListener('DOMContentLoaded', function () {
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {
-      const userCounts = {};
+      const uniqueUsers = [...new Set(data.map(item => item.userName))];
 
-      data.forEach(item => {
-        const userName = item.userName;
-        if (userName in userCounts) {
-          userCounts[userName]++;
-        } else {
-          userCounts[userName] = 1;
-        }
-      });
-
-      const topUsers = Object.entries(userCounts)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 3);
+      const randomUsers = getRandomUsers(uniqueUsers, 3);
 
       const collectionsList = document.querySelector('.collections__list');
 
-      topUsers.forEach(([userName, count]) => {
+      randomUsers.forEach(userName => {
         const liElement = document.createElement('li');
         liElement.classList.add('collections__item');
 
@@ -27,32 +80,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const userImageSrc = userItems[0].userImageSrc;
 
+        const userTotalItems = data.filter(item => item.userName === userName).length;
         liElement.innerHTML = `
-        <div class="collections__grid">
-          <div class="collections-big" id="collections-swiper-big-${userName}">
-            <div class="collections-big__wrapper swiper-wrapper">
+          <div class="collections__grid">
+            <div class="collections-big" id="collections-swiper-big-${userName}">
+              <div class="collections-big__wrapper swiper-wrapper">
+              </div>
+            </div>
+            <div thumbsSlider="" class="collections-small" id="collections-swiper-small-${userName}">
+              <div class="collections-small__wrapper swiper-wrapper">
+              </div>
             </div>
           </div>
-          <div thumbsSlider="" class="collections-small" id="collections-swiper-small-${userName}">
-            <div class="collections-small__wrapper swiper-wrapper">
-            </div>
+          <h4 class="collections__subtitle">Amazing Collection</h4>
+          <div class="collections__inner">
+            <span>
+              <img src="${userImageSrc}" alt="" class="collections__user-img">
+              <p class="collections__text">
+                By&nbsp;
+                <span class="collections__name">${userName}</span>
+              </p>
+            </span>
+            <button class="collections__button main-btn main-btn--light">
+              Total&nbsp;
+              <span class="collections__quantity">${userTotalItems}</span>&nbsp;Items
+            </button>
           </div>
-        </div>
-        <h4 class="collections__subtitle">Amazing Collection</h4>
-        <div class="collections__inner">
-          <span>
-            <img src="${userImageSrc}" alt="" class="collections__user-img">
-            <p class="collections__text">
-              By&nbsp;
-              <span class="collections__name">${userName}</span>
-            </p>
-          </span>
-          <button class="collections__button main-btn main-btn--light">
-            Total&nbsp;
-            <span class="collections__quantity">${count}</span>&nbsp;Items
-          </button>
-        </div>
-      `;
+        `;
 
         collectionsList.appendChild(liElement);
 
@@ -60,8 +114,21 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     })
     .catch(error => {
-      console.error('Произошла ошибка при загрузке данных:', error);
+      console.error('Error read:', error);
     });
+
+  function getRandomUsers(arr, num) {
+    const shuffled = arr.slice();
+    let i = arr.length;
+    const min = i - num;
+    while (i-- > min) {
+      const index = Math.floor((i + 1) * Math.random());
+      const temp = shuffled[index];
+      shuffled[index] = shuffled[i];
+      shuffled[i] = temp;
+    }
+    return shuffled.slice(min);
+  }
 
   // =========================================== COLLECTION SLIDER===================================
   function collectionsSwiper(userName, userItems) {

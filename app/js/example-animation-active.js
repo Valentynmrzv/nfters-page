@@ -1,18 +1,20 @@
 function handleIntersection(entries, observer) {
-  entries.forEach((entry) => {
-    const target = entry.target;
+  const isAnyElementVisible = entries.some((entry) => entry.isIntersecting);
 
-    if (entry.isIntersecting) {
-      target.classList.add('active');
-    } else {
-      target.classList.remove('active');
-    }
-  });
+  if (isAnyElementVisible) {
+    items.forEach((item) => {
+      item.classList.add('active');
+    });
+  } else {
+    items.forEach((item) => {
+      item.classList.remove('active');
+    });
+  }
 }
 
 const observer = new IntersectionObserver(handleIntersection, {
   root: null,
-  rootMargin: '80px',
+  rootMargin: '100px',
   threshold: 0.5,
 });
 

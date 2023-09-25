@@ -50,10 +50,10 @@
       "./images/nft-4.jpg 1x, ./images/nft-4@2x.jpg 2x"
     ],
     "nftName": "Qxswd Artis",
-    "userImageSrc": "./images/user-live-4.jpg", 
+    "userImageSrc": "./images/user-live-3.jpg", 
     "bitValue": "2.33 ETH",
     "stock": "4 of 7",
-    "userName": "Sem12"
+    "userName": "PitY"
   },
   {
     "id": 5,
@@ -179,7 +179,7 @@
     "userImageSrc": "./images/user-live-4.jpg",
     "bitValue": "0.65 ETH",
     "stock": "5 of 9",
-    "userName": "Frank"
+    "userName": "Sem12"
   },
   {
     "id": 14,
@@ -193,7 +193,7 @@
     "userImageSrc": "./images/user-live-5.jpg",
     "bitValue": "2.25 ETH",
     "stock": "7 of 9",
-    "userName": "Grace"
+    "userName": "Retd"
   },
   {
     "id": 15,
@@ -305,7 +305,7 @@
     "userImageSrc": "./images/user-live-4.jpg",
     "bitValue": "1.1 ETH",
     "stock": "4 of 6",
-    "userName": "Kurt"
+    "userName": "Sem12"
   },
   {
     "id": 23,
@@ -319,7 +319,7 @@
     "userImageSrc": "./images/user-live-5.jpg",
     "bitValue": "2.0 ETH",
     "stock": "6 of 8",
-    "userName": "Nina"
+    "userName": "Retd"
   },
   {
     "id": 24,
@@ -428,10 +428,10 @@
       "./images/nft-31.jpg 1x, ./images/nft-31@2x.jpg 2x"
     ],
     "nftName": "Pqrst Art",
-    "userImageSrc": "./images/user-live-4.jpg",
+    "userImageSrc": "./images/user-live-3.jpg",
     "bitValue": "1.25 ETH",
     "stock": "3 of 5",
-    "userName": "Lana"
+    "userName": "PitY"
   },
   {
     "id": 32,
@@ -442,10 +442,10 @@
       "./images/nft-32.jpg 1x, ./images/nft-32@2x.jpg 2x"
     ],
     "nftName": "Rstuv Art",
-    "userImageSrc": "./images/user-live-5.jpg",
+    "userImageSrc": "./images/user-live-3.jpg",
     "bitValue": "2.0 ETH",
     "stock": "4 of 6",
-    "userName": "Kurt"
+    "userName": "PitY"
   },
   {
     "id": 33,
@@ -540,10 +540,10 @@
       "./images/nft-39.jpg 1x, ./images/nft-39@2x.jpg 2x"
     ],
     "nftName": "Zwxvu Art",
-    "userImageSrc": "./images/user-live-3.jpg",
+    "userImageSrc": "./images/user-live-7.jpg",
     "bitValue": "2.2 ETH",
     "stock": "4 of 8",
-    "userName": "Grace"
+    "userName": "Gfdr"
   },
   {
     "id": 40,
@@ -557,7 +557,7 @@
     "userImageSrc": "./images/user-live-4.jpg",
     "bitValue": "1.0 ETH",
     "stock": "5 of 9",
-    "userName": "Hank"
+    "userName": "Sem12"
   },
   {
     "id": 41,
@@ -571,7 +571,7 @@
     "userImageSrc": "./images/user-live-5.jpg",
     "bitValue": "1.25 ETH",
     "stock": "3 of 5",
-    "userName": "Lana"
+    "userName": "Retd"
   },
   {
     "id": 42,
@@ -1380,10 +1380,10 @@
       "./images/nft-99.jpg 1x, ./images/nft-99@2x.jpg 2x"
     ],
     "nftName": "Xyz Abstr",
-    "userImageSrc": "./images/user-live-9.jpg", 
+    "userImageSrc": "./images/user-live-8.jpg", 
     "bitValue": "0.45 ETH",
     "stock": "2 of 5",
-    "userName": "Charlie"
+    "userName": "Met"
   },
   {
     "id": 100,
