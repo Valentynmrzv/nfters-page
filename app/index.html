@@ -1042,9 +1042,59 @@
 
       <li class="nfts-tag__item">
 
-        <button class="nfts-tag__btn main-btn main-btn">
+        <button class="nfts-tag__btn active">
 
+          All Categories
 
+        </button>
+
+      </li>
+
+      <li class="nfts-tag__item">
+
+        <button class="nfts-tag__btn">
+
+          Illustration
+
+        </button>
+
+      </li>
+
+      <li class="nfts-tag__item">
+
+        <button class="nfts-tag__btn">
+
+          Painting
+
+        </button>
+
+      </li>
+
+      <li class="nfts-tag__item">
+
+        <button class="nfts-tag__btn">
+
+          Digital Art
+
+        </button>
+
+      </li>
+
+      <li class="nfts-tag__item">
+
+        <button class="nfts-tag__btn">
+
+          Graphic Design
+
+        </button>
+
+      </li>
+
+      <li class="nfts-tag__item">
+
+        <button class="nfts-tag__btn">
+
+          Print
 
         </button>
 
@@ -1052,13 +1102,13 @@
 
     </ul>
 
-    <ul class="nfts__list">
+    <ul id="nftsList" class="nfts-list">
 
-      <li class="nfts_item">
+      <!-- <li class="nfts_item">
 
         <div class="nft-icon">
 
-          <picture class="image">
+          <picture class="nft-icon__image">
 
             <source srcset="./images/nft-1.avif 1x, ./images/nft-1@2x.avif 2x" type="image/avif">
 
@@ -1068,25 +1118,71 @@
 
           </picture>
 
+          <div class="nft-icon__inner">
 
+            <h5 class="nft-icon__name">
+
+              ArtCrypto
+
+            </h5>
+
+            <span class="nft-icon__text">
+
+              <p class="nft-icon__price">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none" class="icon">
+
+                  <g clip-path="url(#clip0_0_252)">
+
+                    <path
+
+                      d="M8.31533 7.13126L4.26566 9.66876L0.213318 7.13126L4.26566 0L8.31533 7.13126ZM4.26566 10.4836L0.213318 7.9461L4.26566 14L8.318 7.9461L4.26566 10.4836Z"
+
+                      fill="#00AC4F"></path>
+
+                  </g>
+
+                </svg>
+
+                0.25 ETH
+
+              </p>
+
+              <p class="nfts-icon__number">
+
+                1 of 4
+
+              </p>
+
+            </span>
+
+          </div>
+
+          <button class="nft-icon__btn main-btn main-btn--light">
+
+            Place a bid
+
+          </button>
 
         </div>
 
-      </li>
+      </li> -->
 
     </ul>
 
+    <div class="nfts-pagination">
+
+      <button id="prevPage" class="nfts-pagination__btn main-btn main-btn--dark">previous</button>
+
+      <div id="pageNumbers" class="nfts-pagination__numbers"></div>
+
+      <button id="nextPage" class="nfts-pagination__btn main-btn main-btn--dark">next</button>
+
+    </div>
+
   </div>
 
-  <div class="nfts-pagination">
-
-    <button id="prevPage">prev</button>
-
-    <div id="pageNumbers" class="page-numbers"></div>
-
-    <button id="nextPage">next</button>
-
-  </div>
+  
 
 </section>
 

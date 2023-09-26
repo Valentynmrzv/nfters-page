@@ -1,66 +1,76 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Определите переменные для работы с страницами
-  let currentPage = 1; // Текущая страница
-  const itemsPerPage = 8; // Количество элементов на странице (измените по вашему усмотрению)
-  const totalPages = Math.ceil(totalItems / itemsPerPage); // Общее количество страниц (замените totalItems на общее количество ваших элементов)
 
-  // Функция для отображения элементов на текущей странице
-  function showPage(page) {
-    const items = document.querySelectorAll(".nfts__wrapper .item"); // Замените ".item" на селектор, который соответствует вашим элементам
-    items.forEach((item, index) => {
-      if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
+// Функция для отображения элементов на текущей странице
+function showPage(page) {
+  const itemsPerPage = 8;
+  const nftItems = document.querySelectorAll(".nfts-list__item");
+  nftItems.forEach((item, index) => {
+    if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+// Функция для создания числовых ссылок на страницы
+function createPageNumbers(totalPages) {
+  const pageNumbersContainer = document.getElementById("pageNumbers");
+  pageNumbersContainer.innerHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    const pageNumber = document.createElement("span");
+    pageNumber.innerText = i;
+    pageNumber.className = i === 1 ? "active" : "";
+    pageNumber.addEventListener("click", () => {
+      showPage(i);
+      updatePageNumbers(i);
+    });
+    pageNumbersContainer.appendChild(pageNumber);
+  }
+}
+
+// Функция для обновления стилей активной страницы
+function updatePageNumbers(activePage) {
+  const pageNumbers = document.querySelectorAll(".nfts-pagination__numbers span");
+  pageNumbers.forEach((pageNumber, index) => {
+    pageNumber.className = index + 1 === activePage ? "active" : "";
+  });
+}
+
+async function loadAndDisplayData() {
+  try {
+    const response = await fetch('./nft/content.json');
+    if (!response.ok) {
+      throw new Error('Ошибка загрузки данных');
+    }
+
+    const jsonData = await response.json();
+    const totalPages = Math.ceil(jsonData.length / 8);
+
+    addNftElementsToPage(jsonData);
+    createPageNumbers(totalPages);
+    showPage(1);
+
+    document.getElementById("prevPage").addEventListener("click", () => {
+      const activePage = document.querySelector(".nfts-pagination__numbers .active");
+      if (activePage && activePage.previousElementSibling) {
+        const newActivePage = parseInt(activePage.innerText) - 1;
+        showPage(newActivePage);
+        updatePageNumbers(newActivePage);
       }
     });
-  }
 
-  // Функция для создания числовых ссылок на страницы
-  function createPageNumbers() {
-    const pageNumbersContainer = document.getElementById("pageNumbers");
-    pageNumbersContainer.innerHTML = "";
-
-    for (let i = 1; i <= totalPages; i++) {
-      const pageNumber = document.createElement("span");
-      pageNumber.innerText = i;
-      pageNumber.className = i === currentPage ? "active" : "";
-      pageNumber.addEventListener("click", () => {
-        currentPage = i;
-        showPage(currentPage);
-        updatePageNumbers();
-      });
-      pageNumbersContainer.appendChild(pageNumber);
-    }
-  }
-
-  // Функция для обновления стилей активной страницы
-  function updatePageNumbers() {
-    const pageNumbers = document.querySelectorAll(".page-numbers span");
-    pageNumbers.forEach((pageNumber, index) => {
-      pageNumber.className = index + 1 === currentPage ? "active" : "";
+    document.getElementById("nextPage").addEventListener("click", () => {
+      const activePage = document.querySelector(".nfts-pagination__numbers .active");
+      if (activePage && activePage.nextElementSibling) {
+        const newActivePage = parseInt(activePage.innerText) + 1;
+        showPage(newActivePage);
+        updatePageNumbers(newActivePage);
+      }
     });
+  } catch (error) {
+    console.error('Произошла ошибка:', error);
   }
+}
 
-  // Инициализируйте отображение первой страницы и числовых ссылок при загрузке страницы
-  showPage(currentPage);
-  createPageNumbers();
-
-  // Обработчик клика для кнопки "Следующая страница"
-  document.getElementById("nextPage").addEventListener("click", () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      showPage(currentPage);
-      updatePageNumbers();
-    }
-  });
-
-  // Обработчик клика для кнопки "Предыдущая страница"
-  document.getElementById("prevPage").addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      showPage(currentPage);
-      updatePageNumbers();
-    }
-  });
-});
+loadAndDisplayData();
