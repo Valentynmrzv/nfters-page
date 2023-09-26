@@ -38,6 +38,7 @@
 .nfts-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 32px;
   &__item {
     transition: display var(--transition-property);
@@ -76,9 +77,12 @@
     align-items: center;
   }
   &__price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #00AC4F;
     font-family: var(--text-font-family);
-    font-size: 10.971px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -110,7 +114,7 @@
     display: flex;
     gap: 16px;
     span {
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       width: 40px;
@@ -120,8 +124,12 @@
       background-color: none;
       color: var(--text-color-dark);
       cursor: pointer;
+      @media screen and (min-width: 760px) {
+        display: flex;
+      }
     }
     .active {
+      display: flex;
       background-color: var(--accent-color);
       color: var(--text-color-light);
       border: none;

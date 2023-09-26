@@ -1,10 +1,14 @@
+let currentPage = 1;
+const itemsPerPage = 8;
+let totalPages = 1;
 
-// Функция для отображения элементов на текущей странице
 function showPage(page) {
-  const itemsPerPage = 8;
   const nftItems = document.querySelectorAll(".nfts-list__item");
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
   nftItems.forEach((item, index) => {
-    if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+    if (index >= startIndex && index < endIndex) {
       item.style.display = "block";
     } else {
       item.style.display = "none";
@@ -12,24 +16,48 @@ function showPage(page) {
   });
 }
 
-// Функция для создания числовых ссылок на страницы
-function createPageNumbers(totalPages) {
+function createPageNumbers(pageNumber, totalPages) {
   const pageNumbersContainer = document.getElementById("pageNumbers");
   pageNumbersContainer.innerHTML = "";
 
-  for (let i = 1; i <= totalPages; i++) {
-    const pageNumber = document.createElement("span");
-    pageNumber.innerText = i;
-    pageNumber.className = i === 1 ? "active" : "";
-    pageNumber.addEventListener("click", () => {
-      showPage(i);
-      updatePageNumbers(i);
+  const maxPageNumbersToShow = 5;
+
+  let startPage;
+  let endPage;
+
+  if (totalPages <= maxPageNumbersToShow) {
+    startPage = 1;
+    endPage = totalPages;
+  } else {
+    const middlePage = Math.ceil(maxPageNumbersToShow / 2);
+
+    if (pageNumber <= middlePage) {
+      startPage = 1;
+      endPage = maxPageNumbersToShow;
+    } else if (pageNumber + middlePage > totalPages) {
+      startPage = totalPages - maxPageNumbersToShow + 1;
+      endPage = totalPages;
+    } else {
+      startPage = pageNumber - middlePage + 1;
+      endPage = pageNumber + middlePage - 1;
+    }
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    const pageNumberElement = document.createElement("span");
+    pageNumberElement.innerText = i;
+    pageNumberElement.className = i === pageNumber ? "active" : "";
+    pageNumberElement.addEventListener("click", (event) => {
+      const newPage = parseInt(event.target.innerText);
+      currentPage = newPage;
+      showPage(currentPage);
+      createPageNumbers(newPage, totalPages);
+      loadAndDisplayData();
     });
-    pageNumbersContainer.appendChild(pageNumber);
+    pageNumbersContainer.appendChild(pageNumberElement);
   }
 }
 
-// Функция для обновления стилей активной страницы
 function updatePageNumbers(activePage) {
   const pageNumbers = document.querySelectorAll(".nfts-pagination__numbers span");
   pageNumbers.forEach((pageNumber, index) => {
@@ -41,36 +69,42 @@ async function loadAndDisplayData() {
   try {
     const response = await fetch('./nft/content.json');
     if (!response.ok) {
-      throw new Error('Ошибка загрузки данных');
+      throw new Error('Error content.json');
     }
 
     const jsonData = await response.json();
-    const totalPages = Math.ceil(jsonData.length / 8);
+    totalPages = Math.ceil(jsonData.length / itemsPerPage);
 
     addNftElementsToPage(jsonData);
-    createPageNumbers(totalPages);
-    showPage(1);
-
-    document.getElementById("prevPage").addEventListener("click", () => {
-      const activePage = document.querySelector(".nfts-pagination__numbers .active");
-      if (activePage && activePage.previousElementSibling) {
-        const newActivePage = parseInt(activePage.innerText) - 1;
-        showPage(newActivePage);
-        updatePageNumbers(newActivePage);
-      }
-    });
-
-    document.getElementById("nextPage").addEventListener("click", () => {
-      const activePage = document.querySelector(".nfts-pagination__numbers .active");
-      if (activePage && activePage.nextElementSibling) {
-        const newActivePage = parseInt(activePage.innerText) + 1;
-        showPage(newActivePage);
-        updatePageNumbers(newActivePage);
-      }
-    });
+    createPageNumbers(currentPage, totalPages);
+    showPage(currentPage);
   } catch (error) {
-    console.error('Произошла ошибка:', error);
+    console.error('Error: content.json', error);
   }
 }
+
+function prevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    showPage(currentPage);
+    createPageNumbers(currentPage, totalPages);
+  }
+}
+
+function nextPage() {
+  if (currentPage < totalPages) {
+    currentPage++;
+    showPage(currentPage);
+    createPageNumbers(currentPage, totalPages);
+  }
+}
+
+document.getElementById("prevPage").addEventListener("click", () => {
+  prevPage();
+});
+
+document.getElementById("nextPage").addEventListener("click", () => {
+  nextPage();
+});
 
 loadAndDisplayData();
