@@ -8,9 +8,10 @@
   border: 1px solid var(--accent-color);
   text-align: center;
   cursor: pointer;
-  transition: 700ms;
+  transition: 500ms;
   position: relative;
   overflow: hidden;
+  
   &:before {
     content: '';
     display: block;
@@ -40,6 +41,7 @@
   &--light {
     background-color: var(--primary-bg);
     color: var(--accent-color);
+    
     &:hover {
       background-color: var(--accent-color);
       color: var(--text-color-light);
@@ -54,6 +56,9 @@
         transition: 700ms;
       }
     }
+      &:active {
+        box-shadow: inset 0.1rem 0.1rem 0.5rem #131313, inset -0.1rem -0.1rem 0.5rem #4f4f4f;
+      }
   }
   &--dark {
     background-color: var(--accent-color);
@@ -72,11 +77,12 @@
         transition: 700ms;
       }
     }
+      &:active {
+        box-shadow: inset 0.1rem 0.1rem 0.5rem var(--accent-color), inset -0.1rem -0.1rem 0.5rem var(--accent-color);
+      }
   }
   &:focus {
     outline: 0;
   }
-  &:active {
-    opacity: 0.5;
-  }
+  
 }

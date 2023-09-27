@@ -274,6 +274,10 @@
       gap: 5px;
       border-radius: 6px;
       border: 1px solid #00AC4F;
+      transition: background-color var(--transition-property);
+      &.active {
+        background-color: #00AC4F;
+      }
     }
     .icon {
       display: inline-block;
@@ -295,11 +299,15 @@
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      transition: color var(--transition-property);
       @media screen and (min-width: 760px) {
         font-size: 0.833vw;
       }
       @media screen and (min-width: 1440px) {
         font-size: 12px;
+      }
+      &.active {
+        color: #F0F0F0;
       }
     }
     .number {

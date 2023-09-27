@@ -107,6 +107,7 @@ function createContentItem(item) {
 
   const buttonElement = document.createElement('button');
   buttonElement.className = 'button main-btn main-btn--light';
+  buttonElement.id = 'bitButton';
   buttonElement.textContent = 'Place a bid';
 
   innerElement.appendChild(buttonElement);

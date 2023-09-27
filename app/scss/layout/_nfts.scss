@@ -35,7 +35,8 @@
       background-color: #3D00B7;
     }
     &:hover {
-      opacity: 0.5;
+      color: var(--text-color-light);
+      background-color: #3D00B7;
     }
   }
 }

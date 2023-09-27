@@ -98,7 +98,7 @@ ul {
   border: 1px solid var(--accent-color);
   text-align: center;
   cursor: pointer;
-  transition: 700ms;
+  transition: 500ms;
   position: relative;
   overflow: hidden;
 }
@@ -146,6 +146,9 @@ ul {
   opacity: 1;
   transition: 700ms;
 }
+.main-btn--light:active {
+  box-shadow: inset 0.1rem 0.1rem 0.5rem #131313, inset -0.1rem -0.1rem 0.5rem #4f4f4f;
+}
 .main-btn--dark {
   background-color: var(--accent-color);
   color: var(--text-color-light);
@@ -164,11 +167,11 @@ ul {
   opacity: 1;
   transition: 700ms;
 }
+.main-btn--dark:active {
+  box-shadow: inset 0.1rem 0.1rem 0.5rem var(--accent-color), inset -0.1rem -0.1rem 0.5rem var(--accent-color);
+}
 .main-btn:focus {
   outline: 0;
-}
-.main-btn:active {
-  opacity: 0.5;
 }
 
 .loader-overlay {
@@ -1455,6 +1458,10 @@ ul {
   gap: 5px;
   border-radius: 6px;
   border: 1px solid #00AC4F;
+  transition: background-color var(--transition-property);
+}
+.content__inner .bit-wrapper.active {
+  background-color: #00AC4F;
 }
 .content__inner .icon {
   display: inline-block;
@@ -1480,6 +1487,7 @@ ul {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  transition: color var(--transition-property);
 }
 @media screen and (min-width: 760px) {
   .content__inner .bit {
@@ -1490,6 +1498,9 @@ ul {
   .content__inner .bit {
     font-size: 12px;
   }
+}
+.content__inner .bit.active {
+  color: #F0F0F0;
 }
 .content__inner .number {
   color: #757575;
@@ -2332,7 +2343,8 @@ ul {
   background-color: #3D00B7;
 }
 .nfts-tag__btn:hover {
-  opacity: 0.5;
+  color: var(--text-color-light);
+  background-color: #3D00B7;
 }
 
 .nfts-sort {
