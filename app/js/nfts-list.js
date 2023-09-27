@@ -2,6 +2,7 @@
 function createNftElement(nftData) {
   const nftItem = document.createElement("li");
   nftItem.className = "nfts-list__item";
+  nftItem.setAttribute("data-category", nftData.tag);
 
   const nftIcon = document.createElement("div");
   nftIcon.className = "nft-icon";
@@ -28,9 +29,16 @@ function createNftElement(nftData) {
   const nftInner = document.createElement("div");
   nftInner.className = "nft-icon__inner";
 
+  const nftTitle = document.createElement("span");
+  nftTitle.className = "nft-icon__title-wrapper";
+
   const nftName = document.createElement("h5");
   nftName.className = "nft-icon__name";
   nftName.textContent = nftData.nftName;
+
+  const userImage = document.createElement('img');
+  userImage.className = 'nft-icon__user-image';
+  userImage.src = nftData.userImageSrc;
 
   const nftText = document.createElement("span");
   nftText.className = "nft-icon__text";
@@ -64,18 +72,28 @@ function createNftElement(nftData) {
   placeBidButton.textContent = "Place a bid";
 
   nftItem.appendChild(nftIcon);
+
   nftIcon.appendChild(picture);
   nftIcon.appendChild(nftInner);
-  nftInner.appendChild(nftName);
+
+  nftInner.appendChild(nftTitle);
+
+  nftTitle.appendChild(nftName);
+  nftTitle.appendChild(userImage);
+
   nftInner.appendChild(nftText);
+
   nftText.appendChild(nftPrice);
+  nftText.appendChild(nftNumber);
+
   nftPrice.appendChild(priceSvg);
   nftPrice.appendChild(priceValue);
-  nftText.appendChild(nftNumber);
+
   nftIcon.appendChild(placeBidButton);
 
   return nftItem;
 }
+
 
 function addNftElementsToPage(dataArray) {
   const nftsList = document.getElementById("nftsList");
@@ -86,3 +104,34 @@ function addNftElementsToPage(dataArray) {
 }
 
 
+async function loadAndDisplayData(category) {
+  try {
+    const response = await fetch('./nft/content.json');
+    if (!response.ok) {
+      throw new Error('Error content.json');
+    }
+    jsonData = await response.json();
+
+    const filteredData = category === "All Categories"
+      ? jsonData
+      : jsonData.filter(item => item.tag === category);
+
+    itemsPerPage = calculateItemsPerPage(filteredData.length);
+    totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+    const nftsList = document.getElementById("nftsList");
+    nftsList.innerHTML = "";
+
+    addNftElementsToPage(filteredData);
+    createPageNumbers(currentPage, totalPages);
+
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
+    sortAndDisplayItems(currentSortBy, currentSortOrder);
+    showPage(currentPage);
+
+  } catch (error) {
+    console.error('Error: content.json', error);
+  }
+};

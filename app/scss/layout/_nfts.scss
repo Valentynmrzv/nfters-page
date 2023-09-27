@@ -5,6 +5,10 @@
     gap: 64px;
   }
 }
+.nfts-button {
+  display: flex;
+  justify-content: space-between;
+}
 .nfts-tag {
   display: flex;
   flex-wrap: wrap;
@@ -35,6 +39,21 @@
     }
   }
 }
+.nfts-sort {
+  border-radius: 9px;
+  border: 1px solid ;
+  outline: none;
+  color: var(--text-color-dark);
+  font-family: var(--text-font-family);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17.452px;
+  &:hover,
+  &:focus {
+    border: 1px solid var(--accent-color);
+  }
+}
 .nfts-list {
   display: flex;
   flex-wrap: wrap;
@@ -61,6 +80,12 @@
     flex-direction: column;
     gap: 10px;
   }
+  &__title-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
   &__name {
     color: var(--text-color-dark);
     font-family: var(--text-font-family);
@@ -69,6 +94,12 @@
     font-weight: 700;
     line-height: 19.146px;
     /* 96.955% */
+  }
+  &__user-image {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
   }
   &__text {
     display: flex;

@@ -14,7 +14,7 @@ function handleIntersection(entries, observer) {
 
 const observer = new IntersectionObserver(handleIntersection, {
   root: null,
-  rootMargin: '100px',
+  rootMargin: '400px',
   threshold: 0.5,
 });
 
