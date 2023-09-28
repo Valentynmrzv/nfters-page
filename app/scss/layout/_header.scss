@@ -145,18 +145,24 @@
     display: flex;
     gap: 20px;    
   }
+  &__item {
+    position: relative;
+  }
   &__btn {
     font-family: var(--text-font-family);
     font-size: 0.972vw;
     font-style: normal;
     font-weight: 700;
     line-height: 100%;
+    height: 4vw;
+    // height: 30px;
     /* 14px */
     letter-spacing: 0.56px;
 
     cursor: pointer;
     @media screen and (min-width: 1440px) {
       font-size: 14px;
+      height: 56px;
     }
     
     &.upload {
@@ -165,9 +171,10 @@
         padding: 18px 40px;
       }
     }
-    &.wallet {
+    &.wallet-btn {
       position: relative;
       padding: 1.250vw 1.528vw;
+      width: 12vw;
       display: flex;
       flex-direction: column;
       background: none;
@@ -180,53 +187,199 @@
         transform 450ms ease-in-out;
       @media screen and (min-width: 1440px) {
         padding: 18px 22px;
+        width: 150px;
       }
       span {
+        width: max-content;
         transition: 
         background 450ms ease-in-out,
         transform 450ms ease-in-out;
       }
-      &::after {
-        content: 'Connect';
-        color: var(--text-color-light);
-        position: absolute;
-        top: 50%;
-        left: 50%; 
-        transform: translate(-50%, 250%);
-        transition: 
-          background 450ms ease-in-out,
-          color 450ms ease-in-out,
-          transform 450ms ease-in-out;
-
-        font-family: var(--text-font-family);
-        font-size: 0.972vw;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 100%;
-        /* 14px */
-        letter-spacing: 0.56px;
-        @media screen and (min-width: 1440px) {
-          font-size: 14px;
-        }
-      }
-      &:hover {
+      
+      &.active {
         background-color: var(--accent-color);
-        & span {
-          transform: translateY(-50px);
-        }
-        &::after {
-          color: var(--text-color-light);
-          transform: translate(-50%, -50%);
-        }
       }
-        &:focus {
-          outline: 0;
-        }
+    //   &::after {
+    //     content: 'Connect';
+    //     color: var(--text-color-light);
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%; 
+    //     transform: translate(-50%, 250%);
+    //     transition: 
+    //       background 450ms ease-in-out,
+    //       color 450ms ease-in-out,
+    //       transform 450ms ease-in-out;
+
+    //     font-family: var(--text-font-family);
+    //     font-size: 0.972vw;
+    //     font-style: normal;
+    //     font-weight: 700;
+    //     line-height: 100%;
+    //     /* 14px */
+    //     letter-spacing: 0.56px;
+    //     @media screen and (min-width: 1440px) {
+    //       font-size: 14px;
+    //     }
+    //   }
+    //   &:hover {
+    //     background-color: var(--accent-color);
+    //     & span {
+    //       transform: translateY(-50px);
+    //     }
+    //     &::after {
+    //       color: var(--text-color-light);
+    //       transform: translate(-50%, -50%);
+    //     }
+    //   }
+    //     &:focus {
+    //       outline: 0;
+    //     }
   
-        &:active {
-          opacity: 0.5;
-        }
+    //     &:active {
+    //       opacity: 0.5;
+    //     }
     }
+  }
+}
+.wallet-btn {
+  &__first {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &.active {
+      transform: translate(150%, -50%);
+    }
+  }
+
+  &__second {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-250%, -50%);
+    color: #fff;
+    &.active {
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.wallet {
+  position: fixed;
+  top: 60px;
+  right: 5px;
+  pointer-events: none;
+  z-index: 3;
+  // position: absolute;
+  // top: 110%;
+  // left: 50%;
+  // transform: translateX(-50%);
+  @media screen and (min-width: 1440px) {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  
+ 
+  &__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: var(--primary-bg);
+    transform: scale(0);
+    transform-origin: right top;
+    transition: transform var(--transition-property);
+    pointer-events: none;
+    @media screen and (min-width: 1440px) {
+      transform-origin: top;
+    }
+    &.open {
+      transform: scale(1);
+      pointer-events: auto;
+    }
+  }
+  &__title-wrapper {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(217, 224, 236, .2);
+  }
+  &__title {
+    font-family: var(--title-font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: 0.1em;
+  }
+  &__btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0;
+    background-color: transparent;
+    fill: #000;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/icon-close-dark.svg');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 50%;
+    transition: background-color var(--transition-property),
+      border var(--transition-property);
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: rgba(61, 0, 183, 0.6);
+    }
+  }
+  &__list {
+    margin: 0px 20px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 16px;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #C0C0C0;
+  }
+  &__item {
+    width: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  &__link {
+    display: block;
+
+  }
+  &__button-wrapper {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  &__text {
+    color: var(--accent-color);
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  &__btn {
+    padding: 10px 15px;
   }
 }
 // ============================================== HEADER =================================================

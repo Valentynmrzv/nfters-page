@@ -57,7 +57,7 @@ function initializeCollections() {
       });
 
       const img = document.createElement('img');
-      img.srcset = item.imageSrcSet[2]; // Выбираем одну из srcset для img
+      img.srcset = item.imageSrcSet[2];
       img.src = item.imageSrc;
       img.alt = '';
 
