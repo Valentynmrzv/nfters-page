@@ -130,8 +130,8 @@ loadAndDisplayData("All Categories");
 
 
 // ========================================
-let currentSortBy = "name"; // По умолчанию сортировка по имени
-let currentSortOrder = "ascending"; // По умолчанию сортировка по возрастанию
+let currentSortBy = "name";
+let currentSortOrder = "ascending";
 
 document.getElementById("sortSelect").addEventListener("change", () => {
   const selectedOption = document.getElementById("sortSelect").value;
@@ -158,16 +158,13 @@ document.getElementById("sortSelect").addEventListener("change", () => {
 
 
 function sortAndDisplayItems(sortBy, sortOrder) {
-  // Получите элементы списка и преобразуйте их в массив для сортировки
   const nftItems = Array.from(document.querySelectorAll(".nfts-list__item"));
 
-  // Сортировка элементов в соответствии с выбранной опцией сортировки
   nftItems.sort((a, b) => {
     const aData = a.querySelector(".nft-icon__name").textContent;
     const bData = b.querySelector(".nft-icon__name").textContent;
 
     if (sortBy === "price") {
-      // Если сортировка по цене, извлеките числовое значение цены
       const aPrice = parseFloat(a.querySelector(".nft-icon__price span").textContent);
       const bPrice = parseFloat(b.querySelector(".nft-icon__price span").textContent);
 
@@ -177,7 +174,6 @@ function sortAndDisplayItems(sortBy, sortOrder) {
         return bPrice - aPrice;
       }
     } else {
-      // Сортировка по имени (алфавиту)
       if (sortOrder === "ascending") {
         return aData.localeCompare(bData);
       } else {
@@ -186,11 +182,9 @@ function sortAndDisplayItems(sortBy, sortOrder) {
     }
   });
 
-  // Удалите существующие элементы из родительского контейнера
   const nftsList = document.getElementById("nftsList");
   nftsList.innerHTML = "";
 
-  // Вставьте отсортированные элементы обратно в контейнер
   nftItems.forEach((item) => {
     nftsList.appendChild(item);
   });

@@ -69,6 +69,7 @@ function createNftElement(nftData) {
 
   const placeBidButton = document.createElement("button");
   placeBidButton.className = "nft-icon__btn main-btn main-btn--light";
+  placeBidButton.id = 'nftButton';
   placeBidButton.textContent = "Place a bid";
 
   nftItem.appendChild(nftIcon);

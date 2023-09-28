@@ -1,5 +1,6 @@
 .nfts {
   &__wrapper {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 64px;
@@ -7,7 +8,13 @@
 }
 .nfts-button {
   display: flex;
+  flex-direction: column;
+  gap: 32px;
   justify-content: space-between;
+  align-items: flex-start;
+  @media screen and (min-width: 760px) {
+    flex-direction: row;
+  }
 }
 .nfts-tag {
   display: flex;
@@ -41,9 +48,11 @@
   }
 }
 .nfts-sort {
+  padding: 10px;
   border-radius: 9px;
   border: 1px solid ;
   outline: none;
+  background-color: var(--primary-bg);
   color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 14px;
@@ -131,6 +140,15 @@
   }
   &__btn {
     padding: 10px 0px;
+    border-radius: 8px;
+    &.cancel {
+      border: 1px solid red;
+      color: red;
+      &:hover {
+        background-color: red;
+        color: var(--text-color-light);
+      }
+    }
   }
 }
 .nfts-pagination {
