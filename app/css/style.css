@@ -355,6 +355,91 @@ ul {
   transition: all 265ms ease-in;
 }
 
+.collections-lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--animation-duration) var(--timing-function);
+  z-index: 20;
+}
+.collections-lightbox.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+.collections-lightbox__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.collections-lightbox__content {
+  position: relative;
+  z-index: 21;
+}
+.collections-lightbox__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+  align-items: center;
+  gap: 16px;
+}
+@media screen and (min-width: 760px) {
+  .collections-lightbox__list {
+    width: 50vw;
+  }
+}
+.collections-lightbox__item {
+  display: block;
+  width: calc((100% - 48px) / 3);
+  border-radius: 6px;
+  overflow: hidden;
+}
+@media screen and (min-width: 760px) {
+  .collections-lightbox__item {
+    width: calc((100% - 48px) / 4);
+    border-radius: 12px;
+  }
+}
+
+.collections-lightbox__button {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--animation-duration) var(--timing-function);
+  outline: none;
+  background-image: url("../images/icon-close.svg");
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  z-index: 22;
+}
+
+.collections-lightbox__button:hover,
+.collections-lightbox__button:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .header {
   border-bottom: 1px solid #EFEFEF;
   background-color: var(--primary-bg);
