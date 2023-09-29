@@ -9,7 +9,7 @@
   height: 100vh;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--animation-duration) var(--timing-function);
+  transition: opacity var(--transition-property);
   z-index: 20;
   &.is-open {
     opacity: 1;
@@ -34,7 +34,7 @@
     align-items: center;
     gap: 16px;
     @media screen and (min-width: 760px) {
-        width: 50vw;
+        width: 70vw;
     }
   }
   &__item {
@@ -43,7 +43,7 @@
     border-radius: 6px;
     overflow: hidden;
     @media screen and (min-width: 760px) {
-      width: calc((100% - 48px)/4);
+      width: calc((100% - 64px)/5);
       border-radius: 12px;
     }
   }
@@ -64,7 +64,7 @@
     background-color: transparent;
     color: #fff;
     cursor: pointer;
-    transition: background-color var(--animation-duration) var(--timing-function);
+    transition: background-color var(--transition-property);
     outline: none;
     background-image: url('../images/icon-close.svg');
     background-position: center;
@@ -76,4 +76,135 @@
 .collections-lightbox__button:hover,
 .collections-lightbox__button:focus {
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+// ==================== modal login =================
+.modals {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-property);
+  z-index: 20;
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+.modal {
+  padding: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 25px auto;
+  box-shadow: 0px 30px 100px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  background-color: var(--primary-bg);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 400ms ease-in-out;
+  &__sign-up {
+    width: 500px;
+  }
+  &.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-image: url('../images/icon-close-dark.svg');
+    background-color: transparent;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 50%;
+    transition: background-color var(--transition-property);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 32px;
+    &:hover {
+      cursor: default;
+    }
+  }
+}
+
+.modal-form {
+  padding: 25px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  .wrp {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    label {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__name {
+    font-family: var(--text-font-family);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+  &__input {
+    margin: 8px 0;
+    outline: none;
+    width: 280px;
+    height: 50px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 14px 18px;
+  
+    &:focus {
+      border-color: var(--accent-color);
+    }
+  }
+  &__btn {
+    padding: 15px 25px
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  &__msg {
+    font-family: var(--text-font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+  &__msg-link {
+    padding: 15px 25px;
+  }
 }

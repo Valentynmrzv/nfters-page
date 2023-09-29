@@ -199,46 +199,6 @@
       &.active {
         background-color: var(--accent-color);
       }
-    //   &::after {
-    //     content: 'Connect';
-    //     color: var(--text-color-light);
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 50%; 
-    //     transform: translate(-50%, 250%);
-    //     transition: 
-    //       background 450ms ease-in-out,
-    //       color 450ms ease-in-out,
-    //       transform 450ms ease-in-out;
-
-    //     font-family: var(--text-font-family);
-    //     font-size: 0.972vw;
-    //     font-style: normal;
-    //     font-weight: 700;
-    //     line-height: 100%;
-    //     /* 14px */
-    //     letter-spacing: 0.56px;
-    //     @media screen and (min-width: 1440px) {
-    //       font-size: 14px;
-    //     }
-    //   }
-    //   &:hover {
-    //     background-color: var(--accent-color);
-    //     & span {
-    //       transform: translateY(-50px);
-    //     }
-    //     &::after {
-    //       color: var(--text-color-light);
-    //       transform: translate(-50%, -50%);
-    //     }
-    //   }
-    //     &:focus {
-    //       outline: 0;
-    //     }
-  
-    //     &:active {
-    //       opacity: 0.5;
-    //     }
     }
   }
 }
@@ -267,14 +227,10 @@
 
 .wallet {
   position: fixed;
-  top: 60px;
+  top: 70px;
   right: 5px;
   pointer-events: none;
   z-index: 3;
-  // position: absolute;
-  // top: 110%;
-  // left: 50%;
-  // transform: translateX(-50%);
   @media screen and (min-width: 1440px) {
     position: absolute;
     top: 110%;
@@ -328,11 +284,11 @@
     padding: 0;
     background-color: transparent;
     fill: #000;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     background-image: url('../images/icon-close-dark.svg');
     background-position: center;
-    background-size: 100%;
+    background-size: 80%;
     background-repeat: no-repeat;
     border: none;
     border-radius: 50%;
