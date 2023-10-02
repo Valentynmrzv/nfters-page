@@ -1,55 +1,65 @@
 const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
+
+function applyThemeToElements(elements, themeClass, checked) {
+  elements.forEach((element) => {
+    if (checked) {
+      element.classList.add(themeClass + "--dark");
+    } else {
+      element.classList.remove(themeClass + "--dark");
+    }
+  });
+}
+
 const backgroundThemes = document.querySelectorAll(".background-theme");
 const titleThemes = document.querySelectorAll(".title-theme");
 const textThemes = document.querySelectorAll(".text-theme");
 const PrimaryTextThemes = document.querySelectorAll(".primary-text-theme");
+const topItemContent = document.querySelectorAll(".top__item");
 
-themeToggle.addEventListener("change", () => {
+function handleThemeChange() {
   if (themeToggle.checked) {
     body.classList.add("dark-theme");
 
-    backgroundThemes.forEach((backgroundTheme) => {
-      backgroundTheme.classList.add("background-theme--dark");
+    applyThemeToElements(backgroundThemes, "background-theme", true);
+    applyThemeToElements(titleThemes, "title-theme", true);
+    applyThemeToElements(textThemes, "text-theme", true);
+    applyThemeToElements(PrimaryTextThemes, "primary-text-theme", true);
+    applyThemeToElements(topItemContent, "top__item", true);
+
+    listElement.querySelectorAll(".content__item").forEach((element) => {
+      element.querySelector(".title").classList.add("title-theme--dark");
+      element.querySelector(".number").classList.add("primary-text-theme--dark");
     });
 
-    titleThemes.forEach((titleTheme) => {
-      titleTheme.classList.add("title-theme--dark");
-    });
-
-    textThemes.forEach((textTheme) => {
-      textTheme.classList.add("text-theme--dark");
-    });
-
-    PrimaryTextThemes.forEach((PrimaryTextTheme) => {
-      PrimaryTextTheme.classList.add("primary-text-theme--dark");
-    });
-
+    localStorage.setItem("theme", "dark");
   } else {
     body.classList.remove("dark-theme");
 
-    backgroundThemes.forEach((backgroundTheme) => {
-      backgroundTheme.classList.remove("background-theme--dark");
+    applyThemeToElements(backgroundThemes, "background-theme", false);
+    applyThemeToElements(titleThemes, "title-theme", false);
+    applyThemeToElements(textThemes, "text-theme", false);
+    applyThemeToElements(PrimaryTextThemes, "primary-text-theme", false);
+    applyThemeToElements(topItemContent, "top__item", false);
+
+    listElement.querySelectorAll(".content__item").forEach((element) => {
+      element.querySelector(".title").classList.remove("title-theme--dark");
+      element.querySelector(".number").classList.remove("primary-text-theme--dark");
     });
 
-    titleThemes.forEach((titleTheme) => {
-      titleTheme.classList.remove("title-theme--dark");
-    });
-
-    textThemes.forEach((textTheme) => {
-      textTheme.classList.remove("text-theme--dark");
-    });
-
-    PrimaryTextThemes.forEach((PrimaryTextTheme) => {
-      PrimaryTextTheme.classList.remove("primary-text-theme--dark");
-    });
+    localStorage.setItem("theme", "light");
   }
-});
+}
+
+themeToggle.addEventListener("change", handleThemeChange);
 
 window.addEventListener("load", () => {
-  if (themeToggle.checked) {
-    body.classList.add("dark-theme");
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    themeToggle.checked = true;
   } else {
-    body.classList.remove("dark-theme");
+    themeToggle.checked = false;
   }
+
+  handleThemeChange();
 });

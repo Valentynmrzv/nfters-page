@@ -15,6 +15,8 @@
   --text-color-dark: #FFFFFF;
   --text-color-light: #000000;
   --button-text-color: #FFFFFF;
+  --button-bg-color-light: #FFF;
+  --button-bg-color-dark: #FFF;
   --accent-color: #3d00b7;
   --transition-property: 250ms ease-in-out;
 }
@@ -1861,7 +1863,6 @@ ul {
   align-items: flex-start;
 }
 .content__inner .title {
-  color: #000;
   font-family: "DM Sans";
   font-size: 18px;
   font-style: normal;
@@ -1953,7 +1954,6 @@ ul {
   color: #F0F0F0;
 }
 .content__inner .number {
-  color: #757575;
   font-family: "DM Sans";
   font-size: 12px;
   font-style: normal;
@@ -2004,7 +2004,6 @@ ul {
   }
 }
 .top__title {
-  color: #000;
   font-family: "Archivo Black";
   font-size: 22px;
   font-style: normal;
@@ -2102,12 +2101,13 @@ ul {
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
-  color: #000;
-  font-family: "DM Sans";
+  color: var(--text-color-light);
+  font-family: var(--text-font-family);
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 103%;
+  transition: color var(--transition-property);
 }
 @media screen and (min-width: 760px) {
   .top__item::before {
@@ -2118,6 +2118,9 @@ ul {
   .top__item::before {
     font-size: 24px;
   }
+}
+.top__item--dark::before {
+  color: var(--text-color-dark);
 }
 .top__item .wrapper {
   padding-top: 10px;
@@ -2141,6 +2144,10 @@ ul {
     padding-bottom: 16px;
     gap: 25px;
   }
+}
+.top__item .wrapper picture {
+  overflow: hidden;
+  border-radius: 50%;
 }
 .top__item .inner {
   position: relative;
@@ -2196,7 +2203,6 @@ ul {
   }
 }
 .top__item .name {
-  color: #000;
   font-family: "DM Sans";
   font-size: 14px;
   font-style: normal;
@@ -2217,7 +2223,6 @@ ul {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #636363;
   font-family: "Poppins";
   font-size: 14px;
   font-style: normal;

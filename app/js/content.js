@@ -1,8 +1,11 @@
 // ================== create collection =====================================
+let selectedItemId = null;
+const listElement = document.querySelector('.content__list');
+const selectedContent = document.querySelector('.selected-content');
 document.addEventListener('DOMContentLoaded', function () {
-  const listElement = document.querySelector('.content__list');
-  const selectedContent = document.querySelector('.selected-content');
-  let selectedItemId = null;
+  // const listElement = document.querySelector('.content__list');
+  // const selectedContent = document.querySelector('.selected-content');
+  // let selectedItemId = null;
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {
@@ -56,7 +59,7 @@ function createContentItem(item) {
 
 
   const titleElement = document.createElement('h4');
-  titleElement.className = 'title';
+  titleElement.className = 'title title-theme';
   titleElement.textContent = item.nftName;
 
   const spanElement = document.createElement('span');
@@ -92,7 +95,7 @@ function createContentItem(item) {
   bitElement.textContent = item.bitValue;
 
   const numberElement = document.createElement('p');
-  numberElement.className = 'number';
+  numberElement.className = 'number primary-text-theme';
   numberElement.textContent = item.stock;
 
   bitWrapperElement.appendChild(svgElement);
@@ -118,6 +121,14 @@ function createContentItem(item) {
   listDiv.appendChild(innerElement);
 
   listItem.appendChild(listDiv);
+
+  pictureElement.addEventListener('mouseover', function () {
+    if (selectedItemId !== item.id) {
+      selectedItemId = item.id;
+      updateSelectedContent(selectedContent, item);
+    }
+  });
+  listItem.classList.add('content__item');
   return listItem;
 };
 // ================== select collection =====================================
