@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
               </div>
             </div>
           </div>
-          <h4 class="collections__subtitle">Amazing Collection</h4>
+          <h4 class="collections__subtitle title-theme">Amazing Collection</h4>
           <div class="collections__inner">
             <span>
               <img src="${userImageSrc}" alt="" class="collections__user-img">
-              <p class="collections__text">
+              <p class="collections__text text-theme">
                 By&nbsp;
                 <span class="collections__name">${userName}</span>
               </p>
@@ -45,6 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
 
         collectionsList.appendChild(liElement);
+
+        // Примените тему к элементам, созданным динамически
+        applyThemeToElements(liElement.querySelectorAll(".text-theme"), "text-theme", themeToggle.checked);
+        applyThemeToElements(liElement.querySelectorAll(".title-theme"), "title-theme", themeToggle.checked);
 
         collectionsSwiper(userName, userItems);
       });
@@ -64,8 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
       shuffled[i] = temp;
     }
     return shuffled.slice(min);
-  }
-
+  };
   // =========================================== COLLECTION SLIDER===================================
   function collectionsSwiper(userName, userItems) {
 

@@ -393,7 +393,12 @@
       width: 98vw;
     }
   }
-
+  &__inner-title {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(-30%);
+    transition: transform 1500ms ease, opacity 1500ms ease;
+  }
   &__title {
     width: 100%;
     font-family: var(--title-font-family);
@@ -402,10 +407,6 @@
     font-weight: 400;
     line-height: normal;
     text-transform: uppercase;
-
-    opacity: 0;
-    transform: translateX(-30%);
-    transition: transform 1500ms ease, opacity 1500ms ease;
     @media screen and (min-width: 760px) {
       width: 27.639vw;
       font-size: 1.944vw;

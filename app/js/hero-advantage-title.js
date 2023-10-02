@@ -1,4 +1,4 @@
-const title = document.querySelector(".hero-advantage__title")
+const title = document.querySelector(".hero-advantage__inner-title")
   , options = {
     root: null,
     rootMargin: "200px",

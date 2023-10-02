@@ -16,6 +16,7 @@ const titleThemes = document.querySelectorAll(".title-theme");
 const textThemes = document.querySelectorAll(".text-theme");
 const PrimaryTextThemes = document.querySelectorAll(".primary-text-theme");
 const topItemContent = document.querySelectorAll(".top__item");
+const collectionsTextElements = document.querySelectorAll(".collections__text");
 
 function handleThemeChange() {
   if (themeToggle.checked) {
@@ -27,10 +28,12 @@ function handleThemeChange() {
     applyThemeToElements(PrimaryTextThemes, "primary-text-theme", true);
     applyThemeToElements(topItemContent, "top__item", true);
 
+
     listElement.querySelectorAll(".content__item").forEach((element) => {
       element.querySelector(".title").classList.add("title-theme--dark");
       element.querySelector(".number").classList.add("primary-text-theme--dark");
     });
+    applyThemeToElements(collectionsTextElements, "text-theme", themeToggle.checked);
 
     localStorage.setItem("theme", "dark");
   } else {
@@ -41,11 +44,14 @@ function handleThemeChange() {
     applyThemeToElements(textThemes, "text-theme", false);
     applyThemeToElements(PrimaryTextThemes, "primary-text-theme", false);
     applyThemeToElements(topItemContent, "top__item", false);
+    // applyThemeToElements(collectionsSubtitle, "collections__subtitle", false);
 
     listElement.querySelectorAll(".content__item").forEach((element) => {
       element.querySelector(".title").classList.remove("title-theme--dark");
       element.querySelector(".number").classList.remove("primary-text-theme--dark");
     });
+
+    applyThemeToElements(collectionsTextElements, "text-theme", themeToggle.checked);
 
     localStorage.setItem("theme", "light");
   }
