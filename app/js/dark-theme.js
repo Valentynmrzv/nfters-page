@@ -1,21 +1,52 @@
-// Получите чекбокс и элемент <body>
 const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
+const backgroundThemes = document.querySelectorAll(".background-theme");
+const titleThemes = document.querySelectorAll(".title-theme");
+const textThemes = document.querySelectorAll(".text-theme");
+const PrimaryTextThemes = document.querySelectorAll(".primary-text-theme");
 
-// Обработчик события для переключения темы
 themeToggle.addEventListener("change", () => {
-  // Если чекбокс отмечен, то включите темную тему
   if (themeToggle.checked) {
     body.classList.add("dark-theme");
+
+    backgroundThemes.forEach((backgroundTheme) => {
+      backgroundTheme.classList.add("background-theme--dark");
+    });
+
+    titleThemes.forEach((titleTheme) => {
+      titleTheme.classList.add("title-theme--dark");
+    });
+
+    textThemes.forEach((textTheme) => {
+      textTheme.classList.add("text-theme--dark");
+    });
+
+    PrimaryTextThemes.forEach((PrimaryTextTheme) => {
+      PrimaryTextTheme.classList.add("primary-text-theme--dark");
+    });
+
   } else {
-    // В противном случае, выключите темную тему
     body.classList.remove("dark-theme");
+
+    backgroundThemes.forEach((backgroundTheme) => {
+      backgroundTheme.classList.remove("background-theme--dark");
+    });
+
+    titleThemes.forEach((titleTheme) => {
+      titleTheme.classList.remove("title-theme--dark");
+    });
+
+    textThemes.forEach((textTheme) => {
+      textTheme.classList.remove("text-theme--dark");
+    });
+
+    PrimaryTextThemes.forEach((PrimaryTextTheme) => {
+      PrimaryTextTheme.classList.remove("primary-text-theme--dark");
+    });
   }
 });
 
-// При загрузке страницы проверьте, какая тема была выбрана
 window.addEventListener("load", () => {
-  // Проверьте состояние чекбокса и установите соответствующую тему
   if (themeToggle.checked) {
     body.classList.add("dark-theme");
   } else {

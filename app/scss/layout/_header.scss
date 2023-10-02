@@ -1,7 +1,7 @@
 // ============================================== HEADER =================================================
 .header{ 
   border-bottom: 1px solid #EFEFEF;
-  background-color: var(--primary-bg);
+  // background-color: var(--primary-bg);
   @media screen and (min-width: 760px) {
     position: fixed;
     top: 0;
@@ -97,7 +97,7 @@
       height: 50px;
     }
     &::placeholder {
-      color: #C0C0C0;
+      // color: #C0C0C0;
       font-family: var(--text-font-family);
       font-size: 12px;
       font-style: normal;

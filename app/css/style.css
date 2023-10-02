@@ -4,14 +4,17 @@
 :root {
   --body-bg-light: #FFF;
   --body-bg-light: #1e2125;
-  --primary-bg: #FFF;
+  --primary-bg-light: #FFF;
+  --primary-bg-dark: #1e2125;
   --title-font-family: "Archivo Black";
   --text-font-family: "DM Sans";
   --title-text-color-light: #000;
   --title-text-color-dark: #FFF;
-  --primary-text-color: #565656;
-  --text-color-light: #FFFFFF;
-  --text-color-dark: #000000;
+  --primary-text-color-light: #565656;
+  --primary-text-color-dark: #ededed;
+  --text-color-dark: #FFFFFF;
+  --text-color-light: #000000;
+  --button-text-color: #FFFFFF;
   --accent-color: #3d00b7;
   --transition-property: 250ms ease-in-out;
 }
@@ -35,9 +38,8 @@
 body {
   font-family: var(--text-font-family), sans-serif;
   font-style: normal;
-}
-body.light-theme {
   background-color: var(--bg-color);
+  transition: background-color var(--transition-property);
 }
 body.dark-theme {
   background-color: #1e2125;
@@ -59,7 +61,6 @@ p {
   margin: 0px;
   padding: 0px;
   font-family: "DM Sans";
-  color: var(--text-color-dark);
 }
 
 a {
@@ -138,7 +139,7 @@ ul {
   transform: translateX(-100px) skewX(-15deg);
 }
 .main-btn--light {
-  background-color: var(--primary-bg);
+  background-color: var(--primary-bg-light);
   color: var(--accent-color);
 }
 .main-btn--light:hover {
@@ -160,10 +161,10 @@ ul {
 }
 .main-btn--dark {
   background-color: var(--accent-color);
-  color: var(--text-color-light);
+  color: var(--button-text-color);
 }
 .main-btn--dark:hover {
-  background-color: var(--primary-bg);
+  background-color: var(--primary-bg-light);
   color: var(--accent-color);
 }
 .main-btn--dark:hover::before {
@@ -619,23 +620,40 @@ ul {
   transform: translateX(24px);
 }
 
-.title--dark {
-  color: var(--title-text-color-dark);
+.background-theme {
+  background-color: var(--primary-bg-light);
+  transition: background-color var(--transition-property);
 }
-.title--light {
-  color: var(--title-text-color-light);
+.background-theme--dark {
+  background-color: var(--primary-bg-dark);
 }
 
-.text--dark {
-  color: var(--text-color-dark);
+.title-theme {
+  color: var(--title-text-color-light);
+  transition: color var(--transition-property);
 }
-.text--light {
+.title-theme--dark {
+  color: var(--title-text-color-dark);
+}
+
+.primary-text-theme {
+  color: var(--primary-text-color-light);
+  transition: color var(--transition-property);
+}
+.primary-text-theme--dark {
+  color: var(--primary-text-color-dark);
+}
+
+.text-theme {
   color: var(--text-color-light);
+  transition: color var(--transition-property);
+}
+.text-theme--dark {
+  color: var(--text-color-dark);
 }
 
 .header {
   border-bottom: 1px solid #EFEFEF;
-  background-color: var(--primary-bg);
 }
 @media screen and (min-width: 760px) {
   .header {
@@ -744,7 +762,6 @@ ul {
   }
 }
 .search-form__input::placeholder {
-  color: #C0C0C0;
   font-family: var(--text-font-family);
   font-size: 12px;
   font-style: normal;
@@ -1025,7 +1042,6 @@ ul {
   }
 }
 .explore__title {
-  color: var(--title-text-color);
   font-family: var(--title-font-family);
   font-size: 26px;
   font-style: normal;
@@ -1045,7 +1061,6 @@ ul {
 }
 .explore__text {
   margin-top: 22px;
-  color: var(--primary-text-color);
   font-family: var(--text-font-family);
   font-size: 20px;
   font-style: normal;
@@ -1121,7 +1136,6 @@ ul {
   }
 }
 .explore__item .title {
-  color: var(--title-text-color);
   font-family: var(--title-font-family);
   font-size: 24px;
   font-style: normal;
@@ -1140,7 +1154,6 @@ ul {
   }
 }
 .explore__item .text {
-  color: var(--primary-text-color);
   font-family: var(--text-font-family);
   font-size: 16px;
   font-style: normal;
@@ -1204,7 +1217,7 @@ ul {
   gap: 9px;
 }
 .live__title {
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 18px;
   font-style: normal;
@@ -1258,7 +1271,7 @@ ul {
   }
 }
 .user__text {
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 14px;
   font-style: normal;
@@ -1339,7 +1352,7 @@ ul {
   gap: 10px;
 }
 .price__text {
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 12px;
   font-style: normal;
@@ -1373,7 +1386,7 @@ ul {
   }
 }
 .price__eth {
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 10px;
   font-style: normal;
@@ -1468,7 +1481,6 @@ ul {
 }
 .hero-advantage__title {
   width: 100%;
-  color: var(--title-text-color);
   font-family: var(--title-font-family);
   font-size: 24px;
   font-style: normal;
@@ -1521,7 +1533,6 @@ ul {
   }
 }
 .hero-advantage__item .title {
-  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 14px;
   font-style: normal;
@@ -1539,7 +1550,6 @@ ul {
   }
 }
 .hero-advantage__item .text {
-  color: var(--primary-text-color);
   font-family: var(--text-font-family);
   font-size: 12px;
   font-style: normal;

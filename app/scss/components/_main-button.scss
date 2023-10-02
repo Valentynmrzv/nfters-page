@@ -39,7 +39,7 @@
     transform: translateX(-100px) skewX(-15deg);
   }
   &--light {
-    background-color: var(--primary-bg);
+    background-color: var(--primary-bg-light);
     color: var(--accent-color);
     
     &:hover {
@@ -62,9 +62,9 @@
   }
   &--dark {
     background-color: var(--accent-color);
-    color: var(--text-color-light);
+    color: var(--button-text-color);
     &:hover {
-      background-color: var(--primary-bg);
+      background-color: var(--primary-bg-light);
       color: var(--accent-color);
       &::before {
         transform: translateX(300px) skewX(-15deg);

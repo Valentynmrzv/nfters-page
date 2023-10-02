@@ -1,14 +1,17 @@
 :root {
     --body-bg-light: #FFF;
     --body-bg-light: #1e2125;
-    --primary-bg: #FFF;
+    --primary-bg-light: #FFF;
+    --primary-bg-dark: #1e2125;
     --title-font-family: 'Archivo Black';
     --text-font-family: 'DM Sans';
     --title-text-color-light: #000;
     --title-text-color-dark: #FFF;
-    --primary-text-color: #565656;
-    --text-color-light: #FFFFFF;
-    --text-color-dark: #000000;
+    --primary-text-color-light: #565656;
+    --primary-text-color-dark: #ededed;
+    --text-color-dark: #FFFFFF;
+    --text-color-light: #000000;
+    --button-text-color: #FFFFFF;
     --accent-color: #3d00b7;
     --transition-property: 250ms ease-in-out;
 }

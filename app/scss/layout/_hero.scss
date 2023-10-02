@@ -32,7 +32,7 @@
   }
 
   &__title {
-    color: var(--title-text-color);
+    // color: var(--title-text-color);
     font-family: var(--title-font-family);
     font-size: 26px;
     font-style: normal;
@@ -48,7 +48,7 @@
   }
   &__text {
     margin-top: 22px;
-    color: var(--primary-text-color);
+    // color: var(--primary-text-color);
     font-family: var(--text-font-family);
   
     font-size: 20px;
@@ -110,7 +110,7 @@
     }
 
     .title {
-      color: var(--title-text-color);
+      // color: var(--title-text-color);
       font-family: var(--title-font-family);
       font-size: 24px;
       font-style: normal;
@@ -125,7 +125,7 @@
       }
     }
     .text {
-      color: var(--primary-text-color);
+      // color: var(--primary-text-color);
       font-family: var(--text-font-family);
       font-size: 16px;
       font-style: normal;
@@ -178,7 +178,7 @@
     gap: 9px;
   }
   &__title {
-    color: var(--text-color-light);
+    color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 18px;
     font-style: normal;
@@ -221,7 +221,7 @@
     }
   }
   &__text {
-    color: var(--text-color-light);
+    color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;
@@ -289,7 +289,7 @@
     gap: 10px;
   }
   &__text {
-    color: var(--text-color-light);
+    color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 12px;
     font-style: normal;
@@ -315,7 +315,7 @@
     }
   }
   &__eth {
-    color: var(--text-color-light);
+    color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 10px;
     font-style: normal;
@@ -380,9 +380,6 @@
   @media screen and (min-width: 1440px) {
     gap: 56px;
   }
-
-  
-  
   &::after {
     content: '';
     position: absolute;
@@ -399,7 +396,6 @@
 
   &__title {
     width: 100%;
-    color: var(--title-text-color);
     font-family: var(--title-font-family);
     font-size: 24px;
     font-style: normal;
@@ -445,7 +441,7 @@
     }
 
     .title {
-      color: var(--text-color-dark);
+      // color: var(--text-color-dark);
       font-family: var(--text-font-family);
       font-size: 14px;
       font-style: normal;
@@ -459,7 +455,7 @@
       }
     }
     .text {
-      color: var(--primary-text-color);
+      // color: var(--primary-text-color);
       font-family: var(--text-font-family);
       font-size: 12px;
       font-style: normal;
