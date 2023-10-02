@@ -7,7 +7,13 @@
 body {
     font-family: var(--text-font-family), sans-serif;
     font-style: normal;
-    background-color: var(--bg-color);
+    &.light-theme {
+      background-color: var(--bg-color);
+    }
+    &.dark-theme {
+        background-color: #1e2125;
+        // --text-color: #ffffff;
+    }
 
 }
 img {

@@ -2,11 +2,13 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
 :root {
-  --body-bg: #FFF;
+  --body-bg-light: #FFF;
+  --body-bg-light: #1e2125;
   --primary-bg: #FFF;
   --title-font-family: "Archivo Black";
   --text-font-family: "DM Sans";
-  --title-text-color: #000;
+  --title-text-color-light: #000;
+  --title-text-color-dark: #FFF;
   --primary-text-color: #565656;
   --text-color-light: #FFFFFF;
   --text-color-dark: #000000;
@@ -33,7 +35,12 @@
 body {
   font-family: var(--text-font-family), sans-serif;
   font-style: normal;
+}
+body.light-theme {
   background-color: var(--bg-color);
+}
+body.dark-theme {
+  background-color: #1e2125;
 }
 
 img {
@@ -610,6 +617,20 @@ ul {
 
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(24px);
+}
+
+.title--dark {
+  color: var(--title-text-color-dark);
+}
+.title--light {
+  color: var(--title-text-color-light);
+}
+
+.text--dark {
+  color: var(--text-color-dark);
+}
+.text--light {
+  color: var(--text-color-light);
 }
 
 .header {

@@ -44,3 +44,22 @@
 .checkbox:checked+.checkbox-label .ball {
   transform: translateX(24px);
 }
+
+
+.title {
+  &--dark {
+    color: var(--title-text-color-dark);
+  }
+  &--light {
+    color: var(--title-text-color-light);
+  }
+}
+.text {
+  &--dark {
+      color: var(--text-color-dark);
+  }
+
+  &--light {
+    color: var(--text-color-light);
+  }
+}
