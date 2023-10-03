@@ -45,11 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
 
         collectionsList.appendChild(liElement);
-
-        // Примените тему к элементам, созданным динамически
-        applyThemeToElements(liElement.querySelectorAll(".text-theme"), "text-theme", themeToggle.checked);
-        applyThemeToElements(liElement.querySelectorAll(".title-theme"), "title-theme", themeToggle.checked);
-
+        // ====================================================
+        handleThemeChange();
+        // =================================================
         collectionsSwiper(userName, userItems);
       });
     })
