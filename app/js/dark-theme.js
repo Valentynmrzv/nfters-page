@@ -36,12 +36,9 @@ function handleThemeChange() {
       element.querySelector(".number").classList.add("primary-text-theme--dark");
     });
 
-    collectionItem.forEach((item, index) => {
+    collectionItem.forEach((item) => {
       const titleElement = item.querySelector(".collections__subtitle");
       const textElement = item.querySelector(".collections__text");
-      console.log(`Item ${index + 1}`);
-      console.log("Title Element:", titleElement);
-      console.log("Text Element:", textElement);
       if (textElement) {
         titleElement.classList.add("title-theme--dark");
         textElement.classList.add("text-theme--dark");
@@ -64,12 +61,9 @@ function handleThemeChange() {
       element.querySelector(".number").classList.remove("primary-text-theme--dark");
     });
 
-    collectionItem.forEach((item, index) => {
+    collectionItem.forEach((item) => {
       const titleElement = item.querySelector(".collections__subtitle");
       const textElement = item.querySelector(".collections__text");
-      console.log(`Item ${index + 1}`);
-      console.log("Title Element:", titleElement);
-      console.log("Text Element:", textElement);
       if (textElement) {
         titleElement.classList.remove("title-theme--dark");
         textElement.classList.remove("text-theme--dark");
