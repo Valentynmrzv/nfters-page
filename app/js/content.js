@@ -1,11 +1,7 @@
 // ================== create collection =====================================
 let selectedItemId = null;
-const listElement = document.querySelector('.content__list');
 const selectedContent = document.querySelector('.selected-content');
 document.addEventListener('DOMContentLoaded', function () {
-  // const listElement = document.querySelector('.content__list');
-  // const selectedContent = document.querySelector('.selected-content');
-  // let selectedItemId = null;
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {

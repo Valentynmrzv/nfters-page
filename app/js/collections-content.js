@@ -45,9 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
 
         collectionsList.appendChild(liElement);
-        // ====================================================
-        handleThemeChange();
-        // =================================================
         collectionsSwiper(userName, userItems);
       });
     })
@@ -129,5 +126,22 @@ document.addEventListener('DOMContentLoaded', function () {
       const smallImageWrapper = document.querySelector(`#collections-swiper-small-${userName} .swiper-wrapper`);
       smallImageWrapper.appendChild(smallImage);
     });
+  };
+  function applyThemeToCollectionItems(checked) {
+    const collectionItems = document.querySelectorAll(".collections__item");
+    collectionItems.forEach((collectionItem) => {
+      const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
+      const primaryTextElement = collectionItem.querySelector(".primary-text-theme");
+
+      if (titleElement) {
+        titleElement.classList.toggle("title-theme--dark", checked);
+      }
+
+      if (primaryTextElement) {
+        primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
+      }
+    });
   }
+
+
 });

@@ -11,68 +11,39 @@ function applyThemeToElements(elements, themeClass, checked) {
   });
 }
 
+const collectionItems = document.querySelectorAll(".collections__item");
 const backgroundThemes = document.querySelectorAll(".background-theme");
 const titleThemes = document.querySelectorAll(".title-theme");
 const textThemes = document.querySelectorAll(".text-theme");
 const PrimaryTextThemes = document.querySelectorAll(".primary-text-theme");
 const topItemContent = document.querySelectorAll(".top__item");
-const collectionItem = document.querySelectorAll(".collections__item");
-console.log(collectionItem);
-
+const listElement = document.querySelector('.content__list');
 
 function handleThemeChange() {
+  const checked = themeToggle.checked;
   console.log("Changing theme...");
-  if (themeToggle.checked) {
+
+  if (checked) {
     body.classList.add("dark-theme");
-
-    applyThemeToElements(backgroundThemes, "background-theme", true);
-    applyThemeToElements(titleThemes, "title-theme", true);
-    applyThemeToElements(textThemes, "text-theme", true);
-    applyThemeToElements(PrimaryTextThemes, "primary-text-theme", true);
-    applyThemeToElements(topItemContent, "top__item", true);
-
-    listElement.querySelectorAll(".content__item").forEach((element) => {
-      element.querySelector(".title").classList.add("title-theme--dark");
-      element.querySelector(".number").classList.add("primary-text-theme--dark");
-    });
-
-    collectionItem.forEach((item) => {
-      const titleElement = item.querySelector(".collections__subtitle");
-      const textElement = item.querySelector(".collections__text");
-      if (textElement) {
-        titleElement.classList.add("title-theme--dark");
-        textElement.classList.add("text-theme--dark");
-      }
-    });
-
-
-    localStorage.setItem("theme", "dark");
   } else {
     body.classList.remove("dark-theme");
-
-    applyThemeToElements(backgroundThemes, "background-theme", false);
-    applyThemeToElements(titleThemes, "title-theme", false);
-    applyThemeToElements(textThemes, "text-theme", false);
-    applyThemeToElements(PrimaryTextThemes, "primary-text-theme", false);
-    applyThemeToElements(topItemContent, "top__item", false);
-
-    listElement.querySelectorAll(".content__item").forEach((element) => {
-      element.querySelector(".title").classList.remove("title-theme--dark");
-      element.querySelector(".number").classList.remove("primary-text-theme--dark");
-    });
-
-    collectionItem.forEach((item) => {
-      const titleElement = item.querySelector(".collections__subtitle");
-      const textElement = item.querySelector(".collections__text");
-      if (textElement) {
-        titleElement.classList.remove("title-theme--dark");
-        textElement.classList.remove("text-theme--dark");
-      }
-    });
-
-    localStorage.setItem("theme", "light");
   }
-};
+
+  applyThemeToElements(backgroundThemes, "background-theme", checked);
+  applyThemeToElements(titleThemes, "title-theme", checked);
+  applyThemeToElements(textThemes, "text-theme", checked);
+  applyThemeToElements(PrimaryTextThemes, "primary-text-theme", checked);
+  applyThemeToElements(topItemContent, "top__item", checked);
+
+  listElement.querySelectorAll(".content__item").forEach((element) => {
+    element.querySelector(".title").classList.toggle("title-theme--dark", checked);
+    element.querySelector(".number").classList.toggle("primary-text-theme--dark", checked);
+  });
+
+  applyThemeToElements(collectionItems, "collections__item", checked);
+
+  localStorage.setItem("theme", checked ? "dark" : "light");
+}
 
 themeToggle.addEventListener("change", handleThemeChange);
 
