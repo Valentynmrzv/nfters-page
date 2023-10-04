@@ -10,7 +10,7 @@ body {
     background-color: var(--bg-color);
     transition: background-color var(--transition-property);
     &.dark-theme {
-        background-color: #1e2125;
+        background-color: var(--body-bg-dark);
     }
 
 }
@@ -29,8 +29,6 @@ h6,
 p {
     margin: 0px;
     padding: 0px;
-    font-family: 'DM Sans';
-    // color: var(--text-color-dark);
 }
 
 a {

@@ -12,18 +12,27 @@
     </div>
   </div>
 </div>
+<div class="dark-mode">
+  <input type="checkbox" class="checkbox" id="theme-toggle">
+  <label for="theme-toggle" class="checkbox-label">
+    <i class="fas fa-moon">
+      <svg class="icon">
+        <use href="./images/icons.svg#moon"></use>
+      </svg>
+    </i>
+    <i class="fas fa-sun">
+      <svg class="icon">
+        <use href="./images/icons.svg#sun"></use>
+      </svg>
+    </i>
+    <span class="ball"></span>
+  </label>
+</div>
 <!-- ================================ HEADER ========================================== -->
 <header class="header background-theme">
   <div class="header__wrapper container">
     <a href="./" class="logo-link">NFTERS</a>
-    <div class="dark-mode">
-      <input type="checkbox" class="checkbox" id="theme-toggle">
-      <label for="theme-toggle" class="checkbox-label">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-        <span class="ball"></span>
-      </label>
-    </div>
+    
     <div class="search-form">
       <input name="search" type="text" class="search-form__input text-theme" placeholder="Search">
       <svg class="search-form__icon">
@@ -33,7 +42,7 @@
        <div class="header-button">
         <ul class="header-button__list">
           <li class="header-button__item">
-            <button class="header-button__btn main-btn main-btn--dark upload">
+            <button class="header-button__btn main-btn-accent upload">
               Upload
             </button>
           </li>
@@ -96,7 +105,7 @@
                   <p class="wallet__text">
                     Haven`t got a crypto wallet yet?
                   </p>
-                  <button class="wallet__btn main-btn main-btn--dark ">
+                  <button class="wallet__btn main-btn-accent">
                     Learn How to Connect
                   </button>
                 </span>

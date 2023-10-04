@@ -8,13 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
     collectionItems.forEach((collectionItem) => {
       const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
       const primaryTextElement = collectionItem.querySelector(".collections__inner");
+      const button = collectionItem.querySelector(".collections__button.main-btn");
 
       if (titleElement) {
         titleElement.classList.toggle("title-theme--dark", checked);
       }
-
       if (primaryTextElement) {
         primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
+      }
+      if (button) {
+        button.classList.toggle("main-btn--dark", checked);
       }
     });
   }
@@ -78,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <span class="collections__name">${userName}</span>
               </p>
             </span>
-            <button class="collections__button main-btn main-btn--light">
+            <button class="collections__button main-btn">
               Total&nbsp;
               <span class="collections__quantity">${userTotalItems}</span>&nbsp;Items
             </button>

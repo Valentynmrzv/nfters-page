@@ -27,6 +27,7 @@ function showItemsByCategory(category) {
 
     if (isItemInCategory && isItemOnCurrentPage) {
       item.style.display = "block";
+      applyThemeToNftItems();
     } else {
       item.style.display = "none";
     }

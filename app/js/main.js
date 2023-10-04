@@ -17,15 +17,18 @@ function applyThemeToElements(elements, themeClass, checked) {
     }
   });
 }
-
+const checkboxLabel = document.querySelectorAll(".checkbox-label");
 const collectionItems = document.querySelectorAll(".collections__item");
 const backgroundThemes = document.querySelectorAll(".background-theme");
 const titleThemes = document.querySelectorAll(".title-theme");
 const textThemes = document.querySelectorAll(".text-theme");
 const PrimaryTextThemes = document.querySelectorAll(".primary-text-theme");
+const iconTheme = document.querySelectorAll(".icon-theme");
+const searchIconTheme = document.querySelectorAll(".search-form__icon");
 const topItemContent = document.querySelectorAll(".top__item");
 const listElement = document.querySelector(".content__list");
 const listNft = document.querySelector(".nfts-list");
+
 
 function handleThemeChange() {
   const checked = themeToggle.checked;
@@ -35,11 +38,13 @@ function handleThemeChange() {
   } else {
     body.classList.remove("dark-theme");
   }
-
+  applyThemeToElements(checkboxLabel, "checkbox-label", checked);
   applyThemeToElements(backgroundThemes, "background-theme", checked);
   applyThemeToElements(titleThemes, "title-theme", checked);
   applyThemeToElements(textThemes, "text-theme", checked);
   applyThemeToElements(PrimaryTextThemes, "primary-text-theme", checked);
+  applyThemeToElements(iconTheme, "icon-theme", checked);
+  applyThemeToElements(searchIconTheme, "search-form__icon", checked);
   applyThemeToElements(topItemContent, "top__item", checked);
 
   listElement.querySelectorAll(".content__item").forEach((element) => {
@@ -147,10 +152,8 @@ document.addEventListener("click", handleNftButtonClick);
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const themeToggle = document.getElementById("theme-toggle"); // Получите themeToggle здесь
+  const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
-
-  // Определите функцию applyThemeToElements и другие необходимые переменные здесь
 
   function applyThemeToCollectionItems(checked) {
     const collectionItems = document.querySelectorAll(".collections__item");
@@ -179,10 +182,8 @@ document.addEventListener('DOMContentLoaded', function () {
     applyThemeToCollectionItems(themeToggle.checked);
   }
 
-  // Добавьте обработчик события на изменение темы
   themeToggle.addEventListener("change", handleThemeChange);
 
-  // Убедитесь, что сохраненная тема загружается при загрузке страницы
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     themeToggle.checked = true;
@@ -320,13 +321,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   };
 
-  // Функция смены темы
-
-
-  // Добавьте обработчик события на изменение темы
   themeToggle.addEventListener("change", handleThemeChange);
 
-  // Убедитесь, что сохраненная тема загружается при загрузке страницы
   window.addEventListener("load", () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -339,10 +335,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-let jsonModalData; // Глобальная переменная для хранения данных из JSON
+let jsonModalData;
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Загрузите данные из файла JSON и сохраните их в переменной jsonData
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {

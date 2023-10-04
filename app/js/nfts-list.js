@@ -1,3 +1,23 @@
+function applyThemeToNftItems(checked) {
+  const nftItems = document.querySelectorAll(".nfts-list__item");
+  nftItems.forEach((nftItem) => {
+    const titleElement = nftItem.querySelector(".nft-icon__name.text-theme");
+    const textElement = nftItem.querySelector(".nfts-icon__number.text-theme");
+    const button = nftItem.querySelector(".nft-icon__btn.main-btn");
+
+    if (titleElement) {
+      titleElement.classList.toggle("text-theme--dark", checked);
+    }
+
+    if (textElement) {
+      textElement.classList.toggle("text-theme--dark", checked);
+    }
+    if (button) {
+      button.classList.toggle("main-btn--dark", checked);
+    }
+  });
+}
+
 // ===================HTML - JSON=========================
 function createNftElement(nftData) {
   const nftItem = document.createElement("li");
@@ -68,7 +88,7 @@ function createNftElement(nftData) {
   nftNumber.textContent = nftData.stock;
 
   const placeBidButton = document.createElement("button");
-  placeBidButton.className = "nft-icon__btn main-btn main-btn--light";
+  placeBidButton.className = "nft-icon__btn main-btn";
   placeBidButton.id = 'nftButton';
   placeBidButton.textContent = "Place a bid";
 
@@ -131,7 +151,7 @@ async function loadAndDisplayData(category) {
     }
     sortAndDisplayItems(currentSortBy, currentSortOrder);
     showPage(currentPage);
-
+    applyThemeToNftItems();
   } catch (error) {
     console.error('Error: content.json', error);
   }

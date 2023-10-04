@@ -162,8 +162,7 @@
     gap: 32px;
   }
   &__title {
-    // color: #000;
-    font-family: "Archivo Black";
+    font-family: var(--title-font-family);
     font-size: 26px;
     font-style: normal;
     font-weight: 700;
@@ -178,8 +177,7 @@
     }
   }
   &__text {
-    // color: #636363;
-    font-family: 'DM Sans';
+    font-family: var(--text-font-family);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

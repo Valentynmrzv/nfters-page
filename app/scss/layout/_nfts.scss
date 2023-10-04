@@ -25,8 +25,6 @@
     padding: 10px 20px;
     border-radius: 100px;
     background-color: rgba(220, 220, 220, 0.20);
-
-    // color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;
@@ -57,7 +55,8 @@
   font-style: normal;
   font-weight: 500;
   line-height: 17.452px;
-  transition: color var(--transition-property), background-color var(--transition-property)!important;
+  transition: color var(--transition-property), 
+    background-color var(--transition-property)!important;
   &:hover,
   &:focus {
     border: 1px solid var(--accent-color);
@@ -96,13 +95,11 @@
     align-items: center;
   }
   &__name {
-    // color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 19.747px;
     font-style: normal;
     font-weight: 700;
     line-height: 19.146px;
-    /* 96.955% */
   }
   &__user-image {
     border-radius: 50%;
@@ -128,14 +125,12 @@
     line-height: normal;
   }
   &__number {
-    // color: #838383;
     text-align: right;
     font-family: var(--text-font-family);
     font-size: 13.165px;
     font-style: normal;
     font-weight: 500;
     line-height: 19.146px;
-    /* 145.433% */
   }
   &__btn {
     padding: 10px 0px;
@@ -170,8 +165,7 @@
       height: 40px;
       border-radius: 50%;
       border: 0.5px solid #000;
-      background-color: none;
-      // color: var(--text-color-dark);
+      background-color: transparent;
       cursor: pointer;
       transition: all var(--transition-property),
           background-color var(--transition-property),

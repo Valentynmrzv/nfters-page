@@ -32,7 +32,6 @@
   }
 
   &__title {
-    // color: var(--title-text-color);
     font-family: var(--title-font-family);
     font-size: 26px;
     font-style: normal;
@@ -48,7 +47,6 @@
   }
   &__text {
     margin-top: 22px;
-    // color: var(--primary-text-color);
     font-family: var(--text-font-family);
   
     font-size: 20px;
@@ -110,7 +108,6 @@
     }
 
     .title {
-      // color: var(--title-text-color);
       font-family: var(--title-font-family);
       font-size: 24px;
       font-style: normal;
@@ -125,7 +122,6 @@
       }
     }
     .text {
-      // color: var(--primary-text-color);
       font-family: var(--text-font-family);
       font-size: 16px;
       font-style: normal;
@@ -442,7 +438,6 @@
     }
 
     .title {
-      // color: var(--text-color-dark);
       font-family: var(--text-font-family);
       font-size: 14px;
       font-style: normal;
@@ -456,13 +451,11 @@
       }
     }
     .text {
-      // color: var(--primary-text-color);
       font-family: var(--text-font-family);
       font-size: 12px;
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
-      /* 22.4px */
       @media screen and (min-width: 760px) {
         width: 24vw;
         font-size: 0.972vw;

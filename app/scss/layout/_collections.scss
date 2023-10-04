@@ -13,7 +13,6 @@
     }
   }
   &__title {
-    // color: #000;
     font-family: 'Archivo Black';
     font-size: 24px;
     font-style: normal;
@@ -51,8 +50,7 @@
 
   &__subtitle {
     margin-top: 1vw;
-    // color: #000;
-    font-family: 'DM Sans';
+    font-family: var(--text-font-family);
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
@@ -62,9 +60,6 @@
     }
     @media screen and (min-width: 1440px) {
       margin-top: 30px;
-    }
-    &--dark {
-      color: #fff;
     }
   }
   &__inner {
@@ -97,8 +92,7 @@
   }
   &__text {
     display: flex;
-    // color: #000;
-    font-family: 'DM Sans';
+    font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -112,7 +106,7 @@
   }
   &__button {
     padding: 10px 15px;
-    font-family: 'DM Sans';
+    font-family: var(--text-font-family);
     font-size: 11px;
     font-style: normal;
     font-weight: 700;
@@ -143,14 +137,7 @@
     width: 265px;
     height: 272px;
   }
-  // &__wrapper {
-  //   display: block;
-  //   width: 18.403vw;
-  //   height: 18.889vw;
-  // }
   &__slide {
-    // width: 18.403vw;
-    // height: 18.889vw;
     border-radius: 6px;
     overflow: hidden;
     @media screen and (min-width: 760px) {
@@ -178,15 +165,6 @@
     width: 103px;
     height: 272px;
   }
-  // &__wrapper {
-  //   width: 7.153vw;
-  //   height: 18.889vw;
-  //   border-radius: 6px;
-  //   @media screen and (min-width: 1440px) {
-  //     width: 103px;
-  //     height: 272px;
-  //   }
-  // }
   &__slide {
     height: calc((100% - 32px)/3);
     border-radius: 6px;
