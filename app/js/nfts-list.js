@@ -33,7 +33,7 @@ function createNftElement(nftData) {
   nftTitle.className = "nft-icon__title-wrapper";
 
   const nftName = document.createElement("h5");
-  nftName.className = "nft-icon__name";
+  nftName.className = "nft-icon__name text-theme";
   nftName.textContent = nftData.nftName;
 
   const userImage = document.createElement('img');
@@ -64,7 +64,7 @@ function createNftElement(nftData) {
   priceValue.textContent = nftData.bitValue;
 
   const nftNumber = document.createElement("p");
-  nftNumber.className = "nfts-icon__number";
+  nftNumber.className = "nfts-icon__number text-theme";
   nftNumber.textContent = nftData.stock;
 
   const placeBidButton = document.createElement("button");

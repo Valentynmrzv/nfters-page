@@ -17,6 +17,8 @@
   --button-text-color: #FFFFFF;
   --button-bg-color-light: #FFF;
   --button-bg-color-dark: #FFF;
+  --icon-theme-light: #000000;
+  --icon-theme-dark: #FFF;
   --accent-color: #3d00b7;
   --transition-property: 250ms ease-in-out;
 }
@@ -146,7 +148,7 @@ ul {
 }
 .main-btn--light:hover {
   background-color: var(--accent-color);
-  color: var(--text-color-light);
+  color: var(--button-text-color);
 }
 .main-btn--light:hover::before {
   transform: translateX(300px) skewX(-15deg);
@@ -506,7 +508,6 @@ ul {
   position: absolute;
   top: 20px;
   right: 20px;
-  background-image: url("../images/icon-close-dark.svg");
   background-color: transparent;
   background-position: center;
   background-size: 100%;
@@ -518,6 +519,14 @@ ul {
 .modal__close:hover {
   background-color: rgba(0, 0, 0, 0.12);
   cursor: pointer;
+}
+.modal__close .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
 }
 .modal__title {
   font-weight: bold;
@@ -659,6 +668,14 @@ ul {
 }
 .text-theme--dark {
   color: var(--text-color-dark);
+}
+
+.icon-theme {
+  fill: var(--icon-theme-light);
+  transition: fill var(--transition-property);
+}
+.icon-theme--dark {
+  fill: var(--icon-theme-dark);
 }
 
 .header {
@@ -857,7 +874,7 @@ ul {
   width: 12vw;
   display: flex;
   flex-direction: column;
-  background: none;
+  background: var(--primary-bg-light);
   border-radius: 60px;
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
@@ -922,10 +939,9 @@ ul {
   border: 2px solid var(--accent-color);
   border-radius: 30px;
   overflow: hidden;
-  background-color: var(--primary-bg);
   transform: scale(0);
   transform-origin: right top;
-  transition: transform var(--transition-property);
+  transition: transform var(--transition-property), background-color var(--transition-property);
   pointer-events: none;
 }
 @media screen and (min-width: 1440px) {
@@ -959,10 +975,8 @@ ul {
   right: 10px;
   padding: 0;
   background-color: transparent;
-  fill: #000;
   width: 30px;
   height: 30px;
-  background-image: url("../images/icon-close-dark.svg");
   background-position: center;
   background-size: 80%;
   background-repeat: no-repeat;
@@ -974,8 +988,12 @@ ul {
 .wallet__btn-close:hover, .wallet__btn-close:focus {
   background-color: rgba(61, 0, 183, 0.6);
 }
+.wallet__btn-close .icon {
+  width: 30px;
+  height: 30px;
+}
 .wallet__list {
-  margin: 0px 20px;
+  margin: 5px 20px;
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -2801,7 +2819,6 @@ ul {
   padding: 10px 20px;
   border-radius: 100px;
   background-color: rgba(220, 220, 220, 0.2);
-  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 14px;
   font-style: normal;
@@ -2811,11 +2828,11 @@ ul {
   transition: color var(--transition-property), background-color var(--transition-property), opacity var(--transition-property);
 }
 .nfts-tag__btn.active {
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   background-color: #3D00B7;
 }
 .nfts-tag__btn:hover {
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   background-color: #3D00B7;
 }
 
@@ -2824,13 +2841,12 @@ ul {
   border-radius: 9px;
   border: 1px solid;
   outline: none;
-  background-color: var(--primary-bg);
-  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 17.452px;
+  transition: color var(--transition-property), background-color var(--transition-property) !important;
 }
 .nfts-sort:hover, .nfts-sort:focus {
   border: 1px solid var(--accent-color);
@@ -2871,7 +2887,6 @@ ul {
   align-items: center;
 }
 .nft-icon__name {
-  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 19.747px;
   font-style: normal;
@@ -2903,7 +2918,6 @@ ul {
   line-height: normal;
 }
 .nft-icon__number {
-  color: #838383;
   text-align: right;
   font-family: var(--text-font-family);
   font-size: 13.165px;
@@ -2922,7 +2936,7 @@ ul {
 }
 .nft-icon__btn.cancel:hover {
   background-color: red;
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
 }
 
 .nfts-pagination {
@@ -2947,8 +2961,8 @@ ul {
   border-radius: 50%;
   border: 0.5px solid #000;
   background-color: none;
-  color: var(--text-color-dark);
   cursor: pointer;
+  transition: all var(--transition-property), background-color var(--transition-property), opacity var(--transition-property);
 }
 @media screen and (min-width: 760px) {
   .nfts-pagination__numbers span {
@@ -2958,9 +2972,8 @@ ul {
 .nfts-pagination__numbers .active {
   display: flex;
   background-color: var(--accent-color);
-  color: var(--text-color-light);
-  border: none;
-  transition: color var(--transition-property), background-color var(--transition-property), opacity var(--transition-property);
+  color: var(--text-color-dark);
+  border: 0.5px solid #FFF;
 }
 
 .footer__wrapper {
@@ -3111,13 +3124,18 @@ ul {
   cursor: pointer;
   background: var(--accent-color);
   transition: width 0.35s ease-in-out, background 0.35s ease-in-out;
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.79px;
+}
+@media screen and (min-width: 1440px) {
+  .footer-subscribe__subscription .footer-subscribe__submit-email {
+    top: 0.5px;
+  }
 }
 .footer-subscribe__subscription.done .footer-subscribe__submit-email {
   width: calc(100% - 2px);

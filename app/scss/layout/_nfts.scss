@@ -26,7 +26,7 @@
     border-radius: 100px;
     background-color: rgba(220, 220, 220, 0.20);
 
-    color: var(--text-color-dark);
+    // color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;
@@ -38,11 +38,11 @@
      opacity var(--transition-property);
 
     &.active {
-      color: var(--text-color-light);
+      color: var(--text-color-dark);
       background-color: #3D00B7;
     }
     &:hover {
-      color: var(--text-color-light);
+      color: var(--text-color-dark);
       background-color: #3D00B7;
     }
   }
@@ -52,13 +52,12 @@
   border-radius: 9px;
   border: 1px solid ;
   outline: none;
-  background-color: var(--primary-bg);
-  color: var(--text-color-dark);
   font-family: var(--text-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 17.452px;
+  transition: color var(--transition-property), background-color var(--transition-property)!important;
   &:hover,
   &:focus {
     border: 1px solid var(--accent-color);
@@ -97,7 +96,7 @@
     align-items: center;
   }
   &__name {
-    color: var(--text-color-dark);
+    // color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 19.747px;
     font-style: normal;
@@ -129,7 +128,7 @@
     line-height: normal;
   }
   &__number {
-    color: #838383;
+    // color: #838383;
     text-align: right;
     font-family: var(--text-font-family);
     font-size: 13.165px;
@@ -146,7 +145,7 @@
       color: red;
       &:hover {
         background-color: red;
-        color: var(--text-color-light);
+        color: var(--text-color-dark);
       }
     }
   }
@@ -172,8 +171,11 @@
       border-radius: 50%;
       border: 0.5px solid #000;
       background-color: none;
-      color: var(--text-color-dark);
+      // color: var(--text-color-dark);
       cursor: pointer;
+      transition: all var(--transition-property),
+          background-color var(--transition-property),
+          opacity var(--transition-property);
       @media screen and (min-width: 760px) {
         display: flex;
       }
@@ -181,11 +183,8 @@
     .active {
       display: flex;
       background-color: var(--accent-color);
-      color: var(--text-color-light);
-      border: none;
-      transition: color var(--transition-property),
-        background-color var(--transition-property),
-        opacity var(--transition-property);
+      color: var(--text-color-dark);
+      border: 0.5px solid #FFF;
     }
   }
 }

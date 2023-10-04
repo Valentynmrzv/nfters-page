@@ -49,28 +49,28 @@
   }
 }
 .collections-lightbox__button {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    margin: 0;
-    border: none;
-    border-radius: 50%;
-    background-color: transparent;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color var(--transition-property);
-    outline: none;
-    background-image: url('../images/icon-close.svg');
-    background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
-    z-index: 22;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--transition-property);
+  outline: none;
+  background-image: url('../images/icon-close.svg');
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  z-index: 22;
 }
 
 .collections-lightbox__button:hover,
@@ -134,7 +134,6 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background-image: url('../images/icon-close-dark.svg');
     background-color: transparent;
     background-position: center;
     background-size: 100%;
@@ -145,6 +144,14 @@
     &:hover {
       background-color: rgba(0, 0, 0, 0.12);
       cursor: pointer;
+    }
+    & .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
     }
   }
 

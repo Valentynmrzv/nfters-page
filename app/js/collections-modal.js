@@ -1,7 +1,6 @@
-let jsonModalData; // Глобальная переменная для хранения данных из JSON
+let jsonModalData;
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Загрузите данные из файла JSON и сохраните их в переменной jsonData
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {

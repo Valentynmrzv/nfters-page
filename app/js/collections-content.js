@@ -1,9 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-  const themeToggle = document.getElementById("theme-toggle"); // Получите themeToggle здесь
+  const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
-
-  // Определите функцию applyThemeToElements и другие необходимые переменные здесь
 
   function applyThemeToCollectionItems(checked) {
     const collectionItems = document.querySelectorAll(".collections__item");
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function handleThemeChange() {
-    console.log("Changing theme...");
     if (themeToggle.checked) {
       body.classList.add("dark-theme");
       localStorage.setItem("theme", "dark");
@@ -33,10 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
     applyThemeToCollectionItems(themeToggle.checked);
   }
 
-  // Добавьте обработчик события на изменение темы
   themeToggle.addEventListener("change", handleThemeChange);
 
-  // Убедитесь, что сохраненная тема загружается при загрузке страницы
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     themeToggle.checked = true;
@@ -174,13 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   };
 
-  // Функция смены темы
-
-
-  // Добавьте обработчик события на изменение темы
   themeToggle.addEventListener("change", handleThemeChange);
 
-  // Убедитесь, что сохраненная тема загружается при загрузке страницы
   window.addEventListener("load", () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {

@@ -24,11 +24,11 @@ const titleThemes = document.querySelectorAll(".title-theme");
 const textThemes = document.querySelectorAll(".text-theme");
 const PrimaryTextThemes = document.querySelectorAll(".primary-text-theme");
 const topItemContent = document.querySelectorAll(".top__item");
-const listElement = document.querySelector('.content__list');
+const listElement = document.querySelector(".content__list");
+const listNft = document.querySelector(".nfts-list");
 
 function handleThemeChange() {
   const checked = themeToggle.checked;
-  console.log("Changing theme...");
 
   if (checked) {
     body.classList.add("dark-theme");
@@ -45,6 +45,10 @@ function handleThemeChange() {
   listElement.querySelectorAll(".content__item").forEach((element) => {
     element.querySelector(".title").classList.toggle("title-theme--dark", checked);
     element.querySelector(".number").classList.toggle("primary-text-theme--dark", checked);
+  });
+  listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
+    element.querySelector(".nft-icon__name").classList.toggle("text-theme--dark", checked);
+    element.querySelector(".nfts-icon__number").classList.toggle("text-theme--dark", checked);
   });
 
   applyThemeToElements(collectionItems, "collections__item", checked);
@@ -165,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function handleThemeChange() {
-    console.log("Changing theme...");
     if (themeToggle.checked) {
       body.classList.add("dark-theme");
       localStorage.setItem("theme", "dark");
@@ -774,6 +777,7 @@ let myImageSlider = new Swiper('.live', {
   nested: true,
 });
 const modalWrapper = document.querySelector(".modals");
+const modalOverlay = document.querySelector(".modals__overlay");
 const signUpBtn = document.querySelector(".sign-up-text__button");
 const modalSignIn = document.querySelector(".modal__sign-in");
 const modalSignUp = document.querySelector(".modal__sign-up");
@@ -805,6 +809,7 @@ modalCloseButtons.forEach((button) => {
   button.addEventListener("click", closeModal);
 });
 
+modalOverlay.addEventListener("click", closeModal);
 // ===================HTML - JSON=========================
 function createNftElement(nftData) {
   const nftItem = document.createElement("li");
@@ -840,7 +845,7 @@ function createNftElement(nftData) {
   nftTitle.className = "nft-icon__title-wrapper";
 
   const nftName = document.createElement("h5");
-  nftName.className = "nft-icon__name";
+  nftName.className = "nft-icon__name text-theme";
   nftName.textContent = nftData.nftName;
 
   const userImage = document.createElement('img');
@@ -871,7 +876,7 @@ function createNftElement(nftData) {
   priceValue.textContent = nftData.bitValue;
 
   const nftNumber = document.createElement("p");
-  nftNumber.className = "nfts-icon__number";
+  nftNumber.className = "nfts-icon__number text-theme";
   nftNumber.textContent = nftData.stock;
 
   const placeBidButton = document.createElement("button");

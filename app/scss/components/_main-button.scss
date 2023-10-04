@@ -44,7 +44,7 @@
     
     &:hover {
       background-color: var(--accent-color);
-      color: var(--text-color-light);
+      color: var(--button-text-color);
       &::before {
         transform: translateX(300px) skewX(-15deg);
         opacity: 0.6;

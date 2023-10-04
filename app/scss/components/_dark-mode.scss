@@ -73,3 +73,10 @@
       color: var(--text-color-dark);
   }
 }
+.icon-theme {
+  fill: var(--icon-theme-light);
+  transition: fill var(--transition-property);
+  &--dark {
+    fill: var(--icon-theme-dark);
+  }
+}

@@ -146,13 +146,16 @@
     background: var(--accent-color);
     transition: width .35s ease-in-out,
       background .35s ease-in-out;
-    color: var(--text-color-light);
+    color: var(--text-color-dark);
     font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.79px;
+    @media screen and (min-width: 1440px) {
+      top: 0.5px;
+    }
   }
 
   &__subscription.done &__submit-email {

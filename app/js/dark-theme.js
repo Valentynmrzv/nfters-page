@@ -16,12 +16,14 @@ const backgroundThemes = document.querySelectorAll(".background-theme");
 const titleThemes = document.querySelectorAll(".title-theme");
 const textThemes = document.querySelectorAll(".text-theme");
 const PrimaryTextThemes = document.querySelectorAll(".primary-text-theme");
+const iconTheme = document.querySelectorAll(".icon-theme");
 const topItemContent = document.querySelectorAll(".top__item");
-const listElement = document.querySelector('.content__list');
+const listElement = document.querySelector(".content__list");
+const listNft = document.querySelector(".nfts-list");
+
 
 function handleThemeChange() {
   const checked = themeToggle.checked;
-  console.log("Changing theme...");
 
   if (checked) {
     body.classList.add("dark-theme");
@@ -33,11 +35,16 @@ function handleThemeChange() {
   applyThemeToElements(titleThemes, "title-theme", checked);
   applyThemeToElements(textThemes, "text-theme", checked);
   applyThemeToElements(PrimaryTextThemes, "primary-text-theme", checked);
+  applyThemeToElements(iconTheme, "icon-theme", checked);
   applyThemeToElements(topItemContent, "top__item", checked);
 
   listElement.querySelectorAll(".content__item").forEach((element) => {
     element.querySelector(".title").classList.toggle("title-theme--dark", checked);
     element.querySelector(".number").classList.toggle("primary-text-theme--dark", checked);
+  });
+  listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
+    element.querySelector(".nft-icon__name").classList.toggle("text-theme--dark", checked);
+    element.querySelector(".nfts-icon__number").classList.toggle("text-theme--dark", checked);
   });
 
   applyThemeToElements(collectionItems, "collections__item", checked);
