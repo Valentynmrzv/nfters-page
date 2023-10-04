@@ -27,10 +27,10 @@
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
-    color: var(--title-text-color);
+    // color: var(--title-text-color);
   }
   &__text {
-    color: var(--primary-text-color);
+    // color: var(--primary-text-color);
     font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;
@@ -56,19 +56,21 @@
     flex-direction: column;
     gap: 8px;
   }
+  &__item {
+    transition: opacity var(--transition-property);
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+    }
+  }
   &__link {
-    color: #3D3D3D;
+    // color: #3D3D3D;
     font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 200%;
-    transition: opacity var(--transition-property);
-    /* 28px */
-    &:hover,
-    &:focus {
-      opacity: 0.7;
-    }
+   
   }
 }
 .footer-info {
@@ -77,7 +79,7 @@
   gap: 16px;
   max-width: 362px;
   &__title {
-    color: var(--title-text-color);
+    // color: var(--title-text-color);
     font-family: var(--text-font-family);
     font-size: 18px;
     font-style: normal;
@@ -86,7 +88,7 @@
     text-transform: capitalize;
   }
   &__text {
-    color: #363639;
+    // color: #363639;
     font-family: var(--text-font-family);
     font-size: 14px;
     font-style: normal;

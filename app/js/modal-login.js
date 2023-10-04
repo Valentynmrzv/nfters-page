@@ -1,4 +1,5 @@
 const modalWrapper = document.querySelector(".modals");
+const modalOverlay = document.querySelector(".modals__overlay");
 const signUpBtn = document.querySelector(".sign-up-text__button");
 const modalSignIn = document.querySelector(".modal__sign-in");
 const modalSignUp = document.querySelector(".modal__sign-up");
@@ -29,3 +30,5 @@ modalToggleBtn.forEach((button) => {
 modalCloseButtons.forEach((button) => {
   button.addEventListener("click", closeModal);
 });
+
+modalOverlay.addEventListener("click", closeModal);
