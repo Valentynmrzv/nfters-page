@@ -1,3 +1,18 @@
+themeToggle.addEventListener("change", handleThemeChange);
+
+// Убедитесь, что сохраненная тема загружается при загрузке страницы
+window.addEventListener("load", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    themeToggle.checked = true;
+  } else {
+    themeToggle.checked = false;
+  }
+  applyThemeToCollectionItems(themeToggle.checked);
+  handleThemeChange();
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
   fetch('./nft/content.json')
     .then(response => response.json())
@@ -142,6 +157,82 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+  // Функция смены темы
+  function handleThemeChange() {
+    console.log("Changing theme...");
+    if (themeToggle.checked) {
+      body.classList.add("dark-theme");
 
+      applyThemeToElements(backgroundThemes, "background-theme", true);
+      applyThemeToElements(titleThemes, "title-theme", true);
+      applyThemeToElements(textThemes, "text-theme", true);
+      applyThemeToElements(PrimaryTextThemes, "primary-text-theme", true);
+      applyThemeToElements(topItemContent, "top__item", true);
+
+      listElement.querySelectorAll(".content__item").forEach((element) => {
+        element.querySelector(".title").classList.add("title-theme--dark");
+        element.querySelector(".number").classList.add("primary-text-theme--dark");
+      });
+
+      collectionItems.forEach((collectionItem) => {
+        const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
+        const primaryTextElement = collectionItem.querySelector(".collections__text.text-theme .collections__name");
+
+        if (titleElement) {
+          titleElement.classList.add("title-theme--dark");
+        }
+
+        if (primaryTextElement) {
+          primaryTextElement.classList.add("primary-text-theme--dark");
+        }
+      });
+
+      localStorage.setItem("theme", "dark");
+    } else {
+      body.classList.remove("dark-theme");
+
+      applyThemeToElements(backgroundThemes, "background-theme", false);
+      applyThemeToElements(titleThemes, "title-theme", false);
+      applyThemeToElements(textThemes, "text-theme", false);
+      applyThemeToElements(PrimaryTextThemes, "primary-text-theme", false);
+      applyThemeToElements(topItemContent, "top__item", false);
+
+      listElement.querySelectorAll(".content__item").forEach((element) => {
+        element.querySelector(".title").classList.remove("title-theme--dark");
+        element.querySelector(".number").classList.remove("primary-text-theme--dark");
+      });
+
+      collectionItems.forEach((collectionItem) => {
+        const titleElement = collectionItem.querySelector(".collections__item .collections__subtitle");
+
+        const primaryTextElement = collectionItem.querySelector(".collections__text.text-theme .collections__name");
+
+        if (titleElement) {
+          titleElement.classList.remove("title-theme--dark");
+        }
+
+        if (primaryTextElement) {
+          primaryTextElement.classList.remove("primary-text-theme--dark");
+        }
+      });
+
+      localStorage.setItem("theme", "light");
+    }
+  }
+
+  // Добавьте обработчик события на изменение темы
+  themeToggle.addEventListener("change", handleThemeChange);
+
+  // Убедитесь, что сохраненная тема загружается при загрузке страницы
+  window.addEventListener("load", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      themeToggle.checked = true;
+    } else {
+      themeToggle.checked = false;
+    }
+    applyThemeToCollectionItems(themeToggle.checked);
+    handleThemeChange();
+  });
 
 });
