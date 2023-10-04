@@ -1,7 +1,42 @@
-themeToggle.addEventListener("change", handleThemeChange);
 
-// Убедитесь, что сохраненная тема загружается при загрузке страницы
-window.addEventListener("load", () => {
+document.addEventListener('DOMContentLoaded', function () {
+  const themeToggle = document.getElementById("theme-toggle"); // Получите themeToggle здесь
+  const body = document.body;
+
+  // Определите функцию applyThemeToElements и другие необходимые переменные здесь
+
+  function applyThemeToCollectionItems(checked) {
+    const collectionItems = document.querySelectorAll(".collections__item");
+    collectionItems.forEach((collectionItem) => {
+      const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
+      const primaryTextElement = collectionItem.querySelector(".collections__inner");
+
+      if (titleElement) {
+        titleElement.classList.toggle("title-theme--dark", checked);
+      }
+
+      if (primaryTextElement) {
+        primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
+      }
+    });
+  }
+
+  function handleThemeChange() {
+    console.log("Changing theme...");
+    if (themeToggle.checked) {
+      body.classList.add("dark-theme");
+      localStorage.setItem("theme", "dark");
+    } else {
+      body.classList.remove("dark-theme");
+      localStorage.setItem("theme", "light");
+    }
+    applyThemeToCollectionItems(themeToggle.checked);
+  }
+
+  // Добавьте обработчик события на изменение темы
+  themeToggle.addEventListener("change", handleThemeChange);
+
+  // Убедитесь, что сохраненная тема загружается при загрузке страницы
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     themeToggle.checked = true;
@@ -9,11 +44,7 @@ window.addEventListener("load", () => {
     themeToggle.checked = false;
   }
   applyThemeToCollectionItems(themeToggle.checked);
-  handleThemeChange();
-});
 
-
-document.addEventListener('DOMContentLoaded', function () {
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {
@@ -44,10 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
           </div>
           <h4 class="collections__subtitle title-theme">Amazing Collection</h4>
-          <div class="collections__inner">
+          <div class="collections__inner primary-text-theme">
             <span>
               <img src="${userImageSrc}" alt="" class="collections__user-img">
-              <p class="collections__text text-theme">
+              <p class="collections__text">
                 By&nbsp;
                 <span class="collections__name">${userName}</span>
               </p>
@@ -142,83 +173,9 @@ document.addEventListener('DOMContentLoaded', function () {
       smallImageWrapper.appendChild(smallImage);
     });
   };
-  function applyThemeToCollectionItems(checked) {
-    const collectionItems = document.querySelectorAll(".collections__item");
-    collectionItems.forEach((collectionItem) => {
-      const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
-      const primaryTextElement = collectionItem.querySelector(".primary-text-theme");
 
-      if (titleElement) {
-        titleElement.classList.toggle("title-theme--dark", checked);
-      }
-
-      if (primaryTextElement) {
-        primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
-      }
-    });
-  }
   // Функция смены темы
-  function handleThemeChange() {
-    console.log("Changing theme...");
-    if (themeToggle.checked) {
-      body.classList.add("dark-theme");
 
-      applyThemeToElements(backgroundThemes, "background-theme", true);
-      applyThemeToElements(titleThemes, "title-theme", true);
-      applyThemeToElements(textThemes, "text-theme", true);
-      applyThemeToElements(PrimaryTextThemes, "primary-text-theme", true);
-      applyThemeToElements(topItemContent, "top__item", true);
-
-      listElement.querySelectorAll(".content__item").forEach((element) => {
-        element.querySelector(".title").classList.add("title-theme--dark");
-        element.querySelector(".number").classList.add("primary-text-theme--dark");
-      });
-
-      collectionItems.forEach((collectionItem) => {
-        const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
-        const primaryTextElement = collectionItem.querySelector(".collections__text.text-theme .collections__name");
-
-        if (titleElement) {
-          titleElement.classList.add("title-theme--dark");
-        }
-
-        if (primaryTextElement) {
-          primaryTextElement.classList.add("primary-text-theme--dark");
-        }
-      });
-
-      localStorage.setItem("theme", "dark");
-    } else {
-      body.classList.remove("dark-theme");
-
-      applyThemeToElements(backgroundThemes, "background-theme", false);
-      applyThemeToElements(titleThemes, "title-theme", false);
-      applyThemeToElements(textThemes, "text-theme", false);
-      applyThemeToElements(PrimaryTextThemes, "primary-text-theme", false);
-      applyThemeToElements(topItemContent, "top__item", false);
-
-      listElement.querySelectorAll(".content__item").forEach((element) => {
-        element.querySelector(".title").classList.remove("title-theme--dark");
-        element.querySelector(".number").classList.remove("primary-text-theme--dark");
-      });
-
-      collectionItems.forEach((collectionItem) => {
-        const titleElement = collectionItem.querySelector(".collections__item .collections__subtitle");
-
-        const primaryTextElement = collectionItem.querySelector(".collections__text.text-theme .collections__name");
-
-        if (titleElement) {
-          titleElement.classList.remove("title-theme--dark");
-        }
-
-        if (primaryTextElement) {
-          primaryTextElement.classList.remove("primary-text-theme--dark");
-        }
-      });
-
-      localStorage.setItem("theme", "light");
-    }
-  }
 
   // Добавьте обработчик события на изменение темы
   themeToggle.addEventListener("change", handleThemeChange);
@@ -234,5 +191,4 @@ document.addEventListener('DOMContentLoaded', function () {
     applyThemeToCollectionItems(themeToggle.checked);
     handleThemeChange();
   });
-
 });

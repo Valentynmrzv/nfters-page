@@ -23,6 +23,7 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-include": "latest",
     "gulp-newer": "latest",
+    "gulp-order": "^1.2.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "latest",
     "gulp-svg-sprite": "latest",

@@ -9,6 +9,8 @@ import fonter from 'gulp-fonter';
 import ttf2woff2 from 'gulp-ttf2woff2';
 import svgstore from 'gulp-svgstore';
 import concat from 'gulp-concat';
+import order from 'gulp-order';
+import jsOrder from './js-order.json';
 import uglify from 'gulp-uglify-es';
 import browserSync from 'browser-sync';
 import autoprefixer from 'gulp-autoprefixer';
@@ -115,18 +117,42 @@ const sprite = () => {
     .pipe(dest('app/images'));
 };
 // =========================================== JS scripts =========================================== //
+// const scripts = () => {
+//   return src([
+//     'node_modules/swiper/swiper-bundle.min.js',
+//     'app/js/*.js',
+//     '!app/js/main.js',
+//     '!app/js/main.min.js'
+//   ])
+//     .pipe(concat('main.min.js'))
+//     .pipe(uglify())
+//     .pipe(dest('app/js'))
+//     .pipe(browserSync.stream());
+// };
 const scripts = () => {
   return src([
     'node_modules/swiper/swiper-bundle.min.js',
     'app/js/*.js',
-    'app/js/main.js',
+    '!app/js/main.js',
     '!app/js/main.min.js'
   ])
+    .pipe(order(jsOrder, { base: './' })) // Указание порядка
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('app/js'))
     .pipe(browserSync.stream());
 };
+function copyMainJs() {
+  return src([
+    // 'node_modules/swiper/swiper-bundle.min.js',
+    'app/js/*.js',
+    '!app/js/main.js',
+    '!app/js/main.min.js'
+  ])
+    .pipe(order(jsOrder, { base: './' }))
+    .pipe(concat('main.js')) // Убираем .pipe(uglify()) для отключения минификации
+    .pipe(dest('app/js'));
+}
 // =========================================== CSS =========================================== //
 const styles = () => {
   return src('app/scss/style.scss')
@@ -180,8 +206,9 @@ exports.pages = pages;
 exports.building = building;
 exports.sprite = sprite;
 exports.scripts = scripts;
+exports.copyMainJs = copyMainJs;
 exports.watching = watching;
 exports.deploy = deploy;
 
 exports.build = series(cleanDist, building);
-exports.default = parallel(images, sprite, styles, scripts, pages, watching);
+exports.default = parallel(images, sprite, styles, scripts, copyMainJs, pages, watching);

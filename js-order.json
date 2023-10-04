@@ -1,0 +1,23 @@
+[
+  "node_modules/swiper/swiper-bundle.min.js",
+
+  "app/js/loader-anim.js",
+  "app/js/dark-theme.js",
+  "app/js/button-bit.js",
+  "app/js/collections-content.js",
+  "app/js/collections-modal.js",
+  "app/js/content.js",
+  "app/js/countdown-timer.js",
+  "app/js/counter.js",
+  "app/js/example-animation-active.js",
+  "app/js/hero-advantage-title.js",
+  "app/js/hero-swiper.js",
+  
+  "app/js/modal-login.js",
+  "app/js/nfts-list.js",
+  "app/js/nfts-pagination.js",
+  "app/js/rotate-card.js",
+  "app/js/search-form.js",
+  "app/js/subscribe-form.js",
+  "app/js/wallet-window.js"
+]

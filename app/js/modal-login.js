@@ -10,6 +10,7 @@ const openModal = () => {
   modalSignUp.classList.add("active");
 }
 
+
 const closeModal = () => {
   modalWrapper.classList.remove("open");
   modalSignIn.classList.remove("active");
