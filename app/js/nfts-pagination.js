@@ -109,7 +109,9 @@ categoryButtons.forEach((button) => {
     button.classList.add("active");
     const category = button.getAttribute("data-category");
     currentPage = 1;
+
     await loadAndDisplayData(category);
+    handleThemeChange();
   });
 });
 

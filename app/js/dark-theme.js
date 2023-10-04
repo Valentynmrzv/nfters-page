@@ -61,7 +61,7 @@ function handleThemeChange() {
   });
 
   applyThemeToElements(collectionItems, "collections__item", checked);
-  applyThemeToElements(nftItems, "nfts-list__item", checked);
+  applyThemeToNftItems(checked);
 
   localStorage.setItem("theme", checked ? "dark" : "light");
 }
