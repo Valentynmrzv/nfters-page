@@ -57,6 +57,7 @@ function handleThemeChange() {
   listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
     element.querySelector(".nft-icon__name").classList.toggle("text-theme--dark", checked);
     element.querySelector(".nfts-icon__number").classList.toggle("text-theme--dark", checked);
+    element.querySelector(".nft-icon__btn").classList.toggle("main-btn--dark", checked);
   });
 
   applyThemeToElements(collectionItems, "collections__item", checked);

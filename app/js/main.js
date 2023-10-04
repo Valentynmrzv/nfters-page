@@ -19,15 +19,20 @@ function applyThemeToElements(elements, themeClass, checked) {
 }
 const checkboxLabel = document.querySelectorAll(".checkbox-label");
 const collectionItems = document.querySelectorAll(".collections__item");
+const nftItems = document.querySelectorAll(".nfts-list__item");
 const backgroundThemes = document.querySelectorAll(".background-theme");
 const titleThemes = document.querySelectorAll(".title-theme");
 const textThemes = document.querySelectorAll(".text-theme");
 const PrimaryTextThemes = document.querySelectorAll(".primary-text-theme");
 const iconTheme = document.querySelectorAll(".icon-theme");
 const searchIconTheme = document.querySelectorAll(".search-form__icon");
+const mainBtns = document.querySelectorAll(".main-btn");
 const topItemContent = document.querySelectorAll(".top__item");
+const walletBtnTheme = document.querySelectorAll(".wallet-btn");
+const accentBtnTheme = document.querySelectorAll(".main-btn-accent");
 const listElement = document.querySelector(".content__list");
 const listNft = document.querySelector(".nfts-list");
+
 
 
 function handleThemeChange() {
@@ -45,11 +50,16 @@ function handleThemeChange() {
   applyThemeToElements(PrimaryTextThemes, "primary-text-theme", checked);
   applyThemeToElements(iconTheme, "icon-theme", checked);
   applyThemeToElements(searchIconTheme, "search-form__icon", checked);
+  applyThemeToElements(mainBtns, "main-btn", checked);
   applyThemeToElements(topItemContent, "top__item", checked);
+  applyThemeToElements(walletBtnTheme, "wallet-btn", checked);
+  applyThemeToElements(accentBtnTheme, "main-btn-accent", checked);
+
 
   listElement.querySelectorAll(".content__item").forEach((element) => {
     element.querySelector(".title").classList.toggle("title-theme--dark", checked);
     element.querySelector(".number").classList.toggle("primary-text-theme--dark", checked);
+    element.querySelector(".button.main-btn").classList.toggle("main-btn--dark", checked)
   });
   listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
     element.querySelector(".nft-icon__name").classList.toggle("text-theme--dark", checked);
@@ -57,6 +67,7 @@ function handleThemeChange() {
   });
 
   applyThemeToElements(collectionItems, "collections__item", checked);
+  applyThemeToElements(nftItems, "nfts-list__item", checked);
 
   localStorage.setItem("theme", checked ? "dark" : "light");
 }
@@ -73,6 +84,23 @@ window.addEventListener("load", () => {
 
   handleThemeChange();
 });
+
+
+const darkModeElement = document.querySelector('.dark-mode');
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+
+  if (scrollPosition === 0 && darkModeElement.classList.contains('hidden')) {
+    darkModeElement.classList.remove('hidden');
+  } else if (scrollPosition > 0 && !darkModeElement.classList.contains('hidden')) {
+    darkModeElement.classList.add('hidden');
+  }
+});
+
+
+
+
 
 // ====================== content section ==================
 function handleBidButtonClick(event) {
@@ -160,13 +188,16 @@ document.addEventListener('DOMContentLoaded', function () {
     collectionItems.forEach((collectionItem) => {
       const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
       const primaryTextElement = collectionItem.querySelector(".collections__inner");
+      const button = collectionItem.querySelector(".collections__button.main-btn");
 
       if (titleElement) {
         titleElement.classList.toggle("title-theme--dark", checked);
       }
-
       if (primaryTextElement) {
         primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
+      }
+      if (button) {
+        button.classList.toggle("main-btn--dark", checked);
       }
     });
   }
@@ -230,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <span class="collections__name">${userName}</span>
               </p>
             </span>
-            <button class="collections__button main-btn main-btn--light">
+            <button class="collections__button main-btn">
               Total&nbsp;
               <span class="collections__quantity">${userTotalItems}</span>&nbsp;Items
             </button>
@@ -517,7 +548,7 @@ function createContentItem(item) {
   innerElement.appendChild(spanElement);
 
   const buttonElement = document.createElement('button');
-  buttonElement.className = 'button main-btn main-btn--light';
+  buttonElement.className = 'button main-btn';
   buttonElement.id = 'bitButton';
   buttonElement.textContent = 'Place a bid';
 
@@ -805,6 +836,26 @@ modalCloseButtons.forEach((button) => {
 });
 
 modalOverlay.addEventListener("click", closeModal);
+function applyThemeToNftItems(checked) {
+  const nftItems = document.querySelectorAll(".nfts-list__item");
+  nftItems.forEach((nftItem) => {
+    const titleElement = nftItem.querySelector(".nft-icon__name.text-theme");
+    const textElement = nftItem.querySelector(".nfts-icon__number.text-theme");
+    const button = nftItem.querySelector(".nft-icon__btn.main-btn");
+
+    if (titleElement) {
+      titleElement.classList.toggle("text-theme--dark", checked);
+    }
+
+    if (textElement) {
+      textElement.classList.toggle("text-theme--dark", checked);
+    }
+    if (button) {
+      button.classList.toggle("main-btn--dark", checked);
+    }
+  });
+}
+
 // ===================HTML - JSON=========================
 function createNftElement(nftData) {
   const nftItem = document.createElement("li");
@@ -875,7 +926,7 @@ function createNftElement(nftData) {
   nftNumber.textContent = nftData.stock;
 
   const placeBidButton = document.createElement("button");
-  placeBidButton.className = "nft-icon__btn main-btn main-btn--light";
+  placeBidButton.className = "nft-icon__btn main-btn";
   placeBidButton.id = 'nftButton';
   placeBidButton.textContent = "Place a bid";
 
@@ -938,7 +989,7 @@ async function loadAndDisplayData(category) {
     }
     sortAndDisplayItems(currentSortBy, currentSortOrder);
     showPage(currentPage);
-
+    applyThemeToNftItems();
   } catch (error) {
     console.error('Error: content.json', error);
   }
@@ -973,6 +1024,7 @@ function showItemsByCategory(category) {
 
     if (isItemInCategory && isItemOnCurrentPage) {
       item.style.display = "block";
+      applyThemeToNftItems();
     } else {
       item.style.display = "none";
     }
