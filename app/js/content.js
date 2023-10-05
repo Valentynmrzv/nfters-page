@@ -1,4 +1,24 @@
 // ================== create collection =====================================
+
+const applyThemeToContentItems = (checked) => {
+  const collectionItems = document.querySelectorAll(".content__item");
+  collectionItems.forEach((collectionItem) => {
+    const titleElement = collectionItem.querySelector(".title-theme");
+    const primaryTextElement = collectionItem.querySelector(".primary-text-theme");
+    const button = collectionItem.querySelector(".main-btn");
+    if (titleElement) {
+      titleElement.classList.toggle("title-theme--dark", checked);
+    }
+    if (primaryTextElement) {
+      primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
+    }
+    if (button) {
+      button.classList.toggle("main-btn--dark", checked);
+    }
+
+  });
+};
+
 let selectedItemId = null;
 const selectedContent = document.querySelector('.selected-content');
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pictureElement = listItem.querySelector('.content__item picture');
 
         listElement.appendChild(listItem);
-
+        // applyThemeToContentItems();
         pictureElement.addEventListener('mouseover', () => {
           if (selectedItemId !== item.id) {
             selectedItemId = item.id;
@@ -120,6 +140,7 @@ const createContentItem = (item) => {
     }
   });
   listItem.classList.add('content__item');
+  applyThemeToContentItems();
   return listItem;
 };
 // ================== select collection =====================================

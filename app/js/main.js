@@ -1,7 +1,7 @@
 const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
 
-function applyThemeToElements(elements, themeClass, checked) {
+const applyThemeToElements = (elements, themeClass, checked) => {
   elements.forEach((element) => {
     if (checked) {
       element.classList.add(themeClass + "--dark");
@@ -26,7 +26,7 @@ const accentBtnTheme = document.querySelectorAll(".main-btn-accent");
 const listElement = document.querySelector(".content__list");
 const listNft = document.querySelector(".nfts-list");
 
-function handleThemeChange() {
+const handleThemeChange = () => {
   const checked = themeToggle.checked;
 
   if (checked) {
@@ -45,7 +45,9 @@ function handleThemeChange() {
   applyThemeToElements(topItemContent, "top__item", checked);
   applyThemeToElements(walletBtnTheme, "wallet-btn", checked);
   applyThemeToElements(accentBtnTheme, "main-btn-accent", checked);
-
+  applyThemeToContentItems(checked);
+  applyThemeToCollectionItems(checked);
+  applyThemeToNftItems(checked);
 
   listElement.querySelectorAll(".content__item").forEach((element) => {
     element.querySelector(".title").classList.toggle("title-theme--dark", checked);
@@ -57,9 +59,6 @@ function handleThemeChange() {
     element.querySelector(".nfts-icon__number").classList.toggle("text-theme--dark", checked);
     element.querySelector(".nft-icon__btn").classList.toggle("main-btn--dark", checked);
   });
-
-  applyThemeToElements(collectionItems, "collections__item", checked);
-  applyThemeToNftItems(checked);
 
   localStorage.setItem("theme", checked ? "dark" : "light");
 }
@@ -75,14 +74,12 @@ window.addEventListener("load", () => {
   }
 
   handleThemeChange();
+  themeToggle.checked = true;
 });
-
-
+// ======================================== dark mode button hidden
 const darkModeElement = document.querySelector('.dark-mode');
-
 window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY;
-
   if (scrollPosition === 0 && darkModeElement.classList.contains('hidden')) {
     darkModeElement.classList.remove('hidden');
   } else if (scrollPosition > 0 && !darkModeElement.classList.contains('hidden')) {
@@ -90,19 +87,15 @@ window.addEventListener('scroll', () => {
   }
 });
 
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  window.addEventListener('load', function () {
+document.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('load', () => {
     const loaderOverlay = document.querySelector('.loader-overlay');
     loaderOverlay.style.display = 'none';
   });
 });
 
 // ====================== content section ==================
-function handleBidButtonClick(event) {
+const handleBidButtonClick = (event) => {
   const bitButton = event.target;
 
   if (bitButton.classList.contains("button") && bitButton.id === "bitButton") {
@@ -120,7 +113,6 @@ function handleBidButtonClick(event) {
           currentValue += 0.01;
           bitValueElement.textContent = currentValue.toFixed(2) + " ETH";
           const pathElement = parentElement.querySelector("path");
-
           if (pathElement) {
             pathElement.setAttribute("fill", "#FFFFFF");
           }
@@ -128,29 +120,20 @@ function handleBidButtonClick(event) {
       }
     }
   }
-}
+};
 document.addEventListener("click", handleBidButtonClick);
-
-
 // ============================ NFTS section======================
-
-function handleNftButtonClick(event) {
+const handleNftButtonClick = (event) => {
   const nftButton = event.target;
-
   if (nftButton.classList.contains("nft-icon__btn") && nftButton.id === "nftButton") {
     const parentElement = nftButton.closest(".nfts-list__item");
-
     const bitWrapper = parentElement.querySelector(".nft-icon__price");
-
     if (bitWrapper) {
       const bitValueElement = bitWrapper.querySelector("span");
-
       if (bitValueElement) {
         if (!nftButton.classList.contains("processing")) {
           nftButton.classList.add("processing");
-
           let currentValue = parseFloat(bitValueElement.textContent);
-
           if (!nftButton.classList.contains("cancel")) {
             nftButton.classList.add("cancel");
             nftButton.textContent = "Cancel";
@@ -173,35 +156,30 @@ function handleNftButtonClick(event) {
       }
     }
   }
-}
-
+};
 document.addEventListener("click", handleNftButtonClick);
 
-
-document.addEventListener('DOMContentLoaded', function () {
+const applyThemeToCollectionItems = (checked) => {
+  const collectionItems = document.querySelectorAll(".collections__item");
+  collectionItems.forEach((collectionItem) => {
+    const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
+    const primaryTextElement = collectionItem.querySelector(".collections__inner");
+    const button = collectionItem.querySelector(".collections__button.main-btn");
+    if (titleElement) {
+      titleElement.classList.toggle("title-theme--dark", checked);
+    }
+    if (primaryTextElement) {
+      primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
+    }
+    if (button) {
+      button.classList.toggle("main-btn--dark", checked);
+    }
+  });
+};
+document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
-
-  function applyThemeToCollectionItems(checked) {
-    const collectionItems = document.querySelectorAll(".collections__item");
-    collectionItems.forEach((collectionItem) => {
-      const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
-      const primaryTextElement = collectionItem.querySelector(".collections__inner");
-      const button = collectionItem.querySelector(".collections__button.main-btn");
-
-      if (titleElement) {
-        titleElement.classList.toggle("title-theme--dark", checked);
-      }
-      if (primaryTextElement) {
-        primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
-      }
-      if (button) {
-        button.classList.toggle("main-btn--dark", checked);
-      }
-    });
-  }
-
-  function handleThemeChange() {
+  const handleThemeChange = () => {
     if (themeToggle.checked) {
       body.classList.add("dark-theme");
       localStorage.setItem("theme", "dark");
@@ -213,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   themeToggle.addEventListener("change", handleThemeChange);
-
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     themeToggle.checked = true;
@@ -226,9 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(response => response.json())
     .then(data => {
       const uniqueUsers = [...new Set(data.map(item => item.userName))];
-
       const randomUsers = getRandomUsers(uniqueUsers, 3);
-
       const collectionsList = document.querySelector('.collections__list');
 
       randomUsers.forEach(userName => {
@@ -236,10 +211,9 @@ document.addEventListener('DOMContentLoaded', function () {
         liElement.classList.add('collections__item');
 
         const userItems = data.filter(item => item.userName === userName).slice(0, 3);
-
         const userImageSrc = userItems[0].userImageSrc;
-
         const userTotalItems = data.filter(item => item.userName === userName).length;
+
         liElement.innerHTML = `
           <div class="collections__grid">
             <div class="collections-big" id="collections-swiper-big-${userName}">
@@ -269,13 +243,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         collectionsList.appendChild(liElement);
         collectionsSwiper(userName, userItems);
+        applyThemeToCollectionItems(themeToggle.checked);
       });
     })
     .catch(error => {
       console.error('Error read:', error);
     });
 
-  function getRandomUsers(arr, num) {
+  const getRandomUsers = (arr, num) => {
     const shuffled = arr.slice();
     let i = arr.length;
     const min = i - num;
@@ -288,9 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return shuffled.slice(min);
   };
   // =========================================== COLLECTION SLIDER===================================
-  function collectionsSwiper(userName, userItems) {
-
-
+  const collectionsSwiper = (userName, userItems) => {
     const collectionsSmall = new Swiper(`#collections-swiper-small-${userName}`, {
       spaceBetween: 16,
       slidesPerView: 4,
@@ -352,7 +325,6 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   themeToggle.addEventListener("change", handleThemeChange);
-
   window.addEventListener("load", () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -378,10 +350,10 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error reading JSON:', error);
     });
 });
-function findUserImages(userName) {
+const findUserImages = (userName) => {
   return jsonModalData.filter(item => item.userName === userName);
 }
-function initializeCollections() {
+const initializeCollections = () => {
   const lightBox = document.querySelector(".collections-lightbox");
   const lightBoxOverlay = document.querySelector(".collections-lightbox__overlay");
   const closeButton = document.querySelector(".collections-lightbox__button");
@@ -407,7 +379,7 @@ function initializeCollections() {
     }
   });
 
-  function displayImagesInLightBox(userImages) {
+  const displayImagesInLightBox = (userImages) => {
     lightBoxList.innerHTML = '';
 
     userImages.forEach(item => {
@@ -432,18 +404,30 @@ function initializeCollections() {
       lightBoxList.appendChild(listItem);
     });
   }
-
-
-  function closeLightBox() {
+  const closeLightBox = () => {
     lightBox.classList.remove('is-open');
     lightBoxList.innerHTML = '';
   }
 }
 
 // ================== create collection =====================================
+const applyThemeToContentItems = (checked) => {
+  const collectionItems = document.querySelectorAll(".content__item");
+  collectionItems.forEach((collectionItem) => {
+    const titleElement = collectionItem.querySelector(".title.title-theme");
+    const primaryTextElement = collectionItem.querySelector(".number.primary-text-theme");
+    if (titleElement) {
+      titleElement.classList.toggle("title-theme--dark", checked);
+    }
+    if (primaryTextElement) {
+      primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
+    }
+  });
+};
+
 let selectedItemId = null;
 const selectedContent = document.querySelector('.selected-content');
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {
@@ -452,8 +436,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const pictureElement = listItem.querySelector('.content__item picture');
 
         listElement.appendChild(listItem);
-
-        pictureElement.addEventListener('mouseover', function () {
+        applyThemeToContentItems();
+        pictureElement.addEventListener('mouseover', () => {
           if (selectedItemId !== item.id) {
             selectedItemId = item.id;
             updateSelectedContent(selectedContent, item);
@@ -466,11 +450,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function createContentItem(item) {
+const createContentItem = (item) => {
   const listItem = document.createElement('li');
   listItem.className = 'content__item swiper-slide';
-
-
   const listDiv = document.createElement('div');
   listDiv.className = 'content__wrapper';
   const lazyDiv = document.createElement('div');
@@ -491,10 +473,8 @@ function createContentItem(item) {
   imgElement.setAttribute('alt', '');
   pictureElement.appendChild(imgElement);
 
-
   const innerElement = document.createElement('div');
   innerElement.className = 'content__inner';
-
 
   const titleElement = document.createElement('h4');
   titleElement.className = 'title title-theme';
@@ -553,24 +533,24 @@ function createContentItem(item) {
 
   innerElement.appendChild(buttonElement);
 
-
   listDiv.appendChild(pictureElement);
   listDiv.appendChild(lazyDiv);
   listDiv.appendChild(innerElement);
 
   listItem.appendChild(listDiv);
 
-  pictureElement.addEventListener('mouseover', function () {
+  pictureElement.addEventListener('mouseover', () => {
     if (selectedItemId !== item.id) {
       selectedItemId = item.id;
       updateSelectedContent(selectedContent, item);
     }
   });
   listItem.classList.add('content__item');
+  applyThemeToContentItems();
   return listItem;
 };
 // ================== select collection =====================================
-function updateSelectedContent(selectedContent, item) {
+const updateSelectedContent = (selectedContent, item) => {
 
   if (selectedContent.classList.contains('fade-out')) {
     return;
@@ -578,7 +558,7 @@ function updateSelectedContent(selectedContent, item) {
 
   selectedContent.classList.add('fade-out');
 
-  setTimeout(function () {
+  setTimeout(() => {
     const selectedImg = selectedContent.querySelector('.image img');
     const selectedSources = selectedContent.querySelectorAll('.image source');
 
@@ -620,10 +600,8 @@ let myContentSlider = new Swiper('.content', {
   nested: true,
   spaceBetween: 0,
 });
-
-
 // ===========================================TOP================
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const listItems = document.querySelectorAll('.top__item');
 
   const options = {
@@ -651,14 +629,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-function updateTimer(targetId, targetTime) {
+const updateTimer = (targetId, targetTime) => {
   const now = new Date();
   const timeDiff = targetTime - now;
-
   if (timeDiff <= 0) {
     return;
   }
-
   const hours = Math.floor(timeDiff / (1000 * 60 * 60));
   const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
@@ -689,7 +665,7 @@ updateTimer('timer1', targetTime1);
 updateTimer('timer2', targetTime2);
 updateTimer('timer3', targetTime3);
 
-function animateCounters() {
+const animateCounters = () => {
   const counters = document.querySelectorAll('.counter');
   const speed = 250;
 
@@ -719,7 +695,7 @@ const countersData = [
   15, // Artist
 ];
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const counters = document.querySelectorAll('.counter');
 
   counters.forEach((counter, index) => {
@@ -738,7 +714,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   observer.observe(elementToObserve);
 });
-function handleIntersection(entries, observer) {
+const handleIntersection = (entries, observer) => {
   const isAnyElementVisible = entries.some((entry) => entry.isIntersecting);
 
   if (isAnyElementVisible) {
@@ -813,14 +789,11 @@ const openModal = () => {
   modalWrapper.classList.add("open");
   modalSignUp.classList.add("active");
 }
-
-
 const closeModal = () => {
   modalWrapper.classList.remove("open");
   modalSignIn.classList.remove("active");
   modalSignUp.classList.remove("active");
 }
-
 const toggleModalSign = () => {
   modalSignIn.classList.toggle("active");
   modalSignUp.classList.toggle("active");
@@ -835,7 +808,7 @@ modalCloseButtons.forEach((button) => {
 });
 
 modalOverlay.addEventListener("click", closeModal);
-function applyThemeToNftItems(checked) {
+const applyThemeToNftItems = (checked) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   nftItems.forEach((nftItem) => {
     const titleElement = nftItem.querySelector(".nft-icon__name.text-theme");
@@ -854,9 +827,8 @@ function applyThemeToNftItems(checked) {
     }
   });
 }
-
 // ===================HTML - JSON=========================
-function createNftElement(nftData) {
+const createNftElement = (nftData) => {
   const nftItem = document.createElement("li");
   nftItem.className = "nfts-list__item";
   nftItem.setAttribute("data-category", nftData.tag);
@@ -952,8 +924,7 @@ function createNftElement(nftData) {
   return nftItem;
 }
 
-
-function addNftElementsToPage(dataArray) {
+const addNftElementsToPage = (dataArray) => {
   const nftsList = document.getElementById("nftsList");
   dataArray.forEach((nftData) => {
     const nftElement = createNftElement(nftData);
@@ -961,8 +932,7 @@ function addNftElementsToPage(dataArray) {
   });
 }
 
-
-async function loadAndDisplayData(category) {
+const loadAndDisplayData = async (category) => {
   try {
     const response = await fetch('./nft/content.json');
     if (!response.ok) {
@@ -1000,7 +970,7 @@ let totalPages = 1;
 let currentCategory = "All Categories";
 let jsonData;
 
-function showPage(page) {
+const showPage = (page) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -1014,7 +984,7 @@ function showPage(page) {
   });
 };
 
-function showItemsByCategory(category) {
+const showItemsByCategory = (category) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   nftItems.forEach((item, index) => {
     const itemCategory = item.getAttribute("data-category");
@@ -1029,12 +999,11 @@ function showItemsByCategory(category) {
   });
 };
 
-function createPageNumbers(pageNumber, totalPages) {
+const createPageNumbers = (pageNumber, totalPages) => {
   const pageNumbersContainer = document.getElementById("pageNumbers");
   pageNumbersContainer.innerHTML = "";
 
   const maxPageNumbersToShow = 5;
-
   let startPage;
   let endPage;
 
@@ -1071,14 +1040,14 @@ function createPageNumbers(pageNumber, totalPages) {
   }
 };
 
-function updatePageNumbers(activePage) {
+const updatePageNumbers = (activePage) => {
   const pageNumbers = document.querySelectorAll(".nfts-pagination__numbers span");
   pageNumbers.forEach((pageNumber, index) => {
     pageNumber.className = index + 1 === activePage ? "active" : "";
   });
 };
 
-function prevPage() {
+const prevPage = () => {
   if (currentPage > 1) {
     currentPage--;
     showPage(currentPage);
@@ -1087,7 +1056,7 @@ function prevPage() {
   }
 };
 
-function nextPage() {
+const nextPage = () => {
   if (currentPage < totalPages) {
     currentPage++;
     showPage(currentPage);
@@ -1111,8 +1080,7 @@ categoryButtons.forEach((button) => {
   });
 });
 
-
-function calculateItemsPerPage(totalItems) {
+const calculateItemsPerPage = (totalItems) => {
   return Math.min(totalItems, 8);
 };
 
@@ -1154,8 +1122,7 @@ document.getElementById("sortSelect").addEventListener("change", () => {
   sortAndDisplayItems(currentSortBy, currentSortOrder);
 });
 
-
-function sortAndDisplayItems(sortBy, sortOrder) {
+const sortAndDisplayItems = (sortBy, sortOrder) => {
   const nftItems = Array.from(document.querySelectorAll(".nfts-list__item"));
 
   nftItems.sort((a, b) => {
@@ -1266,7 +1233,6 @@ const walletBtnSecond = document.querySelector(".wallet-btn__second");
 const walletWrapper = document.querySelector(".wallet__wrapper");
 const closeBtn = document.querySelector(".wallet__btn-close");
 
-
 const toggleWallet = () => {
   walletWrapper.classList.toggle("open");
   walletBtn.classList.toggle("active");
@@ -1275,5 +1241,4 @@ const toggleWallet = () => {
 }
 
 walletBtn.addEventListener("click", toggleWallet);
-
 closeBtn.addEventListener("click", toggleWallet);

@@ -46,6 +46,7 @@ const handleThemeChange = () => {
   applyThemeToElements(walletBtnTheme, "wallet-btn", checked);
   applyThemeToElements(accentBtnTheme, "main-btn-accent", checked);
   applyThemeToElements(collectionItems, "collections__item", checked);
+  applyThemeToContentItems(checked);
   applyThemeToCollectionItems(checked);
   applyThemeToNftItems(checked);
 
