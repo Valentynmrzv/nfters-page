@@ -136,21 +136,20 @@ const scripts = () => {
     '!app/js/main.js',
     '!app/js/main.min.js'
   ])
-    .pipe(order(jsOrder, { base: './' })) // Указание порядка
+    .pipe(order(jsOrder, { base: './' }))
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('app/js'))
     .pipe(browserSync.stream());
 };
-function copyMainJs() {
+const copyMainJs = () => {
   return src([
-    // 'node_modules/swiper/swiper-bundle.min.js',
     'app/js/*.js',
     '!app/js/main.js',
     '!app/js/main.min.js'
   ])
     .pipe(order(jsOrder, { base: './' }))
-    .pipe(concat('main.js')) // Убираем .pipe(uglify()) для отключения минификации
+    .pipe(concat('main.js'))
     .pipe(dest('app/js'));
 }
 // =========================================== CSS =========================================== //
@@ -174,7 +173,8 @@ const watching = () => {
   });
   watch(['app/scss/style.scss', 'app/scss/**/*.scss'], styles);
   watch(['app/images/src'], images);
-  watch(['app/js/*.js', '!app/js/main.min.js'], scripts);
+  watch(['app/js/*.js', '!app/js/main.js', '!app/js/main.min.js'], scripts);
+  watch(['app/js/*.js', '!app/js/main.js', '!app/js/main.min.js'], copyMainJs);
   watch(['app/components/*', 'app/pages/*'], pages);
   watch(['app/*.html']).on('change', browserSync.reload);
 };

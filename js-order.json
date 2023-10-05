@@ -20,5 +20,6 @@
   "app/js/rotate-card.js",
   "app/js/search-form.js",
   "app/js/subscribe-form.js",
-  "app/js/wallet-window.js"
+  "app/js/wallet-window.js",
+  "app/js/theme-uninitialized.js"
 ]

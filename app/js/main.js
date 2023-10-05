@@ -45,13 +45,14 @@ const handleThemeChange = () => {
   applyThemeToElements(topItemContent, "top__item", checked);
   applyThemeToElements(walletBtnTheme, "wallet-btn", checked);
   applyThemeToElements(accentBtnTheme, "main-btn-accent", checked);
+  applyThemeToElements(collectionItems, "collections__item", checked);
   applyThemeToContentItems(checked);
   applyThemeToCollectionItems(checked);
   applyThemeToNftItems(checked);
 
   listElement.querySelectorAll(".content__item").forEach((element) => {
-    element.querySelector(".title").classList.toggle("title-theme--dark", checked);
-    element.querySelector(".number").classList.toggle("primary-text-theme--dark", checked);
+    element.querySelector(".title.title-theme").classList.toggle("title-theme--dark", checked);
+    element.querySelector(".number.primary-text-theme").classList.toggle("primary-text-theme--dark", checked);
     element.querySelector(".button.main-btn").classList.toggle("main-btn--dark", checked)
   });
   listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
@@ -93,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loaderOverlay.style.display = 'none';
   });
 });
+
 
 // ====================== content section ==================
 const handleBidButtonClick = (event) => {
@@ -411,17 +413,23 @@ const initializeCollections = () => {
 }
 
 // ================== create collection =====================================
+
 const applyThemeToContentItems = (checked) => {
   const collectionItems = document.querySelectorAll(".content__item");
   collectionItems.forEach((collectionItem) => {
-    const titleElement = collectionItem.querySelector(".title.title-theme");
-    const primaryTextElement = collectionItem.querySelector(".number.primary-text-theme");
+    const titleElement = collectionItem.querySelector(".title-theme");
+    const primaryTextElement = collectionItem.querySelector(".primary-text-theme");
+    const button = collectionItem.querySelector(".main-btn");
     if (titleElement) {
       titleElement.classList.toggle("title-theme--dark", checked);
     }
     if (primaryTextElement) {
       primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
     }
+    if (button) {
+      button.classList.toggle("main-btn--dark", checked);
+    }
+
   });
 };
 
@@ -433,10 +441,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       data.slice(0, 18).forEach(item => { // 1 - 18 id
         const listItem = createContentItem(item);
+        applyThemeToContentItems();
         const pictureElement = listItem.querySelector('.content__item picture');
 
         listElement.appendChild(listItem);
-        applyThemeToContentItems();
+
         pictureElement.addEventListener('mouseover', () => {
           if (selectedItemId !== item.id) {
             selectedItemId = item.id;
@@ -546,7 +555,6 @@ const createContentItem = (item) => {
     }
   });
   listItem.classList.add('content__item');
-  applyThemeToContentItems();
   return listItem;
 };
 // ================== select collection =====================================
@@ -1242,3 +1250,48 @@ const toggleWallet = () => {
 
 walletBtn.addEventListener("click", toggleWallet);
 closeBtn.addEventListener("click", toggleWallet);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const delay = 1000;
+  setTimeout(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      themeToggle.checked = true;
+    } else {
+      themeToggle.checked = false;
+    }
+
+    handleThemeChange();
+    themeToggle.checked = true;
+
+    applyThemeToElements(checkboxLabel, "checkbox-label", themeToggle.checked);
+    applyThemeToElements(backgroundThemes, "background-theme", themeToggle.checked);
+    applyThemeToElements(titleThemes, "title-theme", themeToggle.checked);
+    applyThemeToElements(textThemes, "text-theme", themeToggle.checked);
+    applyThemeToElements(PrimaryTextThemes, "primary-text-theme", themeToggle.checked);
+    applyThemeToElements(iconTheme, "icon-theme", themeToggle.checked);
+    applyThemeToElements(searchIconTheme, "search-form__icon", themeToggle.checked);
+    applyThemeToElements(mainBtns, "main-btn", themeToggle.checked);
+    applyThemeToElements(topItemContent, "top__item", themeToggle.checked);
+    applyThemeToElements(walletBtnTheme, "wallet-btn", themeToggle.checked);
+    applyThemeToElements(accentBtnTheme, "main-btn-accent", themeToggle.checked);
+    applyThemeToElements(collectionItems, "collections__item", themeToggle.checked);
+    applyThemeToContentItems(themeToggle.checked);
+    applyThemeToCollectionItems(themeToggle.checked);
+    applyThemeToNftItems(themeToggle.checked);
+
+    listElement.querySelectorAll(".content__item").forEach((element) => {
+      element.querySelector(".title.title-theme").classList.toggle("title-theme--dark", themeToggle.checked);
+      element.querySelector(".number.primary-text-theme").classList.toggle("primary-text-theme--dark", themeToggle.checked);
+      element.querySelector(".button.main-btn").classList.toggle("main-btn--dark", themeToggle.checked)
+    });
+    listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
+      element.querySelector(".nft-icon__name").classList.toggle("text-theme--dark", themeToggle.checked);
+      element.querySelector(".nfts-icon__number").classList.toggle("text-theme--dark", themeToggle.checked);
+      element.querySelector(".nft-icon__btn").classList.toggle("main-btn--dark", themeToggle.checked);
+    });
+    // console.log("DONE")
+  }, delay);
+});
+
+//   =====================================   END ================================

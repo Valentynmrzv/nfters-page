@@ -27,10 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       data.slice(0, 18).forEach(item => { // 1 - 18 id
         const listItem = createContentItem(item);
+        applyThemeToContentItems();
         const pictureElement = listItem.querySelector('.content__item picture');
 
         listElement.appendChild(listItem);
-        // applyThemeToContentItems();
+
         pictureElement.addEventListener('mouseover', () => {
           if (selectedItemId !== item.id) {
             selectedItemId = item.id;
@@ -140,7 +141,6 @@ const createContentItem = (item) => {
     }
   });
   listItem.classList.add('content__item');
-  applyThemeToContentItems();
   return listItem;
 };
 // ================== select collection =====================================

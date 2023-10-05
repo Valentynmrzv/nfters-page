@@ -51,8 +51,8 @@ const handleThemeChange = () => {
   applyThemeToNftItems(checked);
 
   listElement.querySelectorAll(".content__item").forEach((element) => {
-    element.querySelector(".title").classList.toggle("title-theme--dark", checked);
-    element.querySelector(".number").classList.toggle("primary-text-theme--dark", checked);
+    element.querySelector(".title.title-theme").classList.toggle("title-theme--dark", checked);
+    element.querySelector(".number.primary-text-theme").classList.toggle("primary-text-theme--dark", checked);
     element.querySelector(".button.main-btn").classList.toggle("main-btn--dark", checked)
   });
   listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
