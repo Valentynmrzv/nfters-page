@@ -1,8 +1,9 @@
 [
   "node_modules/swiper/swiper-bundle.min.js",
-
-  "app/js/loader-anim.js",
+  
   "app/js/dark-theme.js",
+  "app/js/loader-anim.js",
+  
   "app/js/button-bit.js",
   "app/js/collections-content.js",
   "app/js/collections-modal.js",

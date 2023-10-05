@@ -4,7 +4,7 @@ let totalPages = 1;
 let currentCategory = "All Categories";
 let jsonData;
 
-function showPage(page) {
+const showPage = (page) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -18,7 +18,7 @@ function showPage(page) {
   });
 };
 
-function showItemsByCategory(category) {
+const showItemsByCategory = (category) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   nftItems.forEach((item, index) => {
     const itemCategory = item.getAttribute("data-category");
@@ -33,12 +33,11 @@ function showItemsByCategory(category) {
   });
 };
 
-function createPageNumbers(pageNumber, totalPages) {
+const createPageNumbers = (pageNumber, totalPages) => {
   const pageNumbersContainer = document.getElementById("pageNumbers");
   pageNumbersContainer.innerHTML = "";
 
   const maxPageNumbersToShow = 5;
-
   let startPage;
   let endPage;
 
@@ -75,14 +74,14 @@ function createPageNumbers(pageNumber, totalPages) {
   }
 };
 
-function updatePageNumbers(activePage) {
+const updatePageNumbers = (activePage) => {
   const pageNumbers = document.querySelectorAll(".nfts-pagination__numbers span");
   pageNumbers.forEach((pageNumber, index) => {
     pageNumber.className = index + 1 === activePage ? "active" : "";
   });
 };
 
-function prevPage() {
+const prevPage = () => {
   if (currentPage > 1) {
     currentPage--;
     showPage(currentPage);
@@ -91,7 +90,7 @@ function prevPage() {
   }
 };
 
-function nextPage() {
+const nextPage = () => {
   if (currentPage < totalPages) {
     currentPage++;
     showPage(currentPage);
@@ -115,8 +114,7 @@ categoryButtons.forEach((button) => {
   });
 });
 
-
-function calculateItemsPerPage(totalItems) {
+const calculateItemsPerPage = (totalItems) => {
   return Math.min(totalItems, 8);
 };
 
@@ -158,8 +156,7 @@ document.getElementById("sortSelect").addEventListener("change", () => {
   sortAndDisplayItems(currentSortBy, currentSortOrder);
 });
 
-
-function sortAndDisplayItems(sortBy, sortOrder) {
+const sortAndDisplayItems = (sortBy, sortOrder) => {
   const nftItems = Array.from(document.querySelectorAll(".nfts-list__item"));
 
   nftItems.sort((a, b) => {

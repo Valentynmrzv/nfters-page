@@ -1,4 +1,4 @@
-function handleIntersection(entries, observer) {
+const handleIntersection = (entries, observer) => {
   const isAnyElementVisible = entries.some((entry) => entry.isIntersecting);
 
   if (isAnyElementVisible) {

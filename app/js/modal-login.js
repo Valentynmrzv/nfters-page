@@ -10,14 +10,11 @@ const openModal = () => {
   modalWrapper.classList.add("open");
   modalSignUp.classList.add("active");
 }
-
-
 const closeModal = () => {
   modalWrapper.classList.remove("open");
   modalSignIn.classList.remove("active");
   modalSignUp.classList.remove("active");
 }
-
 const toggleModalSign = () => {
   modalSignIn.classList.toggle("active");
   modalSignUp.classList.toggle("active");

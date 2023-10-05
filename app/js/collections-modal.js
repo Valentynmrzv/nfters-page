@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error reading JSON:', error);
     });
 });
-function findUserImages(userName) {
+const findUserImages = (userName) => {
   return jsonModalData.filter(item => item.userName === userName);
 }
-function initializeCollections() {
+const initializeCollections = () => {
   const lightBox = document.querySelector(".collections-lightbox");
   const lightBoxOverlay = document.querySelector(".collections-lightbox__overlay");
   const closeButton = document.querySelector(".collections-lightbox__button");
@@ -40,7 +40,7 @@ function initializeCollections() {
     }
   });
 
-  function displayImagesInLightBox(userImages) {
+  const displayImagesInLightBox = (userImages) => {
     lightBoxList.innerHTML = '';
 
     userImages.forEach(item => {
@@ -65,9 +65,7 @@ function initializeCollections() {
       lightBoxList.appendChild(listItem);
     });
   }
-
-
-  function closeLightBox() {
+  const closeLightBox = () => {
     lightBox.classList.remove('is-open');
     lightBoxList.innerHTML = '';
   }

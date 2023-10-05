@@ -1,7 +1,7 @@
 const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
 
-function applyThemeToElements(elements, themeClass, checked) {
+const applyThemeToElements = (elements, themeClass, checked) => {
   elements.forEach((element) => {
     if (checked) {
       element.classList.add(themeClass + "--dark");
@@ -26,9 +26,7 @@ const accentBtnTheme = document.querySelectorAll(".main-btn-accent");
 const listElement = document.querySelector(".content__list");
 const listNft = document.querySelector(".nfts-list");
 
-
-
-function handleThemeChange() {
+const handleThemeChange = () => {
   const checked = themeToggle.checked;
 
   if (checked) {
@@ -47,7 +45,9 @@ function handleThemeChange() {
   applyThemeToElements(topItemContent, "top__item", checked);
   applyThemeToElements(walletBtnTheme, "wallet-btn", checked);
   applyThemeToElements(accentBtnTheme, "main-btn-accent", checked);
-
+  applyThemeToElements(collectionItems, "collections__item", checked);
+  applyThemeToCollectionItems(checked);
+  applyThemeToNftItems(checked);
 
   listElement.querySelectorAll(".content__item").forEach((element) => {
     element.querySelector(".title").classList.toggle("title-theme--dark", checked);
@@ -59,9 +59,6 @@ function handleThemeChange() {
     element.querySelector(".nfts-icon__number").classList.toggle("text-theme--dark", checked);
     element.querySelector(".nft-icon__btn").classList.toggle("main-btn--dark", checked);
   });
-
-  applyThemeToElements(collectionItems, "collections__item", checked);
-  applyThemeToNftItems(checked);
 
   localStorage.setItem("theme", checked ? "dark" : "light");
 }
@@ -77,21 +74,15 @@ window.addEventListener("load", () => {
   }
 
   handleThemeChange();
+  themeToggle.checked = true;
 });
-
-
+// ======================================== dark mode button hidden
 const darkModeElement = document.querySelector('.dark-mode');
-
 window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY;
-
   if (scrollPosition === 0 && darkModeElement.classList.contains('hidden')) {
     darkModeElement.classList.remove('hidden');
   } else if (scrollPosition > 0 && !darkModeElement.classList.contains('hidden')) {
     darkModeElement.classList.add('hidden');
   }
 });
-
-
-
-

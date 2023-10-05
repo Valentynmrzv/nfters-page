@@ -1,4 +1,4 @@
-function applyThemeToNftItems(checked) {
+const applyThemeToNftItems = (checked) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   nftItems.forEach((nftItem) => {
     const titleElement = nftItem.querySelector(".nft-icon__name.text-theme");
@@ -17,9 +17,8 @@ function applyThemeToNftItems(checked) {
     }
   });
 }
-
 // ===================HTML - JSON=========================
-function createNftElement(nftData) {
+const createNftElement = (nftData) => {
   const nftItem = document.createElement("li");
   nftItem.className = "nfts-list__item";
   nftItem.setAttribute("data-category", nftData.tag);
@@ -115,8 +114,7 @@ function createNftElement(nftData) {
   return nftItem;
 }
 
-
-function addNftElementsToPage(dataArray) {
+const addNftElementsToPage = (dataArray) => {
   const nftsList = document.getElementById("nftsList");
   dataArray.forEach((nftData) => {
     const nftElement = createNftElement(nftData);
@@ -124,8 +122,7 @@ function addNftElementsToPage(dataArray) {
   });
 }
 
-
-async function loadAndDisplayData(category) {
+const loadAndDisplayData = async (category) => {
   try {
     const response = await fetch('./nft/content.json');
     if (!response.ok) {

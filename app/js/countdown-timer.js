@@ -1,11 +1,9 @@
-function updateTimer(targetId, targetTime) {
+const updateTimer = (targetId, targetTime) => {
   const now = new Date();
   const timeDiff = targetTime - now;
-
   if (timeDiff <= 0) {
     return;
   }
-
   const hours = Math.floor(timeDiff / (1000 * 60 * 60));
   const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);

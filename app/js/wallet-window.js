@@ -4,7 +4,6 @@ const walletBtnSecond = document.querySelector(".wallet-btn__second");
 const walletWrapper = document.querySelector(".wallet__wrapper");
 const closeBtn = document.querySelector(".wallet__btn-close");
 
-
 const toggleWallet = () => {
   walletWrapper.classList.toggle("open");
   walletBtn.classList.toggle("active");
@@ -13,5 +12,4 @@ const toggleWallet = () => {
 }
 
 walletBtn.addEventListener("click", toggleWallet);
-
 closeBtn.addEventListener("click", toggleWallet);

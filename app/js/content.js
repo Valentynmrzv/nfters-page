@@ -1,7 +1,7 @@
 // ================== create collection =====================================
 let selectedItemId = null;
 const selectedContent = document.querySelector('.selected-content');
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   fetch('./nft/content.json')
     .then(response => response.json())
     .then(data => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         listElement.appendChild(listItem);
 
-        pictureElement.addEventListener('mouseover', function () {
+        pictureElement.addEventListener('mouseover', () => {
           if (selectedItemId !== item.id) {
             selectedItemId = item.id;
             updateSelectedContent(selectedContent, item);
@@ -24,11 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function createContentItem(item) {
+const createContentItem = (item) => {
   const listItem = document.createElement('li');
   listItem.className = 'content__item swiper-slide';
-
-
   const listDiv = document.createElement('div');
   listDiv.className = 'content__wrapper';
   const lazyDiv = document.createElement('div');
@@ -49,10 +47,8 @@ function createContentItem(item) {
   imgElement.setAttribute('alt', '');
   pictureElement.appendChild(imgElement);
 
-
   const innerElement = document.createElement('div');
   innerElement.className = 'content__inner';
-
 
   const titleElement = document.createElement('h4');
   titleElement.className = 'title title-theme';
@@ -111,14 +107,13 @@ function createContentItem(item) {
 
   innerElement.appendChild(buttonElement);
 
-
   listDiv.appendChild(pictureElement);
   listDiv.appendChild(lazyDiv);
   listDiv.appendChild(innerElement);
 
   listItem.appendChild(listDiv);
 
-  pictureElement.addEventListener('mouseover', function () {
+  pictureElement.addEventListener('mouseover', () => {
     if (selectedItemId !== item.id) {
       selectedItemId = item.id;
       updateSelectedContent(selectedContent, item);
@@ -128,7 +123,7 @@ function createContentItem(item) {
   return listItem;
 };
 // ================== select collection =====================================
-function updateSelectedContent(selectedContent, item) {
+const updateSelectedContent = (selectedContent, item) => {
 
   if (selectedContent.classList.contains('fade-out')) {
     return;
@@ -136,7 +131,7 @@ function updateSelectedContent(selectedContent, item) {
 
   selectedContent.classList.add('fade-out');
 
-  setTimeout(function () {
+  setTimeout(() => {
     const selectedImg = selectedContent.querySelector('.image img');
     const selectedSources = selectedContent.querySelectorAll('.image source');
 
@@ -178,10 +173,8 @@ let myContentSlider = new Swiper('.content', {
   nested: true,
   spaceBetween: 0,
 });
-
-
 // ===========================================TOP================
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const listItems = document.querySelectorAll('.top__item');
 
   const options = {

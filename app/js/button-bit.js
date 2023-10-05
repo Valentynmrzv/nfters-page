@@ -1,5 +1,5 @@
 // ====================== content section ==================
-function handleBidButtonClick(event) {
+const handleBidButtonClick = (event) => {
   const bitButton = event.target;
 
   if (bitButton.classList.contains("button") && bitButton.id === "bitButton") {
@@ -17,7 +17,6 @@ function handleBidButtonClick(event) {
           currentValue += 0.01;
           bitValueElement.textContent = currentValue.toFixed(2) + " ETH";
           const pathElement = parentElement.querySelector("path");
-
           if (pathElement) {
             pathElement.setAttribute("fill", "#FFFFFF");
           }
@@ -25,29 +24,20 @@ function handleBidButtonClick(event) {
       }
     }
   }
-}
+};
 document.addEventListener("click", handleBidButtonClick);
-
-
 // ============================ NFTS section======================
-
-function handleNftButtonClick(event) {
+const handleNftButtonClick = (event) => {
   const nftButton = event.target;
-
   if (nftButton.classList.contains("nft-icon__btn") && nftButton.id === "nftButton") {
     const parentElement = nftButton.closest(".nfts-list__item");
-
     const bitWrapper = parentElement.querySelector(".nft-icon__price");
-
     if (bitWrapper) {
       const bitValueElement = bitWrapper.querySelector("span");
-
       if (bitValueElement) {
         if (!nftButton.classList.contains("processing")) {
           nftButton.classList.add("processing");
-
           let currentValue = parseFloat(bitValueElement.textContent);
-
           if (!nftButton.classList.contains("cancel")) {
             nftButton.classList.add("cancel");
             nftButton.textContent = "Cancel";
@@ -70,6 +60,5 @@ function handleNftButtonClick(event) {
       }
     }
   }
-}
-
+};
 document.addEventListener("click", handleNftButtonClick);

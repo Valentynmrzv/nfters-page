@@ -1,10 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-  window.addEventListener('load', function () {
-    const loaderOverlay = document.querySelector('.loader-overlay');
-    loaderOverlay.style.display = 'none';
-  });
-});
-
 const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
 
@@ -32,8 +25,6 @@ const walletBtnTheme = document.querySelectorAll(".wallet-btn");
 const accentBtnTheme = document.querySelectorAll(".main-btn-accent");
 const listElement = document.querySelector(".content__list");
 const listNft = document.querySelector(".nfts-list");
-
-
 
 function handleThemeChange() {
   const checked = themeToggle.checked;
@@ -64,10 +55,11 @@ function handleThemeChange() {
   listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
     element.querySelector(".nft-icon__name").classList.toggle("text-theme--dark", checked);
     element.querySelector(".nfts-icon__number").classList.toggle("text-theme--dark", checked);
+    element.querySelector(".nft-icon__btn").classList.toggle("main-btn--dark", checked);
   });
 
   applyThemeToElements(collectionItems, "collections__item", checked);
-  applyThemeToElements(nftItems, "nfts-list__item", checked);
+  applyThemeToNftItems(checked);
 
   localStorage.setItem("theme", checked ? "dark" : "light");
 }
@@ -101,6 +93,13 @@ window.addEventListener('scroll', () => {
 
 
 
+
+document.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('load', function () {
+    const loaderOverlay = document.querySelector('.loader-overlay');
+    loaderOverlay.style.display = 'none';
+  });
+});
 
 // ====================== content section ==================
 function handleBidButtonClick(event) {
@@ -841,7 +840,7 @@ function applyThemeToNftItems(checked) {
   nftItems.forEach((nftItem) => {
     const titleElement = nftItem.querySelector(".nft-icon__name.text-theme");
     const textElement = nftItem.querySelector(".nfts-icon__number.text-theme");
-    const button = nftItem.querySelector(".nft-icon__btn.main-btn");
+    const nftButton = nftItem.querySelector(".nft-icon__btn.main-btn");
 
     if (titleElement) {
       titleElement.classList.toggle("text-theme--dark", checked);
@@ -850,8 +849,8 @@ function applyThemeToNftItems(checked) {
     if (textElement) {
       textElement.classList.toggle("text-theme--dark", checked);
     }
-    if (button) {
-      button.classList.toggle("main-btn--dark", checked);
+    if (nftButton) {
+      nftButton.classList.toggle("main-btn--dark", checked);
     }
   });
 }
@@ -1024,7 +1023,6 @@ function showItemsByCategory(category) {
 
     if (isItemInCategory && isItemOnCurrentPage) {
       item.style.display = "block";
-      applyThemeToNftItems();
     } else {
       item.style.display = "none";
     }
@@ -1107,7 +1105,9 @@ categoryButtons.forEach((button) => {
     button.classList.add("active");
     const category = button.getAttribute("data-category");
     currentPage = 1;
+
     await loadAndDisplayData(category);
+    handleThemeChange();
   });
 });
 

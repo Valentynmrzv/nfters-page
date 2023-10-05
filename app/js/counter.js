@@ -1,4 +1,4 @@
-function animateCounters() {
+const animateCounters = () => {
   const counters = document.querySelectorAll('.counter');
   const speed = 250;
 
@@ -28,7 +28,7 @@ const countersData = [
   15, // Artist
 ];
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const counters = document.querySelectorAll('.counter');
 
   counters.forEach((counter, index) => {

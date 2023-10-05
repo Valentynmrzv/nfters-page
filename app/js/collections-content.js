@@ -1,28 +1,24 @@
-
-document.addEventListener('DOMContentLoaded', function () {
+const applyThemeToCollectionItems = (checked) => {
+  const collectionItems = document.querySelectorAll(".collections__item");
+  collectionItems.forEach((collectionItem) => {
+    const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
+    const primaryTextElement = collectionItem.querySelector(".collections__inner");
+    const button = collectionItem.querySelector(".collections__button.main-btn");
+    if (titleElement) {
+      titleElement.classList.toggle("title-theme--dark", checked);
+    }
+    if (primaryTextElement) {
+      primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
+    }
+    if (button) {
+      button.classList.toggle("main-btn--dark", checked);
+    }
+  });
+};
+document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
-
-  function applyThemeToCollectionItems(checked) {
-    const collectionItems = document.querySelectorAll(".collections__item");
-    collectionItems.forEach((collectionItem) => {
-      const titleElement = collectionItem.querySelector(".collections__subtitle.title-theme");
-      const primaryTextElement = collectionItem.querySelector(".collections__inner");
-      const button = collectionItem.querySelector(".collections__button.main-btn");
-
-      if (titleElement) {
-        titleElement.classList.toggle("title-theme--dark", checked);
-      }
-      if (primaryTextElement) {
-        primaryTextElement.classList.toggle("primary-text-theme--dark", checked);
-      }
-      if (button) {
-        button.classList.toggle("main-btn--dark", checked);
-      }
-    });
-  }
-
-  function handleThemeChange() {
+  const handleThemeChange = () => {
     if (themeToggle.checked) {
       body.classList.add("dark-theme");
       localStorage.setItem("theme", "dark");
@@ -34,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   themeToggle.addEventListener("change", handleThemeChange);
-
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     themeToggle.checked = true;
@@ -47,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(response => response.json())
     .then(data => {
       const uniqueUsers = [...new Set(data.map(item => item.userName))];
-
       const randomUsers = getRandomUsers(uniqueUsers, 3);
-
       const collectionsList = document.querySelector('.collections__list');
 
       randomUsers.forEach(userName => {
@@ -57,10 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
         liElement.classList.add('collections__item');
 
         const userItems = data.filter(item => item.userName === userName).slice(0, 3);
-
         const userImageSrc = userItems[0].userImageSrc;
-
         const userTotalItems = data.filter(item => item.userName === userName).length;
+
         liElement.innerHTML = `
           <div class="collections__grid">
             <div class="collections-big" id="collections-swiper-big-${userName}">
@@ -90,13 +82,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         collectionsList.appendChild(liElement);
         collectionsSwiper(userName, userItems);
+        applyThemeToCollectionItems(themeToggle.checked);
       });
     })
     .catch(error => {
       console.error('Error read:', error);
     });
 
-  function getRandomUsers(arr, num) {
+  const getRandomUsers = (arr, num) => {
     const shuffled = arr.slice();
     let i = arr.length;
     const min = i - num;
@@ -109,9 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return shuffled.slice(min);
   };
   // =========================================== COLLECTION SLIDER===================================
-  function collectionsSwiper(userName, userItems) {
-
-
+  const collectionsSwiper = (userName, userItems) => {
     const collectionsSmall = new Swiper(`#collections-swiper-small-${userName}`, {
       spaceBetween: 16,
       slidesPerView: 4,
@@ -173,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   themeToggle.addEventListener("change", handleThemeChange);
-
   window.addEventListener("load", () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
