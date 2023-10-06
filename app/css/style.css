@@ -41,7 +41,6 @@ body {
   font-family: var(--text-font-family), sans-serif;
   font-style: normal;
   background-color: var(--bg-color);
-  transition: background-color var(--transition-property);
 }
 body.dark-theme {
   background-color: var(--body-bg-dark);
@@ -718,7 +717,6 @@ ul {
 
 .background-theme {
   background-color: var(--primary-bg-light);
-  transition: background-color var(--transition-property);
 }
 .background-theme--dark {
   background-color: var(--primary-bg-dark);
@@ -726,7 +724,6 @@ ul {
 
 .title-theme {
   color: var(--title-text-color-light);
-  transition: color var(--transition-property);
 }
 .title-theme--dark {
   color: var(--title-text-color-dark);
@@ -734,7 +731,6 @@ ul {
 
 .primary-text-theme {
   color: var(--primary-text-color-light);
-  transition: color var(--transition-property);
 }
 .primary-text-theme--dark {
   color: var(--primary-text-color-dark);
@@ -742,7 +738,6 @@ ul {
 
 .text-theme {
   color: var(--text-color-light);
-  transition: color var(--transition-property);
 }
 .text-theme--dark {
   color: var(--text-color-dark);
@@ -750,7 +745,6 @@ ul {
 
 .icon-theme {
   fill: var(--icon-theme-light);
-  transition: fill var(--transition-property);
 }
 .icon-theme--dark {
   fill: var(--icon-theme-dark);

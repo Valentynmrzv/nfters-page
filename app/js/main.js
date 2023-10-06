@@ -66,17 +66,17 @@ const handleThemeChange = () => {
 
 themeToggle.addEventListener("change", handleThemeChange);
 
-window.addEventListener("load", () => {
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    themeToggle.checked = true;
-  } else {
-    themeToggle.checked = false;
-  }
+// window.addEventListener("load", () => {
+//   const savedTheme = localStorage.getItem("theme");
+//   if (savedTheme === "dark") {
+//     themeToggle.checked = true;
+//   } else {
+//     themeToggle.checked = false;
+//   }
 
-  handleThemeChange();
-  themeToggle.checked = true;
-});
+//   handleThemeChange();
+//   themeToggle.checked = true;
+// });
 // ======================================== dark mode button hidden
 const darkModeElement = document.querySelector('.dark-mode');
 window.addEventListener('scroll', () => {
@@ -433,31 +433,6 @@ const applyThemeToContentItems = (checked) => {
   });
 };
 
-let selectedItemId = null;
-const selectedContent = document.querySelector('.selected-content');
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('./nft/content.json')
-    .then(response => response.json())
-    .then(data => {
-      data.slice(0, 18).forEach(item => { // 1 - 18 id
-        const listItem = createContentItem(item);
-        applyThemeToContentItems();
-        const pictureElement = listItem.querySelector('.content__item picture');
-
-        listElement.appendChild(listItem);
-
-        pictureElement.addEventListener('mouseover', () => {
-          if (selectedItemId !== item.id) {
-            selectedItemId = item.id;
-            updateSelectedContent(selectedContent, item);
-          }
-        });
-      });
-    })
-    .catch(error => {
-      console.error('Error content.json', error);
-    });
-});
 
 const createContentItem = (item) => {
   const listItem = document.createElement('li');
@@ -555,8 +530,61 @@ const createContentItem = (item) => {
     }
   });
   listItem.classList.add('content__item');
+  applyThemeToContentItems();
   return listItem;
 };
+// let selectedItemId = null;
+// const selectedContent = document.querySelector('.selected-content');
+// document.addEventListener('DOMContentLoaded', () => {
+//   fetch('./nft/content.json')
+//     .then(response => response.json())
+//     .then(data => {
+//       data.slice(0, 18).forEach(item => { // 1 - 18 id
+//         const listItem = createContentItem(item);
+//         applyThemeToContentItems();
+//         const pictureElement = listItem.querySelector('.content__item picture');
+
+//         listElement.appendChild(listItem);
+//         pictureElement.addEventListener('mouseover', () => {
+//           if (selectedItemId !== item.id) {
+//             selectedItemId = item.id;
+//             updateSelectedContent(selectedContent, item);
+//           }
+//         });
+//       });
+//     })
+//     .catch(error => {
+//       console.error('Error content.json', error);
+//     });
+// });
+let selectedItemId = null;
+const selectedContent = document.querySelector('.selected-content');
+
+async function loadAndDisplayContent() {
+  try {
+    const response = await fetch('./nft/content.json');
+    const data = await response.json();
+    data.slice(0, 18).forEach(item => { // 1 - 18 id
+      const listItem = createContentItem(item);
+      const pictureElement = listItem.querySelector('.content__item picture');
+
+      listElement.appendChild(listItem);
+      pictureElement.addEventListener('mouseover', () => {
+        if (selectedItemId !== item.id) {
+          selectedItemId = item.id;
+          updateSelectedContent(selectedContent, item);
+        }
+      });
+    });
+  } catch (error) {
+    console.error('Error content.json', error);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadAndDisplayContent();
+  applyThemeToContentItems();
+});
 // ================== select collection =====================================
 const updateSelectedContent = (selectedContent, item) => {
 
@@ -1251,47 +1279,39 @@ const toggleWallet = () => {
 walletBtn.addEventListener("click", toggleWallet);
 closeBtn.addEventListener("click", toggleWallet);
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const delay = 1000;
-//   setTimeout(() => {
-//     const savedTheme = localStorage.getItem("theme");
-//     if (savedTheme === "dark") {
-//       themeToggle.checked = true;
-//     } else {
-//       themeToggle.checked = false;
-//     }
+document.addEventListener("DOMContentLoaded", () => {
+  const delay = 1000;
+  setTimeout(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      themeToggle.checked = true;
+    } else {
+      themeToggle.checked = false;
+    }
 
-//     handleThemeChange();
-//     themeToggle.checked = true;
+    handleThemeChange();
+    themeToggle.checked = true;
 
-//     applyThemeToElements(checkboxLabel, "checkbox-label", themeToggle.checked);
-//     applyThemeToElements(backgroundThemes, "background-theme", themeToggle.checked);
-//     applyThemeToElements(titleThemes, "title-theme", themeToggle.checked);
-//     applyThemeToElements(textThemes, "text-theme", themeToggle.checked);
-//     applyThemeToElements(PrimaryTextThemes, "primary-text-theme", themeToggle.checked);
-//     applyThemeToElements(iconTheme, "icon-theme", themeToggle.checked);
-//     applyThemeToElements(searchIconTheme, "search-form__icon", themeToggle.checked);
-//     applyThemeToElements(mainBtns, "main-btn", themeToggle.checked);
-//     applyThemeToElements(topItemContent, "top__item", themeToggle.checked);
-//     applyThemeToElements(walletBtnTheme, "wallet-btn", themeToggle.checked);
-//     applyThemeToElements(accentBtnTheme, "main-btn-accent", themeToggle.checked);
-//     applyThemeToElements(collectionItems, "collections__item", themeToggle.checked);
-//     applyThemeToContentItems(themeToggle.checked);
-//     applyThemeToCollectionItems(themeToggle.checked);
-//     applyThemeToNftItems(themeToggle.checked);
+    //     // applyThemeToContentItems(themeToggle.checked);
 
-//     listElement.querySelectorAll(".content__item").forEach((element) => {
-//       element.querySelector(".title.title-theme").classList.toggle("title-theme--dark", themeToggle.checked);
-//       element.querySelector(".number.primary-text-theme").classList.toggle("primary-text-theme--dark", themeToggle.checked);
-//       element.querySelector(".button.main-btn").classList.toggle("main-btn--dark", themeToggle.checked)
-//     });
-//     listNft.querySelectorAll(".nfts-list__item").forEach((element) => {
-//       element.querySelector(".nft-icon__name").classList.toggle("text-theme--dark", themeToggle.checked);
-//       element.querySelector(".nfts-icon__number").classList.toggle("text-theme--dark", themeToggle.checked);
-//       element.querySelector(".nft-icon__btn").classList.toggle("main-btn--dark", themeToggle.checked);
-//     });
-//     // console.log("DONE")
-//   }, delay);
-// });
+    //     // listElement.querySelectorAll(".content__item").forEach((element) => {
+    //     //   element.querySelector(".title.title-theme").classList.toggle("title-theme--dark", themeToggle.checked);
+    //     //   element.querySelector(".number.primary-text-theme").classList.toggle("primary-text-theme--dark", themeToggle.checked);
+    //     //   element.querySelector(".button.main-btn").classList.toggle("main-btn--dark", themeToggle.checked)
+    // });
+    console.log("DONE")
+  }, delay);
+});
 
 // //   =====================================   END ================================
+window.addEventListener("load", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    themeToggle.checked = true;
+  } else {
+    themeToggle.checked = false;
+  }
+
+  handleThemeChange();
+  themeToggle.checked = true;
+});

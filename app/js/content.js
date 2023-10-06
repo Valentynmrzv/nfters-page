@@ -19,31 +19,6 @@ const applyThemeToContentItems = (checked) => {
   });
 };
 
-let selectedItemId = null;
-const selectedContent = document.querySelector('.selected-content');
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('./nft/content.json')
-    .then(response => response.json())
-    .then(data => {
-      data.slice(0, 18).forEach(item => { // 1 - 18 id
-        const listItem = createContentItem(item);
-        applyThemeToContentItems();
-        const pictureElement = listItem.querySelector('.content__item picture');
-
-        listElement.appendChild(listItem);
-
-        pictureElement.addEventListener('mouseover', () => {
-          if (selectedItemId !== item.id) {
-            selectedItemId = item.id;
-            updateSelectedContent(selectedContent, item);
-          }
-        });
-      });
-    })
-    .catch(error => {
-      console.error('Error content.json', error);
-    });
-});
 
 const createContentItem = (item) => {
   const listItem = document.createElement('li');
@@ -141,8 +116,61 @@ const createContentItem = (item) => {
     }
   });
   listItem.classList.add('content__item');
+  applyThemeToContentItems();
   return listItem;
 };
+// let selectedItemId = null;
+// const selectedContent = document.querySelector('.selected-content');
+// document.addEventListener('DOMContentLoaded', () => {
+//   fetch('./nft/content.json')
+//     .then(response => response.json())
+//     .then(data => {
+//       data.slice(0, 18).forEach(item => { // 1 - 18 id
+//         const listItem = createContentItem(item);
+//         applyThemeToContentItems();
+//         const pictureElement = listItem.querySelector('.content__item picture');
+
+//         listElement.appendChild(listItem);
+//         pictureElement.addEventListener('mouseover', () => {
+//           if (selectedItemId !== item.id) {
+//             selectedItemId = item.id;
+//             updateSelectedContent(selectedContent, item);
+//           }
+//         });
+//       });
+//     })
+//     .catch(error => {
+//       console.error('Error content.json', error);
+//     });
+// });
+let selectedItemId = null;
+const selectedContent = document.querySelector('.selected-content');
+
+async function loadAndDisplayContent() {
+  try {
+    const response = await fetch('./nft/content.json');
+    const data = await response.json();
+    data.slice(0, 18).forEach(item => { // 1 - 18 id
+      const listItem = createContentItem(item);
+      const pictureElement = listItem.querySelector('.content__item picture');
+
+      listElement.appendChild(listItem);
+      pictureElement.addEventListener('mouseover', () => {
+        if (selectedItemId !== item.id) {
+          selectedItemId = item.id;
+          updateSelectedContent(selectedContent, item);
+        }
+      });
+    });
+  } catch (error) {
+    console.error('Error content.json', error);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadAndDisplayContent();
+  applyThemeToContentItems();
+});
 // ================== select collection =====================================
 const updateSelectedContent = (selectedContent, item) => {
 
