@@ -17,7 +17,6 @@ const showPage = (page) => {
     }
   });
 };
-
 const showItemsByCategory = (category) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   nftItems.forEach((item, index) => {
@@ -36,7 +35,6 @@ const showItemsByCategory = (category) => {
 const createPageNumbers = (pageNumber, totalPages) => {
   const pageNumbersContainer = document.getElementById("pageNumbers");
   pageNumbersContainer.innerHTML = "";
-
   const maxPageNumbersToShow = 5;
   let startPage;
   let endPage;
@@ -158,6 +156,9 @@ document.getElementById("sortSelect").addEventListener("change", () => {
 
 const sortAndDisplayItems = (sortBy, sortOrder) => {
   const nftItems = Array.from(document.querySelectorAll(".nfts-list__item"));
+  nftItems.forEach((item) => {
+    item.style.display = "none";
+  });
 
   nftItems.sort((a, b) => {
     const aData = a.querySelector(".nft-icon__name").textContent;
@@ -181,10 +182,18 @@ const sortAndDisplayItems = (sortBy, sortOrder) => {
     }
   });
 
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  nftItems.slice(startIndex, endIndex).forEach((item) => {
+    item.style.display = "block";
+  });
+
   const nftsList = document.getElementById("nftsList");
   nftsList.innerHTML = "";
 
   nftItems.forEach((item) => {
     nftsList.appendChild(item);
   });
-}
+  createPageNumbers(currentPage, totalPages);
+};

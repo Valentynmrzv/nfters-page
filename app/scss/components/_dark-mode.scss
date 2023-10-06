@@ -76,35 +76,30 @@
 
 .background-theme {
   background-color: var(--primary-bg-light);
-  // transition: background-color var(--transition-property);
   &--dark {
     background-color: var(--primary-bg-dark);
   }
 }
 .title-theme {
   color: var(--title-text-color-light);
-  // transition: color var(--transition-property);
   &--dark {
     color: var(--title-text-color-dark);
   }
 }
 .primary-text-theme {
   color: var(--primary-text-color-light);
-  // transition: color var(--transition-property);
   &--dark {
     color: var(--primary-text-color-dark);
   }
 }
 .text-theme {
   color: var(--text-color-light);
-  // transition: color var(--transition-property);
   &--dark {
       color: var(--text-color-dark);
   }
 }
 .icon-theme {
   fill: var(--icon-theme-light);
-  // transition: fill var(--transition-property);
   &--dark {
     fill: var(--icon-theme-dark);
   }

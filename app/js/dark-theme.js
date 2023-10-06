@@ -66,17 +66,6 @@ const handleThemeChange = () => {
 
 themeToggle.addEventListener("change", handleThemeChange);
 
-// window.addEventListener("load", () => {
-//   const savedTheme = localStorage.getItem("theme");
-//   if (savedTheme === "dark") {
-//     themeToggle.checked = true;
-//   } else {
-//     themeToggle.checked = false;
-//   }
-
-//   handleThemeChange();
-//   themeToggle.checked = true;
-// });
 // ======================================== dark mode button hidden
 const darkModeElement = document.querySelector('.dark-mode');
 window.addEventListener('scroll', () => {

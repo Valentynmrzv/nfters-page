@@ -1075,7 +1075,7 @@ ul {
 }
 .wallet__text {
   color: var(--accent-color);
-  font-family: "DM Sans";
+  font-family: var(--text-font-family);
   font-size: 18px;
   font-style: normal;
   font-weight: 500;

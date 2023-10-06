@@ -66,17 +66,6 @@ const handleThemeChange = () => {
 
 themeToggle.addEventListener("change", handleThemeChange);
 
-// window.addEventListener("load", () => {
-//   const savedTheme = localStorage.getItem("theme");
-//   if (savedTheme === "dark") {
-//     themeToggle.checked = true;
-//   } else {
-//     themeToggle.checked = false;
-//   }
-
-//   handleThemeChange();
-//   themeToggle.checked = true;
-// });
 // ======================================== dark mode button hidden
 const darkModeElement = document.querySelector('.dark-mode');
 window.addEventListener('scroll', () => {
@@ -533,34 +522,11 @@ const createContentItem = (item) => {
   applyThemeToContentItems();
   return listItem;
 };
-// let selectedItemId = null;
-// const selectedContent = document.querySelector('.selected-content');
-// document.addEventListener('DOMContentLoaded', () => {
-//   fetch('./nft/content.json')
-//     .then(response => response.json())
-//     .then(data => {
-//       data.slice(0, 18).forEach(item => { // 1 - 18 id
-//         const listItem = createContentItem(item);
-//         applyThemeToContentItems();
-//         const pictureElement = listItem.querySelector('.content__item picture');
 
-//         listElement.appendChild(listItem);
-//         pictureElement.addEventListener('mouseover', () => {
-//           if (selectedItemId !== item.id) {
-//             selectedItemId = item.id;
-//             updateSelectedContent(selectedContent, item);
-//           }
-//         });
-//       });
-//     })
-//     .catch(error => {
-//       console.error('Error content.json', error);
-//     });
-// });
 let selectedItemId = null;
 const selectedContent = document.querySelector('.selected-content');
 
-async function loadAndDisplayContent() {
+const loadAndDisplayContent = async () => {
   try {
     const response = await fetch('./nft/content.json');
     const data = await response.json();
@@ -1019,7 +985,6 @@ const showPage = (page) => {
     }
   });
 };
-
 const showItemsByCategory = (category) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   nftItems.forEach((item, index) => {
@@ -1038,7 +1003,6 @@ const showItemsByCategory = (category) => {
 const createPageNumbers = (pageNumber, totalPages) => {
   const pageNumbersContainer = document.getElementById("pageNumbers");
   pageNumbersContainer.innerHTML = "";
-
   const maxPageNumbersToShow = 5;
   let startPage;
   let endPage;
@@ -1160,6 +1124,9 @@ document.getElementById("sortSelect").addEventListener("change", () => {
 
 const sortAndDisplayItems = (sortBy, sortOrder) => {
   const nftItems = Array.from(document.querySelectorAll(".nfts-list__item"));
+  nftItems.forEach((item) => {
+    item.style.display = "none";
+  });
 
   nftItems.sort((a, b) => {
     const aData = a.querySelector(".nft-icon__name").textContent;
@@ -1183,14 +1150,21 @@ const sortAndDisplayItems = (sortBy, sortOrder) => {
     }
   });
 
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  nftItems.slice(startIndex, endIndex).forEach((item) => {
+    item.style.display = "block";
+  });
+
   const nftsList = document.getElementById("nftsList");
   nftsList.innerHTML = "";
 
   nftItems.forEach((item) => {
     nftsList.appendChild(item);
   });
-}
-
+  createPageNumbers(currentPage, totalPages);
+};
 const angle = 20;
 const rotateCard = window;
 
@@ -1279,31 +1253,6 @@ const toggleWallet = () => {
 walletBtn.addEventListener("click", toggleWallet);
 closeBtn.addEventListener("click", toggleWallet);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const delay = 1000;
-  setTimeout(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      themeToggle.checked = true;
-    } else {
-      themeToggle.checked = false;
-    }
-
-    handleThemeChange();
-    themeToggle.checked = true;
-
-    //     // applyThemeToContentItems(themeToggle.checked);
-
-    //     // listElement.querySelectorAll(".content__item").forEach((element) => {
-    //     //   element.querySelector(".title.title-theme").classList.toggle("title-theme--dark", themeToggle.checked);
-    //     //   element.querySelector(".number.primary-text-theme").classList.toggle("primary-text-theme--dark", themeToggle.checked);
-    //     //   element.querySelector(".button.main-btn").classList.toggle("main-btn--dark", themeToggle.checked)
-    // });
-    console.log("DONE")
-  }, delay);
-});
-
-// //   =====================================   END ================================
 window.addEventListener("load", () => {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
@@ -1315,3 +1264,17 @@ window.addEventListener("load", () => {
   handleThemeChange();
   themeToggle.checked = true;
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const delay = 1100;
+  setTimeout(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      themeToggle.checked = true;
+    } else {
+      themeToggle.checked = false;
+    }
+    handleThemeChange();
+  }, delay);
+});
+// //   =====================================   END ================================
