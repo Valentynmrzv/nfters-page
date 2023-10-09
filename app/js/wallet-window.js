@@ -10,6 +10,18 @@ const toggleWallet = () => {
   walletBtnFirst.classList.toggle("active");
   walletBtnSecond.classList.toggle("active");
 }
+const closeWallet = () => {
+  walletWrapper.classList.remove("open");
+  walletBtn.classList.remove("active");
+  walletBtnFirst.classList.remove("active");
+  walletBtnSecond.classList.remove("active");
+}
 
 walletBtn.addEventListener("click", toggleWallet);
 closeBtn.addEventListener("click", toggleWallet);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeWallet();
+  }
+});

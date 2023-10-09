@@ -8,7 +8,6 @@ body {
     font-family: var(--text-font-family), sans-serif;
     font-style: normal;
     background-color: var(--bg-color);
-    // transition: background-color var(--transition-property);
     &.dark-theme {
         background-color: var(--body-bg-dark);
     }

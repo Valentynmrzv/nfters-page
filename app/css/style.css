@@ -680,21 +680,16 @@ ul {
   background-color: #4a4a4a;
 }
 
-.fa-moon {
+.fa {
   width: 20px;
   height: 20px;
 }
-.fa-moon .icon {
+.fa--moon .icon {
   width: 20px;
   height: 20px;
   fill: #f1c40f;
 }
-
-.fa-sun {
-  width: 20px;
-  height: 20px;
-}
-.fa-sun .icon {
+.fa--sun .icon {
   width: 20px;
   height: 20px;
   fill: #f39c12;

@@ -360,7 +360,6 @@ const initializeCollections = () => {
       displayImagesInLightBox(userImages);
     });
   });
-
   closeButton.addEventListener("click", () => {
     closeLightBox();
   });
@@ -369,7 +368,11 @@ const initializeCollections = () => {
       closeLightBox();
     }
   });
-
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLightBox();
+    }
+  });
   const displayImagesInLightBox = (userImages) => {
     lightBoxList.innerHTML = '';
 
@@ -399,7 +402,7 @@ const initializeCollections = () => {
     lightBox.classList.remove('is-open');
     lightBoxList.innerHTML = '';
   }
-}
+};
 
 // ================== create collection =====================================
 
@@ -810,6 +813,11 @@ modalCloseButtons.forEach((button) => {
 });
 
 modalOverlay.addEventListener("click", closeModal);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
 const applyThemeToNftItems = (checked) => {
   const nftItems = document.querySelectorAll(".nfts-list__item");
   nftItems.forEach((nftItem) => {
@@ -1249,10 +1257,21 @@ const toggleWallet = () => {
   walletBtnFirst.classList.toggle("active");
   walletBtnSecond.classList.toggle("active");
 }
+const closeWallet = () => {
+  walletWrapper.classList.remove("open");
+  walletBtn.classList.remove("active");
+  walletBtnFirst.classList.remove("active");
+  walletBtnSecond.classList.remove("active");
+}
 
 walletBtn.addEventListener("click", toggleWallet);
 closeBtn.addEventListener("click", toggleWallet);
 
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeWallet();
+  }
+});
 window.addEventListener("load", () => {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {

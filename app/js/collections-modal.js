@@ -30,7 +30,6 @@ const initializeCollections = () => {
       displayImagesInLightBox(userImages);
     });
   });
-
   closeButton.addEventListener("click", () => {
     closeLightBox();
   });
@@ -39,7 +38,11 @@ const initializeCollections = () => {
       closeLightBox();
     }
   });
-
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLightBox();
+    }
+  });
   const displayImagesInLightBox = (userImages) => {
     lightBoxList.innerHTML = '';
 
@@ -69,4 +72,4 @@ const initializeCollections = () => {
     lightBox.classList.remove('is-open');
     lightBoxList.innerHTML = '';
   }
-}
+};
